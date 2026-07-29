@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@import "@diti365/ui/styles.css";
+
+/* next-themes toggles .dark on <html>, so Tailwind must use the class strategy
+   rather than the prefers-color-scheme media query. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*  Maps the raw CSS variables in @diti365/ui/styles.css onto Tailwind's theme
+    so utilities exist for them: bg-surface, text-muted, border-strong,
+    rounded-xl, shadow-md, text-present, and so on. One source of truth.  */
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+
+  --color-primary: var(--diti-primary);
+  --color-primary-hover: var(--diti-primary-hover);
+  --color-primary-subtle: var(--diti-primary-subtle);
+  --color-primary-fg: var(--diti-primary-fg);
+  --color-accent: var(--diti-accent);
+  --color-accent-subtle: var(--diti-accent-subtle);
+
+  --color-success: var(--diti-success);
+  --color-success-subtle: var(--diti-success-subtle);
+  --color-warning: var(--diti-warning);
+  --color-warning-subtle: var(--diti-warning-subtle);
+  --color-danger: var(--diti-danger);
+  --color-danger-subtle: var(--diti-danger-subtle);
+  --color-info: var(--diti-info);
+  --color-info-subtle: var(--diti-info-subtle);
+
+  --color-present: var(--diti-present);
+  --color-absent: var(--diti-absent);
+  --color-halfday: var(--diti-halfday);
+  --color-leave: var(--diti-leave);
+  --color-weekoff: var(--diti-weekoff);
+  --color-holiday: var(--diti-holiday);
+  --color-pending: var(--diti-pending);
+
+  --color-bg: var(--diti-bg);
+  --color-surface: var(--diti-surface);
+  --color-surface-raised: var(--diti-surface-raised);
+  --color-surface-sunken: var(--diti-surface-sunken);
+  --color-border: var(--diti-border);
+  --color-border-strong: var(--diti-border-strong);
+  --color-text: var(--diti-text);
+  --color-muted: var(--diti-muted);
+  --color-faint: var(--diti-faint);
+
+  --radius-sm: var(--diti-radius-sm);
+  --radius-md: var(--diti-radius-md);
+  --radius-lg: var(--diti-radius-lg);
+  --radius-xl: var(--diti-radius-xl);
+
+  --shadow-xs: var(--diti-shadow-xs);
+  --shadow-sm: var(--diti-shadow-sm);
+  --shadow-md: var(--diti-shadow-md);
+  --shadow-lg: var(--diti-shadow-lg);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--diti-bg);
+  color: var(--diti-text);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  border-color: var(--diti-border);
+}
+
+/* A visible focus ring is a WCAG 2.1 AA requirement, so it is defined once
+   here rather than left to each component to remember. */
+:focus-visible {
+  outline: 2px solid var(--diti-ring);
+  outline-offset: 2px;
+  border-radius: var(--diti-radius-sm);
+}
+
+/* Amounts, employee codes and invoice numbers line up only in a mono font
+   with tabular figures. */
+.tabular {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--diti-border-strong);
+  border-radius: var(--diti-radius-full);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}

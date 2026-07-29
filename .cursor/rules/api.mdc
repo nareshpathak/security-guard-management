@@ -1,0 +1,22 @@
+---
+description: Backend API rules (.NET 10)
+globs: api/**/*.cs
+alwaysApply: false
+---
+Spec: `docs/prd/02-api.md`. Layering: Api → Application → Infrastructure → Domain.
+
+- Controllers are thin: validate → `_mediator.Send()` → envelope. Zero business logic, zero data access.
+- **Raw ADO.NET only** (`Microsoft.Data.SqlClient`), stored procedures only (`CommandType.StoredProcedure`).
+  NO EF Core. NO Dapper. NO ORM. NO inline SQL strings in C# — if you need a query, write an SP.
+- All SP calls go through `IDbExecutor` (see 02-api.md §3). Never `new SqlConnection(...)` in a repository method.
+- Reader mapping lives in one `Map...` method per DTO, in the repository, using ordinal caching.
+- `CompanyID` comes from `ICurrentUser` (JWT claims) — never from route/query/body. `TenantGuardFilter` enforces this.
+- Every endpoint: `[Authorize]` + `[HasPermission("Mx.Entity.Action")]` + `[ProducesResponseType]` for 200/400/401/403/404/409/422/500.
+- V1 controllers (`Users`, `Operation`, `Tasks`, `Sales`, `Report`) return the exact legacy envelope
+  `{ Success, Status, Id, Message, Data[] }` — the shipped APK v4.8 depends on it byte-for-byte.
+- V2 returns `{ data, meta, error }`. Errors are RFC 7807 problem+json with `code` and `traceId`.
+- Every list endpoint paginated: default 50, max 200. Unbounded query = build failure.
+- Field-write POSTs honour `Idempotency-Key`.
+- FluentValidation for every request record. Mapster for mapping. Serilog with `traceId`/`companyId`/`userId`.
+- Files never stream through the API — issue a SAS upload URL, client PUTs, then register metadata.
+- File-scoped namespaces, records for DTOs, async all the way, no `.Result`/`.Wait()`.

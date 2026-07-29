@@ -1,37 +1,9 @@
-# dependencies
-node_modules/
-.pnpm-store/
-
-# build output
-dist/
-build/
-.next/
-out/
-bin/
-obj/
-
-# env and secrets
+node_modules
+.next
+dist
+.turbo
+*.log
 .env
 .env.local
 .env.*.local
-*.pfx
-appsettings.Development.json
-appsettings.Production.json
-
-# mobile
-.expo/
-*.apk
-*.aab
-*.ipa
-
-# editor / os
-.vscode/
-.idea/
 .DS_Store
-Thumbs.db
-
-# cursor mcp config holds credentials
-.cursor/mcp.json
-
-# reference material - large binaries
-reference/

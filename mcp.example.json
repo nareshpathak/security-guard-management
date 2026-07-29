@@ -1,0 +1,31 @@
+{
+  "_comment": "Template only. The real config lives in .cursor/mcp.json (gitignored).",
+  "_active": "Only 'mssql-diti365' is set up today. Add the others when the relevant phase starts.",
+
+  "mcpServers": {
+    "mssql-diti365": {
+      "_when": "Phase 1 onwards. Lets Cursor inspect the schema it just created.",
+      "_requires": "uv installed  ->  winget install --id=astral-sh.uv -e",
+      "command": "uvx",
+      "args": ["microsoft_sql_server_mcp"],
+      "env": {
+        "MSSQL_SERVER": "localhost",
+        "MSSQL_DATABASE": "Diti365_Dev",
+        "MSSQL_WINDOWS_AUTH": "true"
+      }
+    },
+
+    "github": {
+      "_when": "Optional. Useful once the team grows and PRs start.",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "${env:GITHUB_TOKEN}" }
+    },
+
+    "playwright": {
+      "_when": "Phase 2. Lets Cursor drive a browser to write and verify E2E tests.",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    }
+  }
+}

@@ -215,12 +215,12 @@ Diti365 is not a general HRMS, not a payroll bureau for non-security industries,
 ### 5.1 Database
 - **Microsoft SQL Server 2019+** (Azure SQL compatible).
 - Object model preserved from the existing production schema (see §5.5) — same table and column names so the live data migrates without transformation.
-- Access from the API via **Dapper** for stored-procedure calls and read models, **EF Core 10** for write-side entities on new tables only.
+- Access from the API via **raw ADO.NET only** (`Microsoft.Data.SqlClient`), calling **stored procedures exclusively**. No ORM: no EF Core, no Dapper, no LINQ-to-SQL. See `docs/prd/02-api.md` §3 for the mandated data-access pattern.
 - Migrations managed with **DbUp** (idempotent, ordered `.sql` scripts) — not EF migrations, because the schema is SP-heavy.
 
 ### 5.2 Backend
 - **.NET 10 Web API**, C# 14, minimal-API-free (use controllers — mirrors the existing `api/{Controller}/{Action}` routing so the current mobile app keeps working during cutover).
-- Layering: `Diti365.Api` → `Diti365.Application` (CQRS via MediatR) → `Diti365.Infrastructure` (Dapper/EF/Storage/Push) → `Diti365.Domain`.
+- Layering: `Diti365.Api` → `Diti365.Application` (CQRS via MediatR) → `Diti365.Infrastructure` (ADO.NET repositories / Storage / Push) → `Diti365.Domain`.
 - Auth: **JWT access token (15 min) + rotating refresh token (30 days)**, ASP.NET Core Identity-compatible password hashing (PBKDF2, 210 000 iterations) with a one-time migration path from the legacy hash.
 - Validation: FluentValidation. Mapping: Mapster. Logging: Serilog → Seq/Application Insights. Health: `/health/live`, `/health/ready`.
 - Background jobs: **Hangfire** (SQL Server storage) — nightly turnout snapshot, document-expiry alerts, missed-patrol alerts, payroll pre-compute, push fan-out.
@@ -309,7 +309,7 @@ Diti365 is not a general HRMS, not a payroll bureau for non-security industries,
 ```json
 { "data": {}, "meta": { "page": 1, "pageSize": 50, "total": 1234 }, "error": null }
 ```
-Errors: RFC 7807 `application/problem+json` with `traceId` and a machine `code` (see `docs/02-api.md` §8).
+Errors: RFC 7807 `application/problem+json` with `traceId` and a machine `code` (see `docs/02-api.md` §9).
 
 ---
 

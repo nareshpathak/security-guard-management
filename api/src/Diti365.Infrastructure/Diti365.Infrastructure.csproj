@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <!-- Needed for IHttpContextAccessor / CurrentUser. Controllers stay in the Api project. -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Raw ADO.NET only. No EF Core, no Dapper, no ORM. See docs/prd/02-api.md §3. -->
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="$(SqlClientVersion)" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Diti365.Application\Diti365.Application.csproj" />
+  </ItemGroup>
+</Project>

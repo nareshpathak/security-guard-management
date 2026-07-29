@@ -1,0 +1,13 @@
+c:\dev\diti365\api\src\Diti365.Domain\bin\Debug\net10.0\Diti365.Domain.deps.json
+c:\dev\diti365\api\src\Diti365.Domain\bin\Debug\net10.0\Diti365.Domain.dll
+c:\dev\diti365\api\src\Diti365.Domain\bin\Debug\net10.0\Diti365.Domain.pdb
+c:\dev\diti365\api\src\Diti365.Domain\bin\Debug\net10.0\Diti365.Domain.xml
+c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\Diti365.Domain.GeneratedMSBuildEditorConfig.editorconfig
+c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\Diti365.Domain.AssemblyInfoInputs.cache
+c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\Diti365.Domain.AssemblyInfo.cs
+c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\Diti365.Domain.csproj.CoreCompileInputs.cache
+c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\Diti365.Domain.dll
+c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\refint\Diti365.Domain.dll
+c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\Diti365.Domain.xml
+c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\Diti365.Domain.pdb
+c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\ref\Diti365.Domain.dll

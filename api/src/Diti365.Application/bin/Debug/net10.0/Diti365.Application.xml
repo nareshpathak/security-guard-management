@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Diti365.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Diti365.Application.Abstractions.ICurrentUser">
+             <summary>
+             The authenticated caller, read from JWT claims.
+            
+             This is the only source of CompanyId in the entire solution. The value never comes
+             from a route, query string or request body - TenantGuardFilter rejects any request
+             that tries. See docs/prd/02-api.md §2.3.
+             </summary>
+        </member>
+        <member name="M:Diti365.Application.Abstractions.ICurrentUser.RequireCompanyId">
+            <summary>Throws when the caller has no tenant. Use before any tenant-scoped call.</summary>
+        </member>
+        <member name="M:Diti365.Application.Abstractions.ICurrentUser.RequireEmpId">
+            <summary>Throws when the caller is not linked to an employee record.</summary>
+        </member>
+        <member name="T:Diti365.Application.Security.Perm">
+            <summary>
+            Mirrors sec.Permission.Code seeded by db/scripts/700_seed_reference.sql.
+            Constants rather than strings so a typo is a compile error, not a silent 403.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,35 @@
+---
+description: Database phase rules (SQL Server, DbUp)
+globs: db/**/*.sql,db/**/*.cs
+alwaysApply: false
+---
+Spec: `docs/prd/01-database.md`. Follow it literally — do not invent tables or columns.
+
+- **Every script starts with `SET NOCOUNT ON; GO SET ANSI_NULLS ON; SET QUOTED_IDENTIFIER ON; GO`.**
+  sqlcmd defaults QUOTED_IDENTIFIER to OFF, which breaks filtered indexes, indexed views and
+  computed-column indexes with "Msg 1934". Run sqlcmd with `-I` as well.
+- Every script idempotent: `IF NOT EXISTS` for tables/indexes, `CREATE OR ALTER` for SPs/views/functions.
+- Numeric filename order is the execution order. Never renumber an already-committed script; add a new one.
+- Every tenant table: `CompanyID INT NOT NULL` + FK to `org.Company` + index leading with `CompanyID`.
+- Audit columns on every table: `InsertDate, InsertUserID, UpdateDate, UpdateUserID`.
+- Soft delete triplet where the legacy model has it: `IsApproved, IsCancel, IsReject`.
+- Money `DECIMAL(18,2)`, lat/long `DECIMAL(10,7)`, dates `DATE`/`DATETIME2(0)`/`TIME(0)`, strings `NVARCHAR`.
+- Store UTC. Convert at the API edge.
+- SP template: `SET NOCOUNT ON;` → params `@CompanyID` first, `@UserID` second → `BEGIN TRY/BEGIN TRAN … COMMIT END TRY BEGIN CATCH ROLLBACK; THROW; END CATCH`.
+- No `SELECT *`. No dynamic SQL unless parameterised via `sp_executesql`.
+- Every report SP: `@FromDate, @ToDate, @BranchID, @UnitID, @EmpID, @PageNo, @PageSize, @SortBy, @SortDir` + total-rows result set.
+- Every list/report SP joins `dbo.fnUserAccessibleUnits(@CompanyID, @UserID)` for data scoping.
+- Punch/scan SPs take `@ClientRequestId UNIQUEIDENTIFIER` and are idempotent on it.
+- Preserve legacy column names exactly. `EmpID` not `EmployeeId`. `WcsSalaryID` not `SalaryId`.
+- **`WITH SCHEMABINDING` objects must be dropped before recreation.** `CREATE OR ALTER` fails with
+  Msg 3729 when another schemabound object references the one being altered. Any script that creates
+  schemabound functions must open with a `DROP ... IF EXISTS` block in **reverse dependency order**,
+  then create. Plain views/procedures can keep using `CREATE OR ALTER`.
+- **Filtered index predicates are restrictive**: only `IS`, `IS NOT`, `=`, `<>`, `>`, `>=`, `<`, `<=`
+  and `AND`, compared against literals. **No `OR`, no `IN (...)`, no `LIKE`, no computed columns,
+  no column-to-column comparison.** If you need OR, create one index per branch of the OR, or move
+  the column into the index key instead of the filter.
+- **Bracket any identifier that is a T-SQL reserved word**: `org.[Plan]`, `[Percent]`, `[Rank]`, `[Action]`,
+  `[Key]`, `[File]`, `[User]`, `[Function]`, `[Left]`, `[Right]`, `[Public]`, `[Read]`, `[Top]`, `[Check]`.
+  When in doubt, bracket. An unbracketed reserved word fails with "Incorrect syntax near ...".
+- Seed must be deterministic (fixed random seed, base date from `CAST(SYSDATETIME() AS DATE)`).

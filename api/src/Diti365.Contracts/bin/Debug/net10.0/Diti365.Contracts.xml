@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Diti365.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:Diti365.Contracts.Attendance.OfflinePunch">
+            <summary>One row of the mobile offline outbox batch.</summary>
+        </member>
+        <member name="M:Diti365.Contracts.Attendance.OfflinePunch.#ctor(System.Guid,System.Int32,System.Int32,System.Nullable{System.Int32},System.DateTime,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.String,System.String,System.Boolean,System.String,System.String)">
+            <summary>One row of the mobile offline outbox batch.</summary>
+        </member>
+        <member name="T:Diti365.Contracts.Auth.OtpVerifyResponse">
+            <summary>
+            Deliberately carries a token, not a user id: the caller is still anonymous
+            at this point and must not be told which account the code belonged to.
+            </summary>
+        </member>
+        <member name="M:Diti365.Contracts.Auth.OtpVerifyResponse.#ctor(System.String)">
+            <summary>
+            Deliberately carries a token, not a user id: the caller is still anonymous
+            at this point and must not be told which account the code belonged to.
+            </summary>
+        </member>
+        <member name="T:Diti365.Contracts.Auth.AuthCandidate">
+            <summary>Row returned by usp_User_GetForAuthentication. Never leaves the infrastructure layer.</summary>
+        </member>
+        <member name="M:Diti365.Contracts.Auth.AuthCandidate.#ctor(System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Int32,System.String,System.Nullable{System.Int32},System.String,System.Boolean,System.Boolean,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateOnly},System.Boolean,System.Boolean,System.Nullable{System.DateOnly},System.Int32,System.Int32)">
+            <summary>Row returned by usp_User_GetForAuthentication. Never leaves the infrastructure layer.</summary>
+        </member>
+        <member name="T:Diti365.Contracts.Common.LegacyEnvelope`1">
+            <summary>
+            The legacy response shape. Diti365.apk v4.8 deserialises exactly these five
+            members, so the casing and the member names must not change.
+            </summary>
+        </member>
+        <member name="T:Diti365.Contracts.Common.ApiResponse`1">
+            <summary>The v2 response shape used by the web console and the new mobile app.</summary>
+        </member>
+        <member name="T:Diti365.Contracts.Common.SpResult">
+            <summary>Result of a command procedure: exactly one envelope row.</summary>
+        </member>
+        <member name="M:Diti365.Contracts.Common.SpResult.#ctor(System.Boolean,System.Int32,System.Int32,System.String)">
+            <summary>Result of a command procedure: exactly one envelope row.</summary>
+        </member>
+        <member name="T:Diti365.Contracts.Common.PagedResult`1">
+            <summary>Result of a paged read procedure: rows plus the total-row count.</summary>
+        </member>
+        <member name="M:Diti365.Contracts.Common.PagedResult`1.#ctor(System.Collections.Generic.IReadOnlyList{`0},System.Int32)">
+            <summary>Result of a paged read procedure: rows plus the total-row count.</summary>
+        </member>
+        <member name="T:Diti365.Contracts.Common.PagedQuery">
+            <summary>
+            The standard list query. Every list endpoint accepts these. PageSize is clamped
+            server-side; an unbounded query is never issued. docs/prd/02-api.md §10.
+            </summary>
+        </member>
+        <member name="T:Diti365.Contracts.Common.LocationPing">
+             <summary>
+             One entry from the phone's location outbox.
+            
+             `IsMockLocation` is reported by the device rather than trusted as proof of
+             honesty: a spoofed ping is uploaded and stored flagged, so the attempt leaves
+             a trace. The server never lets a flagged ping count as a real position.
+             </summary>
+        </member>
+        <member name="M:Diti365.Contracts.Common.LocationPing.#ctor(System.Decimal,System.Decimal,System.DateTime,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Byte},System.String,System.Boolean)">
+             <summary>
+             One entry from the phone's location outbox.
+            
+             `IsMockLocation` is reported by the device rather than trusted as proof of
+             honesty: a spoofed ping is uploaded and stored flagged, so the attempt leaves
+             a trace. The server never lets a flagged ping count as a real position.
+             </summary>
+        </member>
+    </members>
+</doc>

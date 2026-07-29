@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "mssql-diti365": {
+      "command": "uvx",
+      "args": ["microsoft_sql_server_mcp"],
+      "env": {
+        "MSSQL_SERVER": "localhost",
+        "MSSQL_DATABASE": "Diti365_Dev",
+        "MSSQL_WINDOWS_AUTH": "true"
+      }
+    }
+  }
+}

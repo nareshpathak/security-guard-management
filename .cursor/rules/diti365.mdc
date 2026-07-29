@@ -1,0 +1,42 @@
+---
+description: Diti365 SAMS — project rules. Always applied.
+alwaysApply: true
+---
+
+# Diti365 — Security Agency Management System
+
+## Read before writing any code
+- `docs/prd/PRD.md` — product overview, roles, modules, architecture
+- `docs/prd/01-database.md` — Phase 1 schema (SQL Server)
+- `docs/prd/02-api.md` — Phase 1.5 .NET 10 API
+- `docs/prd/03-web.md` — Phase 2 Next.js web
+- `docs/prd/04-mobile.md` — Phase 3 React Native
+- `docs/prd/05-rbac-and-nfr.md` — permissions, security, acceptance criteria
+- `docs/prd/06-apk-inventory.md` — legacy feature-parity checklist
+
+## Build order — do not skip
+Database → API → Web → Mobile. Do not start a phase until the previous phase's
+"Definition of Done" checklist in its doc is complete.
+
+## Hard rules
+1. Stack is fixed: SQL Server 2019+, .NET 10 Web API (controllers + MediatR + **raw ADO.NET
+   calling stored procedures only — no EF Core, no Dapper, no ORM**), Next.js 15 App Router +
+   TypeScript strict + Tailwind v4 + shadcn/ui + TanStack Query/Table, React Native Expo SDK 51+.
+2. `CompanyID` is NEVER accepted from the client. It comes from JWT claims only.
+   Any request carrying companyId in route/query/body is rejected with TENANT_PARAM_FORBIDDEN.
+3. Every tenant-owned table has `CompanyID` and every index leads with it.
+4. Preserve legacy column names exactly (EmpID, UnitID, WcsSalaryID, BeltNo, DesignationName)
+   so production data migrates 1:1. Do not "improve" naming.
+5. All DB objects via ordered idempotent DbUp scripts in `db/scripts/`. No EF migrations for legacy tables.
+6. No `SELECT *` in any stored procedure. Every list endpoint is paginated (default 50, max 200).
+7. No business logic in controllers. No DbContext/IDbConnection in controllers.
+8. HTTPS only. Never re-introduce cleartext traffic. No secrets committed.
+9. Field-write endpoints accept an Idempotency-Key so the mobile offline outbox can retry safely.
+10. Legacy `api/{Users|Operation|Tasks|Sales|Report}/*` routes must keep the exact envelope
+    `{ Success, Status, Id, Message, Data[] }` — the shipped APK v4.8 depends on it.
+
+## Style
+- C#: file-scoped namespaces, records for DTOs, async everywhere, FluentValidation.
+- TS: strict mode, no `any`, Zod schemas shared from `packages/shared`.
+- Shared code (API client, Zod schemas, permission matrix, formatters) lives in `packages/shared`
+  and is imported by both web and mobile. Never duplicate it.

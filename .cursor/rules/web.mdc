@@ -1,0 +1,17 @@
+---
+description: Web app rules (Next.js 15)
+globs: apps/web/**/*.{ts,tsx},packages/ui/**/*.{ts,tsx}
+alwaysApply: false
+---
+Spec: `docs/prd/03-web.md` (design system §1, screens §4), permissions in `docs/prd/05-rbac-and-nfr.md`.
+
+- App Router. Server Components by default; `"use client"` only where interaction demands it.
+- Tailwind v4 + shadcn/ui. Use design tokens from §1.1 — never hard-code a hex value.
+- Dark mode on every screen from the start, not retrofitted.
+- Lists are URL-driven: filters, page, sort live in the query string so views are shareable.
+- Data via TanStack Query. Tables via TanStack Table with server-side pagination/sort/filter.
+- Forms: react-hook-form + Zod schemas imported from `packages/shared` (same schemas the API validates with).
+- Every screen implements loading (skeleton, not spinner), empty (with primary CTA) and error (with traceId) states.
+- Permission checks client-side are UX only. Never rely on them for security.
+- No `any`. No `useEffect` for data fetching. No inline fetch — use the generated typed API client.
+- Accessibility: labels on all inputs, visible focus rings, status never encoded by colour alone.

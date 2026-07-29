@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Diti365.Domain\Diti365.Domain.csproj" />
+  </ItemGroup>
+</Project>

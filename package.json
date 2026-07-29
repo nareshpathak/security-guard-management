@@ -1,0 +1,15 @@
+{
+  "name": "diti365",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "lint": "pnpm --filter web lint",
+    "typecheck": "pnpm --filter web run typecheck",
+    "check:routes": "node tools/check-routes.mjs",
+    "check": "pnpm typecheck && pnpm typecheck:mobile && pnpm check:routes",
+    "mobile": "pnpm --filter mobile exec expo start",
+    "typecheck:mobile": "pnpm --filter mobile run typecheck"
+  },
+  "packageManager": "pnpm@9.15.9"
+}

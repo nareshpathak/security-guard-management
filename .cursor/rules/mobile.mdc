@@ -1,0 +1,19 @@
+---
+description: Mobile app rules (React Native / Expo)
+globs: apps/mobile/**/*.{ts,tsx}
+alwaysApply: false
+---
+Spec: `docs/prd/04-mobile.md`. Offline-first is the defining constraint.
+
+- Every field-write (punch, QR scan, gate pass, incident, field report, visit, approval, turnout) goes to the
+  **expo-sqlite outbox first**, then flushes. Never call the API directly for these.
+- Each outbox item carries a client-generated UUID sent as `Idempotency-Key`. Retries must be safe.
+- Sync state is always visible: header chip with pending count, per-row Queued/Syncing/Synced/Failed badge,
+  and a Sync Centre screen with retry/discard.
+- Never silently drop an outbox item. Backoff 5s → 30s → 2m → 10m → 1h, then surface to the user.
+- Images compressed to ≤200 KB / 1280 px via expo-image-manipulator before they enter the outbox.
+- GPS: reject `isFromMockProvider`. Require accuracy ≤50 m for punches. Stop background tracking at punch-out.
+- Tokens and deviceId in `expo-secure-store`, never AsyncStorage.
+- Reuse Zod schemas, API client, permission matrix and formatters from `packages/shared`. Do not duplicate.
+- Screens must be one-hand usable: primary action in the bottom third, 48 dp minimum touch targets.
+- `FLAG_SECURE` on salary-slip and statutory screens.

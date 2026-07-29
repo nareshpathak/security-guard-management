@@ -1,0 +1,57 @@
+/**
+ * The permission codes the API actually checks, mirrored so the UI can hide
+ * what a user cannot do.
+ *
+ * Hiding is a courtesy, not a control. Every one of these is enforced again
+ * server-side by [HasPermission]; a user who forges their way to a screen gets
+ * a 403 from the API, not data.
+ */
+export const Perm = {
+  profileView: "M1.Profile.View",
+  tenantManage: "M2.Tenant.Manage",
+  masterView: "M3.Master.View",
+  masterEdit: "M3.Master.Edit",
+  clientView: "M4.Client.View",
+  clientEdit: "M4.Client.Edit",
+  recruitView: "M5.Recruit.View",
+  recruitEdit: "M5.Recruit.Edit",
+  recruitApprove: "M5.Recruit.Approve",
+  employeeView: "M6.Employee.View",
+  employeeEdit: "M6.Employee.Edit",
+  employeeViewSensitive: "M6.Employee.ViewSensitive",
+  deploymentView: "M7.Deployment.View",
+  deploymentEdit: "M7.Deployment.Edit",
+  deploymentApprove: "M7.Deployment.Approve",
+  attendanceView: "M8.Attendance.View",
+  attendanceEdit: "M8.Attendance.Edit",
+  attendanceApprove: "M8.Attendance.Approve",
+  attendancePunch: "M8.Attendance.Punch",
+  patrolView: "M9.Patrol.View",
+  patrolEdit: "M9.Patrol.Edit",
+  patrolScan: "M9.Patrol.Scan",
+  trackingView: "M10.Tracking.View",
+  taskView: "M11.Task.View",
+  taskEdit: "M11.Task.Edit",
+  incidentView: "M12.Incident.View",
+  incidentEdit: "M12.Incident.Edit",
+  complaintView: "M12.Complaint.View",
+  complaintEdit: "M12.Complaint.Edit",
+  complaintApprove: "M12.Complaint.Approve",
+  salesView: "M13.Sales.View",
+  salesEdit: "M13.Sales.Edit",
+  inventoryView: "M14.Inventory.View",
+  inventoryEdit: "M14.Inventory.Edit",
+  payrollView: "M15.Payroll.View",
+  payrollEdit: "M15.Payroll.Edit",
+  payrollApprove: "M15.Payroll.Approve",
+  invoiceView: "M15.Invoice.View",
+  invoiceEdit: "M15.Invoice.Edit",
+  gatePassEdit: "M16.GatePass.Edit",
+  hrView: "M16.Hr.View",
+  hrEdit: "M16.Hr.Edit",
+  requestApprove: "M16.Request.Approve",
+  reportView: "RPT.Report.View",
+  reportExport: "RPT.Report.Export",
+  auditView: "SET.Audit.View",
+  settingsEdit: "SET.Settings.Edit",
+} as const;
