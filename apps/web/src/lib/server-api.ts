@@ -14,7 +14,7 @@ export const API_BASE_URL =
 export async function callApi(
   path: string,
   init: { method: string; body?: unknown; accessToken?: string; ip?: string },
-): Promise<{ status: number; body: any }> {
+): Promise<{ status: number; body: unknown }> {
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   if (init.accessToken) headers.Authorization = `Bearer ${init.accessToken}`;
   // Let the API log the real client address rather than the Next.js server's.

@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { Button, Card, EmptyState, Input, Label, PageHeader, Skeleton, TextArea } from "@diti365/ui";
+import { Button, Card, EmptyState, Label, PageHeader, Skeleton, TextArea } from "@diti365/ui";
 import type { Row } from "@diti365/shared";
 import { Status } from "@/components/status";
 import { Modal } from "@/components/modal";

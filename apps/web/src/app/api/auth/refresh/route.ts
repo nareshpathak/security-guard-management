@@ -20,23 +20,23 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ code: "AUTH_NO_SESSION" }, { status: 401 });
   }
 
-  const { status, body } = await callApi("/api/v2/auth/refresh", {
+  const { status, body: raw } = await callApi("/api/v2/auth/refresh", {
     method: "POST",
     ip: req.headers.get("x-forwarded-for") ?? undefined,
     body: { refreshToken },
   });
 
+  const body = raw as { data?: { refreshToken?: string } } | null;
+
   if (status !== 200 || !body?.data) {
-    // The API revokes the whole token family when it detects a replayed
-    // refresh token, so a failure here means the session is genuinely dead.
-    const dead = NextResponse.json(body ?? { code: "AUTH_REFRESH_INVALID" }, { status: 401 });
+    const dead = NextResponse.json(raw ?? { code: "AUTH_REFRESH_INVALID" }, { status: 401 });
     dead.cookies.set(REFRESH_COOKIE, "", { ...refreshCookieOptions, maxAge: 0 });
     return dead;
   }
 
-  const { refreshToken: rotated, ...safe } = body.data;
+  const { refreshToken: rotated = "", ...safe } = body.data;
 
   const res = NextResponse.json({ data: safe });
-  res.cookies.set(REFRESH_COOKIE, rotated, refreshCookieOptions);
+  if (rotated) res.cookies.set(REFRESH_COOKIE, rotated, refreshCookieOptions);
   return res;
 }

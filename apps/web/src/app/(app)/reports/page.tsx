@@ -69,6 +69,7 @@ export default function ReportsPage() {
    * formatting between pages.
    */
   const columns = useMemo<Column<Row>[]>(() => {
+    const rows = report.data?.data ?? [];
     if (rows.length === 0) return [];
     return Object.keys(rows[0])
       .filter((name) => !/^(CompanyID|IsCancel|InsertUserID|UpdateUserID|TotalRows)$/i.test(name))
@@ -98,7 +99,7 @@ export default function ReportsPage() {
           },
         };
       });
-  }, [rows]);
+  }, [report.data?.data]);
 
   const list = keys.data?.data ?? [];
 

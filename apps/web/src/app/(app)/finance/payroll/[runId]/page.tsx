@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
-import { Button, Card, DataTable, EmptyState, ErrorState, PageHeader, Select, Skeleton, StatCard } from "@diti365/ui";
+import { Button, DataTable, EmptyState, ErrorState, PageHeader, Select, Skeleton, StatCard } from "@diti365/ui";
 import type { Row } from "@diti365/shared";
 import { Modal } from "@/components/modal";
 import { getApi, apiBaseUrl } from "@/lib/api";

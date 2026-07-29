@@ -13,7 +13,7 @@ import { useAuth } from "@/lib/auth";
 import { useCommand } from "@/lib/use-command";
 import { Perm } from "@/lib/perm";
 import { cell } from "@/lib/list-query";
-import { count, isoDate, money } from "@/lib/format";
+import { count, isoDate } from "@/lib/format";
 
 /**
  * One site: its posts, its patrol locations, and how it is doing today.

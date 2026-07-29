@@ -13,37 +13,46 @@ export const dynamic = "force-dynamic";
  * access to a tenant's payroll.
  */
 export async function POST(req: NextRequest) {
-  const { loginId, password, deviceId } = await req.json();
+  try {
+    const { loginId, password, deviceId } = await req.json();
 
-  if (typeof loginId !== "string" || typeof password !== "string" || !loginId || !password) {
-    return NextResponse.json(
-      { code: "VALIDATION", detail: "Login ID and password are both required." },
-      { status: 400 },
-    );
+    if (typeof loginId !== "string" || typeof password !== "string" || !loginId || !password) {
+      return NextResponse.json(
+        { code: "VALIDATION", detail: "Login ID and password are both required." },
+        { status: 400 },
+      );
+    }
+
+    const { status, body: raw } = await callApi("/api/v2/auth/login", {
+      method: "POST",
+      ip: req.headers.get("x-forwarded-for") ?? undefined,
+      body: {
+        loginId,
+        password,
+        deviceId,
+        platform: "web",
+        appVersion: "web-1.0",
+        deviceModel: req.headers.get("user-agent")?.slice(0, 200),
+      },
+    });
+
+    const body = raw as { data?: { refreshToken?: string } } | null;
+
+    if (status !== 200 || !body?.data) {
+      const detail =
+        raw && typeof raw === "object" && "detail" in raw
+          ? (raw as { detail: string }).detail
+          : "Login failed. Check your details and try again.";
+      return NextResponse.json({ code: "LOGIN_FAILED", detail }, { status });
+    }
+
+    const { refreshToken = "", ...safe } = body.data;
+
+    const res = NextResponse.json({ data: safe });
+    if (refreshToken) res.cookies.set(REFRESH_COOKIE, refreshToken, refreshCookieOptions);
+    return res;
+  } catch (err) {
+    const detail = err instanceof Error ? err.message : "An unexpected error occurred.";
+    return NextResponse.json({ code: "INTERNAL_ERROR", detail }, { status: 500 });
   }
-
-  const { status, body } = await callApi("/api/v2/auth/login", {
-    method: "POST",
-    ip: req.headers.get("x-forwarded-for") ?? undefined,
-    body: {
-      loginId,
-      password,
-      deviceId,
-      platform: "web",
-      appVersion: "web-1.0",
-      deviceModel: req.headers.get("user-agent")?.slice(0, 200),
-    },
-  });
-
-  if (status !== 200 || !body?.data) {
-    // Pass the API's own message through; it is written for end users and is
-    // deliberately vague about whether the account exists.
-    return NextResponse.json(body ?? { detail: "Login failed." }, { status });
-  }
-
-  const { refreshToken, ...safe } = body.data;
-
-  const res = NextResponse.json({ data: safe });
-  res.cookies.set(REFRESH_COOKIE, refreshToken, refreshCookieOptions);
-  return res;
 }

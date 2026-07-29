@@ -1,5 +1,7 @@
 using Diti365.Api.Controllers;
+using Diti365.Api.Filters;
 using Diti365.Application.Abstractions;
+using Diti365.Application.Security;
 using Diti365.Contracts.Common;
 using Diti365.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;

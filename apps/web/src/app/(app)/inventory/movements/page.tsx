@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Button, Card, Input, Label, PageHeader, Select, TextArea } from "@diti365/ui";
 import type { Row } from "@diti365/shared";
-import { MasterSelect } from "@/components/master-select";
 import { getApi } from "@/lib/api";
 import { useCommand } from "@/lib/use-command";
 
@@ -136,7 +135,7 @@ export default function InventoryMovementsPage() {
                 onChange={(e) => setForm((f) => ({ ...f, recoverAmount: e.target.value }))}
               />
               <p className="mt-1 text-xs text-muted">
-                Only for damaged or lost kit. This is deducted from a guard's pay, so leave it
+                Only for damaged or lost kit. This is deducted from a guard&apos;s pay, so leave it
                 blank unless it is genuinely owed.
               </p>
             </div>

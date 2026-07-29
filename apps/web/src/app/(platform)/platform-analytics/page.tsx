@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { DataTable, EmptyState, ErrorState, PageHeader, Skeleton, StatCard } from "@diti365/ui";
 import type { Row } from "@diti365/shared";
 import { getApi } from "@/lib/api";
-import { cell } from "@/lib/list-query";
 import { count, date } from "@/lib/format";
 
 /**

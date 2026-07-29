@@ -11,5 +11,19 @@
     "mobile": "pnpm --filter mobile exec expo start",
     "typecheck:mobile": "pnpm --filter mobile run typecheck"
   },
-  "packageManager": "pnpm@9.15.9"
+  "packageManager": "pnpm@9.15.9",
+  "pnpm": {
+    "overrides": {
+      "@types/react": "^19",
+      "@types/react-dom": "^19"
+    },
+    "public-hoist-pattern": [
+      "*@types/react*",
+      "*@types/react-dom*"
+    ]
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3"
+  }
 }
