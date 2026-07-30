@@ -24,7 +24,7 @@ public static partial class Map
             row.Long(oId), row.DateN(oDate) ?? default, row.Int(oEmp), row.Str(oCode), row.Str(oName),
             row.StrN(oDesig), row.Int(oUnit), row.StrN(oUnitName), row.IntN(oShift), row.StrN(oShiftName),
             row.DateTimeN(oIn), row.DateTimeN(oOut), row.DecN(oWorked), row.Dec(oOt),
-            row.Code(oStatus), row.IntN(oApproval) ?? 0, row.IntN(oInDist), row.IntN(oOutDist),
+            row.Code(oStatus), (row.ByteN(oApproval) ?? 0), row.IntN(oInDist), row.IntN(oOutDist),
             row.StrN(oInSelfie), row.StrN(oOutSelfie), row.Bool(oOutside), row.Bool(oMock), row.Bool(oOffline));
     }
 
@@ -79,7 +79,7 @@ public static partial class Map
 
         return row => new SelfAttendanceDay(
             row.Long(oId), row.DateN(oDate) ?? default, row.DateTimeN(oIn), row.DateTimeN(oOut),
-            row.DecN(oWorked), row.Dec(oOt), row.Code(oStatus), row.IntN(oApproval) ?? 0,
+            row.DecN(oWorked), row.Dec(oOt), row.Code(oStatus), (row.ByteN(oApproval) ?? 0),
             row.StrN(oInSelfie), row.StrN(oOutSelfie), row.IntN(oInDist), row.IntN(oOutDist),
             row.Bool(oOffline), row.StrN(oUnit), row.StrN(oShift));
     }
