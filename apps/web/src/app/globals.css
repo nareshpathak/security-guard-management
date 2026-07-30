@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source "../../../../packages/ui/src";
+@source "../../**/*.tsx";
 @import "@diti365/ui/styles.css";
 
 /* next-themes toggles .dark on <html>, so Tailwind must use the class strategy

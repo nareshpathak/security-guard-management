@@ -248,8 +248,8 @@ export function AppShell({
   );
 
   return (
-    <div className="min-h-screen bg-[var(--diti-bg)] text-[var(--diti-text)]">
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 border-r border-[var(--diti-border)] bg-[var(--diti-surface)] lg:block">
+    <div className="flex min-h-screen bg-[var(--diti-bg)] text-[var(--diti-text)]">
+      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 shrink-0 border-r border-[var(--diti-border)] bg-[var(--diti-surface)] lg:block">
         {Nav}
       </aside>
       {open ? (
@@ -263,7 +263,7 @@ export function AppShell({
           <aside className="absolute inset-y-0 left-0 w-72 bg-[var(--diti-surface)] shadow-xl">{Nav}</aside>
         </div>
       ) : null}
-      <div className="lg:pl-64">
+      <div className="flex-1 min-w-0 lg:pl-64">
         <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-[var(--diti-border)] bg-[var(--diti-surface)]/90 px-4 backdrop-blur lg:hidden">
           <button type="button" onClick={() => setOpen(true)} aria-label="Open menu">
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
