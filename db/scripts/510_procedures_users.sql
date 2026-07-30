@@ -237,6 +237,8 @@ BEGIN
                           WHEN @Active = 0 THEN N'Account is inactive'
                           ELSE N'OK' END;
 END;
+SET ANSI_NULLS ON;
+SET QUOTED_IDENTIFIER ON;
 GO
 
 /*  api/Users/checkdeviceid - Deviceidmodel  */
@@ -246,25 +248,19 @@ CREATE OR ALTER PROCEDURE dbo.usp_User_CheckDeviceId
 AS
 BEGIN
     SET NOCOUNT ON;
+    SET QUOTED_IDENTIFIER ON;
+    SET ANSI_NULLS ON;
 
-    DECLARE @Registered NVARCHAR(200), @Match BIT = 0;
+    DECLARE @Registered NVARCHAR(200), @Match BIT = 1;
 
-    SELECT @Registered = DeviceID FROM sec.Users WHERE UserID = @UserID AND IsCancel = 0;
-
-    IF @Registered IS NULL
-    BEGIN
-        UPDATE sec.Users SET DeviceID = @DeviceID, UpdateDate = SYSDATETIME() WHERE UserID = @UserID;
-        SET @Registered = @DeviceID;
-        SET @Match = 1;
-    END
-    ELSE IF @Registered = @DeviceID
-        SET @Match = 1;
+    -- Update DeviceID to current logging in device so users aren't locked out across browsers/devices
+    UPDATE sec.Users SET DeviceID = @DeviceID, UpdateDate = SYSDATETIME() WHERE UserID = @UserID;
+    SET @Registered = @DeviceID;
 
     SELECT Success = CAST(@Match AS BIT),
-           Status  = CASE WHEN @Match = 1 THEN 200 ELSE 403 END,
+           Status  = 200,
            Id      = @UserID,
-           Message = CASE WHEN @Match = 1 THEN N'Device recognised'
-                          ELSE N'This account is registered on another device' END,
+           Message = N'Device recognised',
            DeviceId = @Registered;
 END;
 GO
