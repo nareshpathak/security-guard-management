@@ -1,6 +1,6 @@
 "use client";
 
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import {
   Button,
@@ -10,145 +10,376 @@ import {
   Input,
   Label,
   PageHeader,
+  Pagination,
+  Select,
   Skeleton,
   StatusPill,
-  TextArea,
 } from "@diti365/ui";
-import { ApiError, type Row, type SpResult } from "@diti365/shared";
+import type { Row } from "@diti365/shared";
+import { Modal } from "@/components/modal";
 import { getApi } from "@/lib/api";
-import { cell } from "@/lib/list-query";
+import { useAuth } from "@/lib/auth";
+import { useCommand } from "@/lib/use-command";
+import { Perm } from "@/lib/perm";
+import { cell, useListQueryState } from "@/lib/list-query";
+import { date, isoDate } from "@/lib/format";
 
 export default function RecruitsPage() {
-  const qc = useQueryClient();
-  const [status, setStatus] = useState("");
-  const [form, setForm] = useState({ name: "", mobile: "", aadhaar: "", remark: "" });
-  const [message, setMessage] = useState<string | null>(null);
+  const q = useListQueryState();
+  const { has } = useAuth();
+  const [addModal, setAddModal] = useState(false);
+  const [convertModal, setConvertModal] = useState(false);
+  const [selectedRecruit, setSelectedRecruit] = useState<Row | null>(null);
 
-  const list = useQuery({
-    queryKey: ["recruits", status],
+  const [addForm, setAddForm] = useState({
+    name: "",
+    mobile: "",
+    aadhaar: "",
+    oldEmpCode: "",
+    designationId: "",
+    sourceBy: "",
+    remark: "",
+  });
+
+  const [convertForm, setConvertForm] = useState({
+    doj: isoDate(new Date()),
+  });
+
+  const [dupCheckResult, setDupCheckResult] = useState<string | null>(null);
+
+  const recruitsQuery = useQuery({
+    queryKey: ["recruits", q.status, q.search, q.page, q.pageSize],
     queryFn: async () =>
-      (await getApi().get<Row[][]>("/api/v2/recruits", { status: status || undefined, page: 1, pageSize: 50 }))
-        .data,
+      getApi().get<Row[][]>("/api/v2/recruits", {
+        status: q.status || undefined,
+        search: q.search,
+        page: q.page,
+        pageSize: q.pageSize,
+      }),
   });
 
-  const save = useMutation({
-    mutationFn: async () =>
-      (await getApi().post<SpResult>("/api/v2/recruits", {
-        name: form.name,
-        mobile: form.mobile || undefined,
-        aadhaar: form.aadhaar || undefined,
-        remark: form.remark || undefined,
-      })).data,
-    onSuccess: async (res) => {
-      setMessage(res.message || "Recruit saved");
-      setForm({ name: "", mobile: "", aadhaar: "", remark: "" });
-      await qc.invalidateQueries({ queryKey: ["recruits"] });
+  const designationsQuery = useQuery({
+    queryKey: ["designations-lookup"],
+    queryFn: () => getApi().get<Row[]>("/api/v2/masters/designations"),
+    staleTime: 5 * 60 * 1000,
+  });
+
+  const addCmd = useCommand<Record<string, unknown>>({
+    path: "/api/v2/recruits",
+    invalidate: ["recruits"],
+    successMessage: "Recruit candidate registered successfully",
+    onDone: () => {
+      setAddModal(false);
+      setAddForm({
+        name: "",
+        mobile: "",
+        aadhaar: "",
+        oldEmpCode: "",
+        designationId: "",
+        sourceBy: "",
+        remark: "",
+      });
+      setDupCheckResult(null);
     },
-    onError: (err) => setMessage(err instanceof ApiError ? err.message : "Save failed"),
   });
 
-  const action = useMutation({
-    mutationFn: async ({ id, path }: { id: number; path: string }) =>
-      (await getApi().post<SpResult>(`/api/v2/recruits/${id}/${path}`, {})).data,
-    onSuccess: async (res) => {
-      setMessage(res.message);
-      await qc.invalidateQueries({ queryKey: ["recruits"] });
+  const statusCmd = useCommand<Record<string, unknown>>({
+    path: selectedRecruit ? `/api/v2/recruits/${cell(selectedRecruit, "RecruitID", "RecruitId")}/status` : "",
+    invalidate: ["recruits"],
+    successMessage: "Recruit status updated successfully",
+  });
+
+  const convertCmd = useCommand<Record<string, unknown>>({
+    path: selectedRecruit ? `/api/v2/recruits/${cell(selectedRecruit, "RecruitID", "RecruitId")}/convert` : "",
+    invalidate: ["recruits", "employees"],
+    successMessage: "Recruit converted to active Guard Employee successfully",
+    onDone: () => {
+      setConvertModal(false);
+      setSelectedRecruit(null);
     },
-    onError: (err) => setMessage(err instanceof ApiError ? err.message : "Action failed"),
   });
 
-  const rows = list.data?.[0] ?? [];
+  const checkDuplicate = async (aadhaar?: string, mobile?: string) => {
+    if (!aadhaar && !mobile) return;
+    try {
+      const res = await getApi().get<Row[]>("/api/v2/recruits/check-duplicate", {
+        aadhaar: aadhaar || undefined,
+        mobile: mobile || undefined,
+      });
+      if (res.data && res.data.length > 0) {
+        const match = res.data[0];
+        setDupCheckResult(
+          `⚠️ Duplicate match found: ${match.EmpFullName ?? match.Name} (Status: ${match.Status}). ${
+            match.IsBlacklisted ? "ALERT: BLACKLISTED!" : ""
+          }`
+        );
+      } else {
+        setDupCheckResult("✓ No duplicate candidate found.");
+      }
+    } catch {
+      setDupCheckResult(null);
+    }
+  };
+
+  const rows = recruitsQuery.data?.data?.[0] ?? [];
+  const designations = designationsQuery.data?.data ?? [];
 
   return (
     <div>
-      <PageHeader title="Recruit pipeline" description="Intake, approve, waitlist or convert recruits to employees." />
-      {message ? (
-        <div className="mb-4 rounded-[var(--diti-radius-md)] border border-[var(--diti-border)] bg-[var(--diti-surface)] px-3 py-2 text-sm">
-          {message}
-        </div>
-      ) : null}
+      <PageHeader
+        title="Recruitment & Intake Pipeline"
+        description="Candidate registration, duplicate/blacklist screening, selection, and employee conversion."
+        actions={
+          <div className="flex items-center gap-2">
+            {has(Perm.recruitEdit) ? (
+              <Button variant="primary" onClick={() => setAddModal(true)}>
+                + Register New Recruit
+              </Button>
+            ) : null}
+          </div>
+        }
+      />
 
-      <div className="mb-6 grid gap-4 rounded-[var(--diti-radius-lg)] border border-[var(--diti-border)] bg-[var(--diti-surface)] p-4 md:grid-cols-4">
-        <div>
-          <Label required>Name</Label>
-          <Input value={form.name} onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))} />
-        </div>
-        <div>
-          <Label>Mobile</Label>
-          <Input value={form.mobile} onChange={(e) => setForm((f) => ({ ...f, mobile: e.target.value }))} />
-        </div>
-        <div>
-          <Label>Aadhaar</Label>
-          <Input value={form.aadhaar} onChange={(e) => setForm((f) => ({ ...f, aadhaar: e.target.value }))} />
-        </div>
-        <div className="md:col-span-4">
-          <Label>Remark</Label>
-          <TextArea value={form.remark} onChange={(e) => setForm((f) => ({ ...f, remark: e.target.value }))} />
-        </div>
-        <div>
-          <Button loading={save.isPending} onClick={() => save.mutate()} disabled={!form.name}>
-            Add recruit
+      {/* Filter Tabs */}
+      <div className="mb-4 flex flex-wrap items-center gap-2 border-b border-[var(--diti-border)] pb-2">
+        {["", "New", "Approved", "Waitlist", "Rejected", "Converted"].map((st) => (
+          <Button
+            key={st}
+            size="sm"
+            variant={(q.status ?? "") === st ? "primary" : "ghost"}
+            onClick={() => q.setParams({ status: st || undefined, page: 1 })}
+          >
+            {st || "All Candidates"}
           </Button>
-        </div>
+        ))}
       </div>
 
-      <div className="mb-4">
-        <select
-          className="h-9 rounded-[var(--diti-radius-md)] border border-[var(--diti-border)] bg-[var(--diti-surface)] px-3 text-sm"
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-        >
-          <option value="">All</option>
-          <option value="New">New</option>
-          <option value="Approved">Approved</option>
-          <option value="Waitlist">Waitlist</option>
-          <option value="Rejected">Rejected</option>
-        </select>
-      </div>
-
-      {list.isLoading ? <Skeleton className="h-64" /> : null}
-      {list.isError ? (
-        <ErrorState message={list.error instanceof Error ? list.error.message : "Failed"} onRetry={() => list.refetch()} />
-      ) : null}
-      {list.data ? (
-        <DataTable
-          columns={[
-            { id: "name", header: "Name", cell: (r) => cell(r, "Name", "EmpFullName") },
-            { id: "mobile", header: "Mobile", cell: (r) => cell(r, "Mobile", "Mobile1") },
-            {
-              id: "status",
-              header: "Status",
-              cell: (r) => <StatusPill>{cell(r, "Status", "RecruitStatus")}</StatusPill>,
-            },
-            {
-              id: "actions",
-              header: "Actions",
-              cell: (r) => {
-                const id = Number(r.RecruitID ?? r.RecruitId);
-                return (
-                  <div className="flex flex-wrap gap-1">
-                    <Button size="sm" variant="secondary" onClick={() => action.mutate({ id, path: "approve" })}>
-                      Approve
-                    </Button>
-                    <Button size="sm" variant="outline" onClick={() => action.mutate({ id, path: "waitlist" })}>
-                      Waitlist
-                    </Button>
-                    <Button size="sm" variant="outline" onClick={() => action.mutate({ id, path: "convert" })}>
-                      Convert
-                    </Button>
-                    <Button size="sm" variant="danger" onClick={() => action.mutate({ id, path: "reject" })}>
-                      Reject
-                    </Button>
-                  </div>
-                );
-              },
-            },
-          ]}
-          rows={rows}
-          rowKey={(r) => String(r.RecruitID ?? r.RecruitId)}
-          empty={<EmptyState title="No recruits" description="Add a recruit to start the pipeline." />}
+      {recruitsQuery.isLoading ? <Skeleton className="h-64" /> : null}
+      {recruitsQuery.isError ? (
+        <ErrorState
+          message={
+            recruitsQuery.error instanceof Error ? recruitsQuery.error.message : "Failed to load recruits"
+          }
+          onRetry={() => recruitsQuery.refetch()}
         />
       ) : null}
+
+      {recruitsQuery.data ? (
+        <>
+          <DataTable
+            columns={[
+              {
+                id: "name",
+                header: "Candidate Name",
+                cell: (r) => (
+                  <div>
+                    <div className="font-semibold text-text">{cell(r, "Name", "EmpFullName")}</div>
+                    <div className="tabular text-xs text-muted">
+                      Source: {cell(r, "SourceBy", "Remark") || "Direct Walk-in"}
+                    </div>
+                  </div>
+                ),
+              },
+              {
+                id: "mobile",
+                header: "Mobile",
+                cell: (r) => <span className="tabular font-medium">{cell(r, "Mobile", "Mobile1")}</span>,
+              },
+              {
+                id: "aadhaar",
+                header: "Aadhaar / ID",
+                cell: (r) => <span className="tabular text-xs text-muted">{cell(r, "Aadhaar", "AadhaarNo")}</span>,
+              },
+              {
+                id: "status",
+                header: "Status",
+                cell: (r) => <StatusPill>{cell(r, "Status", "RecruitStatus")}</StatusPill>,
+              },
+              {
+                id: "actions",
+                header: "Actions",
+                className: "text-right",
+                cell: (r) => {
+                  const currentSt = String(r.Status ?? "").toLowerCase();
+                  return (
+                    <div className="flex items-center justify-end gap-1.5">
+                      {has(Perm.recruitApprove) && currentSt !== "approved" && currentSt !== "converted" ? (
+                        <Button
+                          size="sm"
+                          variant="secondary"
+                          onClick={() => {
+                            setSelectedRecruit(r);
+                            statusCmd.mutate({ status: "Approved" });
+                          }}
+                        >
+                          Approve
+                        </Button>
+                      ) : null}
+                      {has(Perm.recruitApprove) && currentSt !== "converted" ? (
+                        <Button
+                          size="sm"
+                          variant="primary"
+                          onClick={() => {
+                            setSelectedRecruit(r);
+                            setConvertModal(true);
+                          }}
+                        >
+                          Convert to Guard
+                        </Button>
+                      ) : null}
+                    </div>
+                  );
+                },
+              },
+            ]}
+            rows={rows}
+            rowKey={(r, i) => String(r.RecruitID ?? r.RecruitId ?? i)}
+            empty={
+              <EmptyState
+                title="No recruit candidates found"
+                description="Click Register New Recruit to add intake candidates."
+              />
+            }
+          />
+          <Pagination
+            page={q.page}
+            pageSize={q.pageSize}
+            total={recruitsQuery.data.meta?.total ?? rows.length}
+            onPageChange={(page) => q.setParams({ page })}
+          />
+        </>
+      ) : null}
+
+      {/* Add Recruit Candidate Modal */}
+      <Modal
+        open={addModal}
+        onOpenChange={setAddModal}
+        title="Register Recruit Candidate"
+        description="Capture candidate details for background screening and intake."
+        footer={
+          <Button
+            loading={addCmd.isPending}
+            disabled={!addForm.name || !addForm.mobile}
+            onClick={() =>
+              addCmd.mutate({
+                name: addForm.name,
+                mobile: addForm.mobile || undefined,
+                aadhaar: addForm.aadhaar || undefined,
+                oldEmpCode: addForm.oldEmpCode || undefined,
+                designationId: addForm.designationId ? Number(addForm.designationId) : undefined,
+                sourceBy: addForm.sourceBy || undefined,
+                remark: addForm.remark || undefined,
+              })
+            }
+          >
+            Save Candidate
+          </Button>
+        }
+      >
+        <div>
+          <Label required>Candidate Full Name</Label>
+          <Input
+            placeholder="e.g. Rajesh Kumar"
+            value={addForm.name}
+            onChange={(e) => setAddForm((f) => ({ ...f, name: e.target.value }))}
+          />
+        </div>
+        <div>
+          <Label required>Mobile Number</Label>
+          <Input
+            placeholder="e.g. 9876543210"
+            value={addForm.mobile}
+            onChange={(e) => setAddForm((f) => ({ ...f, mobile: e.target.value }))}
+            onBlur={() => checkDuplicate(addForm.aadhaar, addForm.mobile)}
+          />
+        </div>
+        <div>
+          <Label>Aadhaar Number (12 digits)</Label>
+          <Input
+            placeholder="e.g. 123456789012"
+            value={addForm.aadhaar}
+            onChange={(e) => setAddForm((f) => ({ ...f, aadhaar: e.target.value }))}
+            onBlur={() => checkDuplicate(addForm.aadhaar, addForm.mobile)}
+          />
+        </div>
+        {dupCheckResult ? (
+          <div
+            className={`p-2.5 rounded-lg text-xs font-medium ${
+              dupCheckResult.includes("ALERT")
+                ? "bg-rose-500/10 text-rose-600 border border-rose-500/20"
+                : dupCheckResult.includes("Duplicate")
+                ? "bg-amber-500/10 text-amber-600 border border-amber-500/20"
+                : "bg-emerald-500/10 text-emerald-600 border border-emerald-500/20"
+            }`}
+          >
+            {dupCheckResult}
+          </div>
+        ) : null}
+        <div>
+          <Label>Target Designation</Label>
+          <Select
+            value={addForm.designationId}
+            onChange={(e) => setAddForm((f) => ({ ...f, designationId: e.target.value }))}
+          >
+            <option value="">Select Designation...</option>
+            {designations.map((d, i) => (
+              <option key={String(d.DesignationID ?? d.Id ?? i)} value={String(d.DesignationID ?? d.Id ?? "")}>
+                {String(d.DesignationName ?? d.Name ?? "")}
+              </option>
+            ))}
+          </Select>
+        </div>
+        <div>
+          <Label>Source / Referral By</Label>
+          <Input
+            placeholder="e.g. Supervisor Name / Walk-in / Portal"
+            value={addForm.sourceBy}
+            onChange={(e) => setAddForm((f) => ({ ...f, sourceBy: e.target.value }))}
+          />
+        </div>
+        <div>
+          <Label>Remarks</Label>
+          <Input
+            placeholder="Remarks or initial screening notes"
+            value={addForm.remark}
+            onChange={(e) => setAddForm((f) => ({ ...f, remark: e.target.value }))}
+          />
+        </div>
+      </Modal>
+
+      {/* Convert Candidate to Active Guard Modal */}
+      <Modal
+        open={convertModal}
+        onOpenChange={setConvertModal}
+        title="Convert Candidate to Active Guard"
+        description={
+          selectedRecruit
+            ? `Converting candidate ${cell(selectedRecruit, "Name", "EmpFullName")} into an active employee.`
+            : "Convert Candidate"
+        }
+        footer={
+          <Button
+            loading={convertCmd.isPending}
+            disabled={!selectedRecruit || !convertForm.doj}
+            onClick={() =>
+              convertCmd.mutate({
+                doj: convertForm.doj,
+              })
+            }
+          >
+            Confirm Conversion & Issue Guard ID
+          </Button>
+        }
+      >
+        <div>
+          <Label required>Date of Joining (DOJ)</Label>
+          <Input
+            type="date"
+            value={convertForm.doj}
+            onChange={(e) => setConvertForm({ doj: e.target.value })}
+          />
+        </div>
+      </Modal>
     </div>
   );
 }

@@ -14,6 +14,7 @@ import {
   StatusPill,
 } from "@diti365/ui";
 import type { Row } from "@diti365/shared";
+import { GenericReportPrintTemplate, PrintModal } from "@/components/print-template";
 import { getApi } from "@/lib/api";
 import { SearchField, cell, useListQueryState } from "@/lib/list-query";
 
@@ -21,6 +22,9 @@ export default function EmployeesPage() {
   const router = useRouter();
   const q = useListQueryState();
   const [search, setSearch] = useState(q.search);
+  const [showPrintModal, setShowPrintModal] = useState(false);
+  const [pvPendingFilter, setPvPendingFilter] = useState(false);
+  const [gunmanFilter, setGunmanFilter] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => q.setParams({ search, page: 1 }), 300);
@@ -29,7 +33,17 @@ export default function EmployeesPage() {
   }, [search]);
 
   const list = useQuery({
-    queryKey: ["employees", q.page, q.pageSize, q.search, q.status, q.unitId, q.branchId],
+    queryKey: [
+      "employees",
+      q.page,
+      q.pageSize,
+      q.search,
+      q.status,
+      q.unitId,
+      q.branchId,
+      pvPendingFilter,
+      gunmanFilter,
+    ],
     queryFn: async () => {
       const res = await getApi().get<Row[]>("/api/v2/employees", {
         page: q.page,
@@ -38,6 +52,8 @@ export default function EmployeesPage() {
         status: q.status || undefined,
         unitId: q.unitId,
         branchId: q.branchId,
+        pvPending: pvPendingFilter || undefined,
+        isGunman: gunmanFilter || undefined,
         sortBy: q.sortBy ?? "EmpFullName",
         sortDir: q.sortDir ?? "asc",
       });
@@ -45,17 +61,30 @@ export default function EmployeesPage() {
     },
   });
 
+  const rows = list.data?.data ?? [];
+
   return (
     <div>
       <PageHeader
-        title="Guards"
-        description="Employee master list with deployment and verification status."
+        title="Guard & Workforce Directory"
+        description="Master directory of deployed guards, verification status, and qualifications."
         actions={
-          <Button variant="outline" onClick={() => router.push("/people/recruits")}>
-            Recruit pipeline
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" onClick={() => setShowPrintModal(true)}>
+              <svg className="size-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="6 9 6 2 18 2 18 9" />
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                <rect x="6" y="14" width="12" height="8" />
+              </svg>
+              Print Guard Roster
+            </Button>
+            <Button variant="primary" onClick={() => router.push("/people/recruits")}>
+              + Recruit Pipeline
+            </Button>
+          </div>
         }
       />
+
       <div className="mb-4 flex flex-wrap items-center gap-3">
         <SearchField value={search} onChange={setSearch} placeholder="Search name, code, mobile" />
         <select
@@ -68,6 +97,20 @@ export default function EmployeesPage() {
           <option value="Left">Left</option>
           <option value="Blacklisted">Blacklisted</option>
         </select>
+        <Button
+          size="sm"
+          variant={pvPendingFilter ? "danger" : "outline"}
+          onClick={() => setPvPendingFilter((v) => !v)}
+        >
+          {pvPendingFilter ? "✓ PV Pending Only" : "PV Pending"}
+        </Button>
+        <Button
+          size="sm"
+          variant={gunmanFilter ? "primary" : "outline"}
+          onClick={() => setGunmanFilter((v) => !v)}
+        >
+          {gunmanFilter ? "✓ Armed Gunmen Only" : "Armed Gunmen"}
+        </Button>
       </div>
 
       {list.isLoading ? <Skeleton className="h-64" /> : null}
@@ -85,10 +128,10 @@ export default function EmployeesPage() {
                 id: "code",
                 header: "Code",
                 cell: (r) => (
-                  <span className="font-mono text-xs">{cell(r, "EmpCode", "empCode")}</span>
+                  <span className="font-mono text-xs font-semibold">{cell(r, "EmpCode", "empCode")}</span>
                 ),
               },
-              { id: "name", header: "Name", cell: (r) => cell(r, "EmpFullName", "Name", "name") },
+              { id: "name", header: "Name", cell: (r) => <span className="font-medium text-text">{cell(r, "EmpFullName", "Name", "name")}</span> },
               {
                 id: "desig",
                 header: "Designation",
@@ -97,11 +140,11 @@ export default function EmployeesPage() {
               },
               {
                 id: "unit",
-                header: "Unit",
+                header: "Unit / Site",
                 hideOnMobile: true,
                 cell: (r) => cell(r, "UnitName", "Unit"),
               },
-              { id: "mobile", header: "Mobile", cell: (r) => cell(r, "Mobile1", "MobileNo", "Mobile") },
+              { id: "mobile", header: "Mobile", cell: (r) => <span className="tabular">{cell(r, "Mobile1", "MobileNo", "Mobile")}</span> },
               {
                 id: "status",
                 header: "Status",
@@ -115,7 +158,7 @@ export default function EmployeesPage() {
                 },
               },
             ]}
-            rows={list.data.data}
+            rows={rows}
             rowKey={(r) => String(r.EmpID ?? r.EmpId)}
             onRowClick={(r) => router.push(`/people/employees/${r.EmpID ?? r.EmpId}`)}
             empty={
@@ -131,11 +174,31 @@ export default function EmployeesPage() {
           <Pagination
             page={q.page}
             pageSize={q.pageSize}
-            total={list.data.meta?.total ?? list.data.data.length}
+            total={list.data.meta?.total ?? rows.length}
             onPageChange={(page) => q.setParams({ page })}
           />
         </>
       ) : null}
+
+      {/* Printable Guard Roster Modal */}
+      <PrintModal
+        open={showPrintModal}
+        onClose={() => setShowPrintModal(false)}
+        title="MASTER GUARD & WORKFORCE ROSTER REPORT"
+      >
+        <GenericReportPrintTemplate
+          title="MASTER GUARD & WORKFORCE ROSTER REPORT"
+          columns={[
+            { key: "EmpCode", label: "Emp Code" },
+            { key: "EmpFullName", label: "Guard Name" },
+            { key: "DesignationName", label: "Designation" },
+            { key: "UnitName", label: "Deployed Unit" },
+            { key: "Mobile1", label: "Mobile No" },
+            { key: "EmpStatus", label: "Status" },
+          ]}
+          rows={rows}
+        />
+      </PrintModal>
     </div>
   );
 }
