@@ -14,6 +14,8 @@ import { getApi } from "@/lib/api";
  * in the URL - a reset token in an address bar ends up in browser history,
  * server logs and anything the user pastes.
  */
+export const dynamic = "force-dynamic";
+
 export default function VerifyOtpPage() {
   const router = useRouter();
   const search = useSearchParams();
