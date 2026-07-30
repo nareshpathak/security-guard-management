@@ -22,4 +22,7 @@ dist
 *.userosscache
 *.sln.docstates
 
+# Local uploads created by LocalBlobService
+**/uploads/
+
 
