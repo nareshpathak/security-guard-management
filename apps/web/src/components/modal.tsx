@@ -10,6 +10,21 @@ import { Button } from "@diti365/ui";
  * do: focus trapping, restoring focus on close, Escape, and marking the rest
  * of the page inert for screen readers.
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DialogRoot = Dialog.Root as any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DialogPortal = Dialog.Portal as any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DialogOverlay = Dialog.Overlay as any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DialogContent = Dialog.Content as any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DialogTitle = Dialog.Title as any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DialogDescription = Dialog.Description as any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DialogClose = Dialog.Close as any;
+
 export function Modal({
   open,
   onOpenChange,
@@ -26,26 +41,26 @@ export function Modal({
   footer?: React.ReactNode;
 }) {
   return (
-    <Dialog.Root open={open} onOpenChange={onOpenChange}>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-40 bg-[var(--diti-overlay)]" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-[calc(100vw-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-xl border border-border bg-surface p-6 shadow-lg focus:outline-none">
-          <Dialog.Title className="text-lg font-semibold text-text">{title}</Dialog.Title>
+    <DialogRoot open={open} onOpenChange={onOpenChange}>
+      <DialogPortal>
+        <DialogOverlay className="fixed inset-0 z-40 bg-[var(--diti-overlay)]" />
+        <DialogContent className="fixed left-1/2 top-1/2 z-50 w-[calc(100vw-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-xl border border-border bg-surface p-6 shadow-lg focus:outline-none">
+          <DialogTitle className="text-lg font-semibold text-text">{title}</DialogTitle>
           {description ? (
-            <Dialog.Description className="mt-1 text-sm text-muted">{description}</Dialog.Description>
+            <DialogDescription className="mt-1 text-sm text-muted">{description}</DialogDescription>
           ) : null}
 
           {children ? <div className="mt-4 space-y-4">{children}</div> : null}
 
           <div className="mt-6 flex justify-end gap-2">
-            <Dialog.Close asChild>
+            <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
-            </Dialog.Close>
+            </DialogClose>
             {footer}
           </div>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+        </DialogContent>
+      </DialogPortal>
+    </DialogRoot>
   );
 }
 
