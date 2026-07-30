@@ -12,3 +12,14 @@ dist
 /db/DbUp/bin/
 /db/DbUp/obj/
 
+# Ignore typical .NET build outputs
+**/bin/
+**/obj/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+

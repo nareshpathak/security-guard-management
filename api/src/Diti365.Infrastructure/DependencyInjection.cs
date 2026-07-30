@@ -34,6 +34,9 @@ public static class DependencyInjection
         services.AddScoped<ISalesRepository,      SalesRepository>();
         services.AddScoped<IReportRepository,     ReportRepository>();
 
+        // Blob storage: local dev fallback implemented. In production replace with AzureBlobService.
+                services.AddSingleton<Diti365.Application.IBlobService, Diti365.Infrastructure.Storage.LocalBlobService>();
+
         return services;
     }
 }
