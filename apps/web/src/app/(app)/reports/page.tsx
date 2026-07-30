@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import {
   Button,
   DataTable,
@@ -17,45 +17,44 @@ import {
 } from "@diti365/ui";
 import type { Row } from "@diti365/shared";
 import { Status } from "@/components/status";
+import { GenericReportPrintTemplate, PrintModal } from "@/components/print-template";
 import { getApi } from "@/lib/api";
 import { useListQueryState } from "@/lib/list-query";
 import { date, dateTime, isoDate, money } from "@/lib/format";
 
 type ReportKey = { key?: string; Key?: string; name?: string; Name?: string; title?: string };
 
-/**
- * One shell for all 21 reports.
- *
- * Each report is a different stored procedure returning a different shape, so
- * the columns are derived from the first row rather than declared per report.
- * Writing 21 near-identical screens would have been 21 places to forget a
- * loading state.
- */
-import { useState } from "react";
-import { GenericReportPrintTemplate, PrintModal } from "@/components/print-template";
+const REPORT_CATEGORIES = [
+  { id: "all", label: "All Reports" },
+  { id: "workforce", label: "Workforce & Guards" },
+  { id: "operations", label: "Security Operations" },
+  { id: "attendance", label: "Attendance & Shifts" },
+  { id: "clients", label: "Clients & Contracts" },
+  { id: "finance", label: "Finance & Payroll" },
+];
 
 export default function ReportsPage() {
   const q = useListQueryState();
   const [showPrintModal, setShowPrintModal] = useState(false);
-  const active = useSearchParams().get("key") ?? "";
+  const [activeCategory, setActiveCategory] = useState("all");
+  const activeKey = useSearchParams().get("key") ?? "";
 
   const thirtyDaysAgo = new Date();
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
   const from = q.from ?? isoDate(thirtyDaysAgo);
   const to = q.to ?? isoDate(new Date());
 
-  const keys = useQuery({
+  const keysQuery = useQuery({
     queryKey: ["report-keys"],
     queryFn: () => getApi().get<ReportKey[]>("/api/v2/reports"),
-    // The allow-list is a constant for the life of a deployment.
     staleTime: Infinity,
   });
 
-  const report = useQuery({
-    queryKey: ["report", active, q.page, q.pageSize, from, to],
-    enabled: active.length > 0,
+  const reportQuery = useQuery({
+    queryKey: ["report", activeKey, q.page, q.pageSize, from, to],
+    enabled: activeKey.length > 0,
     queryFn: () =>
-      getApi().get<Row[]>(`/api/v2/reports/${active}`, {
+      getApi().get<Row[]>(`/api/v2/reports/${activeKey}`, {
         page: q.page,
         pageSize: q.pageSize,
         from,
@@ -63,15 +62,25 @@ export default function ReportsPage() {
       }),
   });
 
-  const rows = report.data?.data ?? [];
+  const rawKeys = keysQuery.data?.data ?? [];
 
-  /**
-   * Column types are inferred from the column NAME, not the value, because a
-   * value can be null on the first row and guessing from it would flip the
-   * formatting between pages.
-   */
+  // Filter keys by category
+  const filteredKeys = useMemo(() => {
+    if (activeCategory === "all") return rawKeys;
+    return rawKeys.filter((k) => {
+      const keyStr = String(k.key ?? k.Key ?? k ?? "").toLowerCase();
+      if (activeCategory === "workforce") return /emp|guard|recruit|doc|training|lifecycle/.test(keyStr);
+      if (activeCategory === "operations") return /deploy|turnout|patrol|gate|incident|report|event|task/.test(keyStr);
+      if (activeCategory === "attendance") return /attend|shift|overtime|punch/.test(keyStr);
+      if (activeCategory === "clients") return /client|unit|site|contract|complaint|relation/.test(keyStr);
+      if (activeCategory === "finance") return /pay|invoice|receipt|ageing|advance|slip|financial/.test(keyStr);
+      return true;
+    });
+  }, [rawKeys, activeCategory]);
+
+  const rows = reportQuery.data?.data ?? [];
+
   const columns = useMemo<Column<Row>[]>(() => {
-    const rows = report.data?.data ?? [];
     if (rows.length === 0) return [];
     return Object.keys(rows[0])
       .filter((name) => !/^(CompanyID|IsCancel|InsertUserID|UpdateUserID|TotalRows)$/i.test(name))
@@ -84,7 +93,6 @@ export default function ReportsPage() {
 
         return {
           id: name,
-          // GuardsOnDuty -> Guards on duty
           header: name.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/^./, (c) => c.toUpperCase()),
           className: isMoney || isNumber ? "text-right" : undefined,
           cell: (r: Row) => {
@@ -92,26 +100,26 @@ export default function ReportsPage() {
             if (value === null || value === undefined || value === "")
               return <span className="text-muted">—</span>;
             if (isStatus) return <Status value={value} />;
-            if (isMoney) return <span className="tabular">{money(value)}</span>;
+            if (isMoney) return <span className="tabular font-medium">{money(value)}</span>;
             if (isWhen)
-              return <span className="tabular">{/time/.test(lower) ? dateTime(value) : date(value)}</span>;
-            if (isNumber) return <span className="tabular">{String(value)}</span>;
+              return <span className="tabular font-medium">{/time/.test(lower) ? dateTime(value) : date(value)}</span>;
+            if (isNumber) return <span className="tabular font-medium">{String(value)}</span>;
             if (typeof value === "boolean") return <Status value={value ? "Yes" : "No"} />;
             return String(value);
           },
         };
       });
-  }, [report.data?.data]);
+  }, [rows]);
 
-  const list = keys.data?.data ?? [];
+  const activeLabel = activeKey ? activeKey.replace(/([a-z])([A-Z])/g, "$1 $2").toUpperCase() : "";
 
   return (
     <div>
       <PageHeader
-        title="Reports"
-        description="Every report the API exposes. Pick one, set a date range, export."
+        title="Executive Business Reports Hub"
+        description="Select a report category, apply custom date filters, and export branded PDF or CSV audit reports."
         actions={
-          active ? (
+          activeKey ? (
             <div className="flex items-center gap-2">
               <Button
                 variant="outline"
@@ -122,37 +130,57 @@ export default function ReportsPage() {
                   <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
                   <rect x="6" y="14" width="12" height="8" />
                 </svg>
-                Print / Preview PDF
+                Print / Download PDF
               </Button>
               <Button
                 variant="outline"
                 onClick={() => {
-                  const url = `${process.env.NEXT_PUBLIC_API_BASE_URL ?? ""}/api/v2/reports/${active}/export?from=${from}&to=${to}`;
+                  const url = `${process.env.NEXT_PUBLIC_API_BASE_URL ?? ""}/api/v2/reports/${activeKey}/export?from=${from}&to=${to}`;
                   window.open(url, "_blank", "noopener");
                 }}
               >
-                Export CSV
+                Export CSV Data
               </Button>
             </div>
           ) : null
         }
       />
 
-      {keys.isLoading ? <Skeleton className="mb-6 h-20" /> : null}
-      {keys.isError ? (
-        <ErrorState message="Could not load the report list." onRetry={() => keys.refetch()} />
+      {/* 5 Major Category Filters */}
+      <div className="mb-4 flex flex-wrap gap-2 border-b border-[var(--diti-border)] pb-3">
+        {REPORT_CATEGORIES.map((cat) => (
+          <button
+            key={cat.id}
+            type="button"
+            onClick={() => setActiveCategory(cat.id)}
+            className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
+              activeCategory === cat.id
+                ? "bg-[var(--diti-primary)] text-white shadow-xs"
+                : "bg-[var(--diti-surface)] text-[var(--diti-muted)] border border-[var(--diti-border)] hover:bg-slate-100 dark:hover:bg-zinc-800"
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      {keysQuery.isLoading ? <Skeleton className="mb-6 h-20" /> : null}
+      {keysQuery.isError ? (
+        <ErrorState message="Could not load the master report index." onRetry={() => keysQuery.refetch()} />
       ) : null}
 
-      {list.length > 0 ? (
+      {/* Report Chips */}
+      {filteredKeys.length > 0 ? (
         <div className="mb-6 flex flex-wrap gap-2">
-          {list.map((k, i) => {
+          {filteredKeys.map((k, i) => {
             const key = String(k.key ?? k.Key ?? k ?? "");
             const label = String(k.name ?? k.Name ?? k.title ?? key).replace(/([a-z])([A-Z])/g, "$1 $2");
+            const isSelected = activeKey === key;
             return (
               <Button
                 key={key || i}
                 size="sm"
-                variant={active === key ? "primary" : "outline"}
+                variant={isSelected ? "primary" : "outline"}
                 onClick={() => q.setParams({ key, page: 1 })}
               >
                 {label}
@@ -162,11 +190,11 @@ export default function ReportsPage() {
         </div>
       ) : null}
 
-      {active ? (
+      {activeKey ? (
         <>
-          <div className="mb-4 flex flex-wrap items-end gap-3">
+          <div className="mb-4 flex flex-wrap items-end gap-3 rounded-xl border border-[var(--diti-border)] bg-[var(--diti-surface)] p-3.5 shadow-xs">
             <div>
-              <Label>From</Label>
+              <Label>From Date</Label>
               <Input
                 type="date"
                 value={from}
@@ -174,24 +202,27 @@ export default function ReportsPage() {
               />
             </div>
             <div>
-              <Label>To</Label>
+              <Label>To Date</Label>
               <Input
                 type="date"
                 value={to}
                 onChange={(e) => q.setParams({ to: e.target.value, page: 1 })}
               />
             </div>
+            <div className="ml-auto text-xs text-[var(--diti-muted)] font-medium">
+              Report Target: <strong className="text-[var(--diti-primary)]">{activeLabel}</strong>
+            </div>
           </div>
 
-          {report.isLoading ? <Skeleton className="h-64" /> : null}
-          {report.isError ? (
+          {reportQuery.isLoading ? <Skeleton className="h-64" /> : null}
+          {reportQuery.isError ? (
             <ErrorState
-              message={report.error instanceof Error ? report.error.message : "Could not run this report."}
-              onRetry={() => report.refetch()}
+              message={reportQuery.error instanceof Error ? reportQuery.error.message : "Could not generate report."}
+              onRetry={() => reportQuery.refetch()}
             />
           ) : null}
 
-          {report.data ? (
+          {reportQuery.data ? (
             <>
               <DataTable
                 columns={columns}
@@ -199,8 +230,8 @@ export default function ReportsPage() {
                 rowKey={(_, i) => i}
                 empty={
                   <EmptyState
-                    title="Nothing in this period"
-                    description="Widen the date range, or check that the underlying activity has been recorded."
+                    title="No records found in selected period"
+                    description="Widen the date range parameters to include earlier historical activity."
                   />
                 }
               />
@@ -208,7 +239,7 @@ export default function ReportsPage() {
                 <Pagination
                   page={q.page}
                   pageSize={q.pageSize}
-                  total={report.data.meta?.total ?? rows.length}
+                  total={reportQuery.data.meta?.total ?? rows.length}
                   onPageChange={(page) => q.setParams({ page })}
                 />
               ) : null}
@@ -217,19 +248,19 @@ export default function ReportsPage() {
         </>
       ) : (
         <EmptyState
-          title="Pick a report"
-          description="Each one runs against live data for the date range you choose."
+          title="Select an Executive Report"
+          description="Choose a report category above and select a report module to view and export live backend data."
         />
       )}
 
-      {/* Executive Print / PDF Modal */}
+      {/* Executive Branded Print & PDF Export Modal */}
       <PrintModal
         open={showPrintModal}
         onClose={() => setShowPrintModal(false)}
-        title={`${active.replace(/([a-z])([A-Z])/g, "$1 $2").toUpperCase()} REPORT`}
+        title={`${activeLabel} EXECUTIVE AUDIT REPORT`}
       >
         <GenericReportPrintTemplate
-          title={`${active.replace(/([a-z])([A-Z])/g, "$1 $2").toUpperCase()} REPORT`}
+          title={`${activeLabel} EXECUTIVE AUDIT REPORT`}
           filters={{ from, to }}
           columns={columns.map((c) => ({ key: c.id, label: c.header }))}
           rows={rows}
