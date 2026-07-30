@@ -114,6 +114,8 @@ export const defaultNav: NavGroup[] = [
       { href: "/operations/incidents", label: "Incidents", icon: AlertTriangle, permission: "M12.Incident.View" },
       { href: "/operations/field-reports", label: "Field reports", icon: NotebookPen, permission: "M12.Incident.View" },
       { href: "/operations/gate-pass", label: "Gate passes", icon: DoorOpen, permission: "M16.GatePass.Edit" },
+      { href: "/operations/qr-codes", label: "QR Codes", icon: QrCode, permission: "M9.Patrol.View" },
+      { href: "/operations/events", label: "Events", icon: CalendarCheck2, permission: "M7.Deployment.View" },
       { href: "/tasks", label: "Tasks", icon: ListTodo, permission: "M11.Task.View" },
     ],
   },

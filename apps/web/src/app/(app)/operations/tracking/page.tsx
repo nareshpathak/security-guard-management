@@ -16,15 +16,14 @@ import { getApi } from "@/lib/api";
 import { cell } from "@/lib/list-query";
 import { ago, count, dateTime } from "@/lib/format";
 
+import { MapView, type MapMarker } from "@/components/map-view";
+
 export default function TrackingPage() {
   const [selected, setSelected] = useState<number | null>(null);
 
   const live = useQuery({
     queryKey: ["tracking-live"],
     queryFn: () => getApi().get<Row[]>("/api/v2/tracking/live", { staleMinutes: 30 }),
-    // A tracking board that is a minute stale is worse than useless: it shows
-    // a guard at a post he left. Thirty seconds is the compromise with battery
-    // and server load.
     refetchInterval: 30_000,
   });
 
@@ -38,12 +37,37 @@ export default function TrackingPage() {
   const stale = rows.filter((r) => r.IsStale === true || r.IsStale === 1).length;
   const spoofing = rows.filter((r) => Number(r.MockPingsToday ?? 0) > 0).length;
 
+  const mapMarkers: MapMarker[] = rows
+    .filter((r) => r.Latitude && r.Longitude)
+    .map((r, i) => ({
+      id: String(r.UserID ?? r.EmpID ?? i),
+      title: String(r.EmpFullName ?? r.UserName ?? "Guard"),
+      subtitle: String(r.CurrentUnit ?? r.DesignationName ?? "Field Duty"),
+      lat: Number(r.Latitude ?? 28.6139),
+      lng: Number(r.Longitude ?? 77.209),
+      status: Number(r.MockPingsToday ?? 0) > 0 ? "alert" : r.IsStale ? "warning" : "active",
+      details: {
+        "Last Seen": String(r.LoggedAt ? ago(r.LoggedAt) : "—"),
+        Battery: `${r.BatteryLevel ?? "—"}%`,
+        Site: String(r.CurrentUnit ?? "Unassigned"),
+      },
+    }));
+
   return (
     <div>
       <PageHeader
-        title="Live tracking"
-        description="Where field staff last reported from. Refreshes every 30 seconds."
+        title="Live tracking & GPS Map"
+        description="Where field staff last reported from. Interactive map and live location feed."
       />
+
+      <div className="mb-6">
+        <MapView
+          title="Field Guards & Patrol Map"
+          markers={mapMarkers}
+          height="h-[380px]"
+          onMarkerClick={(m) => setSelected(Number(m.id))}
+        />
+      </div>
 
       <div className="mb-6 grid gap-4 sm:grid-cols-3">
         <StatCard label="Reporting" value={count(rows.length - stale)} />
@@ -51,8 +75,6 @@ export default function TrackingPage() {
         <StatCard
           label="Spoofed pings today"
           value={count(spoofing)}
-          // Zero is the expected value here, so any other number is the point
-          // of the card.
           tone={spoofing > 0 ? "danger" : undefined}
         />
       </div>

@@ -5,9 +5,9 @@
    rather than the prefers-color-scheme media query. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/*  Maps the raw CSS variables in @diti365/ui/styles.css onto Tailwind's theme
-    so utilities exist for them: bg-surface, text-muted, border-strong,
-    rounded-xl, shadow-md, text-present, and so on. One source of truth.  */
+/* Maps the raw CSS variables in @diti365/ui/styles.css onto Tailwind's theme
+   so utilities exist for them: bg-surface, text-muted, border-strong,
+   rounded-xl, shadow-md, text-present, and so on. One source of truth. */
 @theme inline {
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains);
@@ -65,41 +65,260 @@ body {
 body {
   background: var(--diti-bg);
   color: var(--diti-text);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   border-color: var(--diti-border);
 }
 
-/* A visible focus ring is a WCAG 2.1 AA requirement, so it is defined once
-   here rather than left to each component to remember. */
+/* ==============================================================================
+   PRO SAAS GLOBAL TYPOGRAPHY & UI CONTROLS DESIGN SYSTEM
+   ============================================================================== */
+
+/* Typography */
+h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--diti-text);
+}
+
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--diti-text);
+}
+
+h3 {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  color: var(--diti-text);
+}
+
+label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--diti-text);
+  margin-bottom: 0.375rem;
+}
+
+/* Textboxes, Inputs & Form Controls */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+input[type="datetime-local"],
+select,
+textarea {
+  width: 100%;
+  background-color: var(--diti-surface);
+  color: var(--diti-text);
+  border: 1px solid var(--diti-border);
+  border-radius: var(--diti-radius-md);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  box-shadow: var(--diti-shadow-xs);
+  transition: border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="email"]:hover,
+input[type="number"]:hover,
+input[type="tel"]:hover,
+input[type="url"]:hover,
+input[type="search"]:hover,
+input[type="date"]:hover,
+input[type="datetime-local"]:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--diti-border-strong);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="date"]:focus,
+input[type="datetime-local"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--diti-ring);
+  box-shadow: 0 0 0 3px rgba(11, 95, 255, 0.15);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--diti-muted);
+  opacity: 0.75;
+}
+
+/* Checkboxes & Radio Controls */
+input[type="checkbox"] {
+  accent-color: var(--diti-primary);
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: var(--diti-radius-sm);
+  cursor: pointer;
+  vertical-align: middle;
+  transition: transform 0.1s ease;
+}
+
+input[type="checkbox"]:active {
+  transform: scale(0.92);
+}
+
+input[type="radio"] {
+  accent-color: var(--diti-primary);
+  width: 1.125rem;
+  height: 1.125rem;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+/* Dropdown Select Custom Arrow */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.25rem;
+}
+
+/* Pro SaaS Tables */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+}
+
+th {
+  background-color: var(--diti-surface-sunken);
+  color: var(--diti-muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--diti-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--diti-border);
+  color: var(--diti-text);
+  font-size: 0.875rem;
+  transition: background-color 0.15s ease;
+}
+
+tr:hover td {
+  background-color: var(--diti-primary-subtle);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Pro Buttons */
+button,
+.btn {
+  font-weight: 500;
+  border-radius: var(--diti-radius-md);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-0.5px);
+}
+
+button:active,
+.btn:active {
+  transform: scale(0.98) translateY(0);
+}
+
+button:disabled,
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Card Elevation & Glassmorphism */
+.card-shine,
+div[class*="Card"] {
+  box-shadow: var(--diti-shadow-sm);
+  border: 1px solid var(--diti-border);
+  border-radius: var(--diti-radius-lg);
+  background-color: var(--diti-surface);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-shine:hover {
+  box-shadow: var(--diti-shadow-md);
+  border-color: var(--diti-border-strong);
+}
+
+/* Accessibility Focus Ring */
 :focus-visible {
   outline: 2px solid var(--diti-ring);
   outline-offset: 2px;
   border-radius: var(--diti-radius-sm);
 }
 
-/* Amounts, employee codes and invoice numbers line up only in a mono font
-   with tabular figures. */
+/* Tabular Figures for Numbers, Codes & Amounts */
 .tabular {
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-variant-numeric: tabular-nums;
 }
 
+/* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--diti-border-strong);
   border-radius: var(--diti-radius-full);
   border: 2px solid transparent;
   background-clip: content-box;
 }
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--diti-muted);
+}
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
