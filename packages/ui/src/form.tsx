@@ -7,7 +7,7 @@ export function Input({ className, ...props }: InputHTMLAttributes<HTMLInputElem
   return (
     <input
       className={cn(
-        "h-9 w-full rounded-[var(--diti-radius-md)] border border-[var(--diti-border)] bg-[var(--diti-surface)] px-3 text-sm text-[var(--diti-text)] placeholder:text-[var(--diti-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--diti-primary)] disabled:opacity-50",
+        "h-9.5 w-full rounded-[var(--diti-radius-md)] border border-[var(--diti-border)] bg-[var(--diti-surface)] px-3 text-xs font-normal text-[var(--diti-text)] placeholder:text-[var(--diti-muted)]/70 shadow-xs transition-all duration-150 focus:border-[var(--diti-primary)] focus:outline-none focus:ring-3 focus:ring-[var(--diti-primary)]/15 disabled:opacity-50 disabled:bg-[var(--diti-surface-sunken)]",
         className,
       )}
       {...props}
@@ -29,10 +29,10 @@ export function Label({
   return (
     <label
       htmlFor={htmlFor}
-      className={cn("mb-1.5 block text-sm font-medium text-[var(--diti-text)]", className)}
+      className={cn("mb-1.5 block text-xs font-semibold text-[var(--diti-text)] leading-none", className)}
     >
       {children}
-      {required ? <span className="ml-0.5 text-[var(--diti-danger)]">*</span> : null}
+      {required ? <span className="ml-1 text-[var(--diti-danger)] font-bold">*</span> : null}
     </label>
   );
 }
@@ -44,7 +44,7 @@ export function TextArea({
   return (
     <textarea
       className={cn(
-        "min-h-24 w-full rounded-[var(--diti-radius-md)] border border-[var(--diti-border)] bg-[var(--diti-surface)] px-3 py-2 text-sm text-[var(--diti-text)] placeholder:text-[var(--diti-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--diti-primary)]",
+        "min-h-24 w-full rounded-[var(--diti-radius-md)] border border-[var(--diti-border)] bg-[var(--diti-surface)] p-3 text-xs font-normal text-[var(--diti-text)] placeholder:text-[var(--diti-muted)]/70 shadow-xs transition-all duration-150 focus:border-[var(--diti-primary)] focus:outline-none focus:ring-3 focus:ring-[var(--diti-primary)]/15",
         className,
       )}
       {...props}
@@ -60,7 +60,7 @@ export function Select({
   return (
     <select
       className={cn(
-        "h-9 w-full rounded-[var(--diti-radius-md)] border border-[var(--diti-border)] bg-[var(--diti-surface)] px-3 text-sm text-[var(--diti-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--diti-primary)]",
+        "h-9.5 w-full rounded-[var(--diti-radius-md)] border border-[var(--diti-border)] bg-[var(--diti-surface)] px-3 pr-8 text-xs font-normal text-[var(--diti-text)] shadow-xs transition-all duration-150 focus:border-[var(--diti-primary)] focus:outline-none focus:ring-3 focus:ring-[var(--diti-primary)]/15 cursor-pointer",
         className,
       )}
       {...props}

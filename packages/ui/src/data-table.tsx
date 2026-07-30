@@ -26,16 +26,16 @@ export function DataTable<T>({
   if (rows.length === 0) return <>{empty}</>;
 
   return (
-    <div className="overflow-hidden rounded-[var(--diti-radius-lg)] border border-[var(--diti-border)] bg-[var(--diti-surface)] shadow-[var(--diti-shadow)]">
+    <div className="overflow-hidden rounded-[var(--diti-radius-lg)] border border-[var(--diti-border)] bg-[var(--diti-surface)] shadow-xs transition-all">
       <div className="overflow-x-auto">
-        <table className="min-w-full text-left text-sm">
-          <thead className="border-b border-[var(--diti-border)] bg-zinc-50/80 dark:bg-zinc-900/50">
+        <table className="min-w-full text-left text-xs font-normal border-collapse">
+          <thead className="sticky top-0 z-10 border-b border-[var(--diti-border)] bg-[var(--diti-surface-sunken)]/90 backdrop-blur-xs">
             <tr>
               {columns.map((col) => (
                 <th
                   key={col.id}
                   className={cn(
-                    "px-4 py-3 text-xs font-semibold uppercase tracking-wide text-[var(--diti-muted)]",
+                    "px-4 py-3 text-[11px] font-bold uppercase tracking-wider text-[var(--diti-muted)]",
                     col.hideOnMobile && "hidden md:table-cell",
                     col.className,
                   )}
@@ -45,21 +45,23 @@ export function DataTable<T>({
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="divide-y divide-[var(--diti-border)]">
             {rows.map((row, index) => (
               <tr
                 key={rowKey(row, index)}
                 onClick={onRowClick ? () => onRowClick(row) : undefined}
                 className={cn(
-                  "border-b border-[var(--diti-border)] last:border-0",
-                  onRowClick && "cursor-pointer hover:bg-zinc-50 dark:hover:bg-zinc-900/40",
+                  "transition-colors duration-150",
+                  onRowClick
+                    ? "cursor-pointer hover:bg-[var(--diti-primary-subtle)]/70 active:bg-[var(--diti-primary-subtle)]"
+                    : "hover:bg-[var(--diti-surface-sunken)]/50",
                 )}
               >
                 {columns.map((col) => (
                   <td
                     key={col.id}
                     className={cn(
-                      "px-4 py-3 text-[var(--diti-text)]",
+                      "px-4 py-3.5 align-middle text-[var(--diti-text)] leading-snug",
                       col.hideOnMobile && "hidden md:table-cell",
                       col.className,
                     )}
@@ -81,32 +83,58 @@ export function Pagination({
   pageSize,
   total,
   onPageChange,
+  onPageSizeChange,
 }: {
   page: number;
   pageSize: number;
   total: number;
   onPageChange: (page: number) => void;
+  onPageSizeChange?: (size: number) => void;
 }) {
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const startItem = total === 0 ? 0 : (page - 1) * pageSize + 1;
+  const endItem = Math.min(total, page * pageSize);
+
   return (
-    <div className="mt-4 flex items-center justify-between gap-3 text-sm text-[var(--diti-muted)]">
-      <span>
-        Page {page} of {totalPages} · {total} total
-      </span>
-      <div className="flex gap-2">
+    <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[var(--diti-muted)] px-1">
+      <div className="flex items-center gap-3">
+        <span>
+          Showing <strong className="font-semibold text-[var(--diti-text)]">{startItem}-{endItem}</strong> of <strong className="font-semibold text-[var(--diti-text)]">{total}</strong> records
+        </span>
+        {onPageSizeChange ? (
+          <div className="flex items-center gap-1.5 ml-2">
+            <span className="text-[11px]">Rows:</span>
+            <select
+              value={pageSize}
+              onChange={(e) => onPageSizeChange(Number(e.target.value))}
+              className="h-7 rounded-md border border-[var(--diti-border)] bg-[var(--diti-surface)] px-2 text-xs text-[var(--diti-text)] shadow-xs outline-none focus:border-[var(--diti-primary)]"
+            >
+              {[10, 25, 50, 100].map((size) => (
+                <option key={size} value={size}>
+                  {size}
+                </option>
+              ))}
+            </select>
+          </div>
+        ) : null}
+      </div>
+      <div className="flex items-center gap-1.5">
         <button
           type="button"
           disabled={page <= 1}
           onClick={() => onPageChange(page - 1)}
-          className="rounded-[var(--diti-radius-md)] border border-[var(--diti-border)] px-3 py-1.5 disabled:opacity-40"
+          className="inline-flex h-8 items-center justify-center rounded-[var(--diti-radius-md)] border border-[var(--diti-border)] bg-[var(--diti-surface)] px-3 text-xs font-medium text-[var(--diti-text)] shadow-xs transition hover:bg-[var(--diti-surface-sunken)] disabled:opacity-40 disabled:pointer-events-none active:scale-[0.97]"
         >
           Previous
         </button>
+        <div className="flex items-center px-2 text-xs font-semibold text-[var(--diti-text)]">
+          Page {page} of {totalPages}
+        </div>
         <button
           type="button"
           disabled={page >= totalPages}
           onClick={() => onPageChange(page + 1)}
-          className="rounded-[var(--diti-radius-md)] border border-[var(--diti-border)] px-3 py-1.5 disabled:opacity-40"
+          className="inline-flex h-8 items-center justify-center rounded-[var(--diti-radius-md)] border border-[var(--diti-border)] bg-[var(--diti-surface)] px-3 text-xs font-medium text-[var(--diti-text)] shadow-xs transition hover:bg-[var(--diti-surface-sunken)] disabled:opacity-40 disabled:pointer-events-none active:scale-[0.97]"
         >
           Next
         </button>
