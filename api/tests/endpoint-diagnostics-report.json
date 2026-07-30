@@ -1,0 +1,1010 @@
+﻿[
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getrecruits; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getrecruits; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getpendingrecruit; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getpendingrecruit; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getrecruitdata; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getrecruitdata; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getNewRecruits; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getNewRecruits; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getRecruitedEmployee; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getRecruitedEmployee; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getemp; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getemp; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getemployee; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getemployee; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getstafflist; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getstafflist; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getunitemployee; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getunitemployee; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getreliever; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getreliever; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getunit; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getunit; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getuserunit; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getuserunit; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getMyClient; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getMyClient; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getattendance; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getattendance; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getselfattendance; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getselfattendance; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getattendsummary; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getattendsummary; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getAttendanceCount; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getAttendanceCount; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/attendforapproval; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/attendforapproval; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getturnoutrpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getturnoutrpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getqrlist; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getqrlist; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getqrlistadmin; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getqrlistadmin; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getqrlistsummary; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getqrlistsummary; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getqrdistance; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getqrdistance; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getlocationlog; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getlocationlog; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/trackRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/trackRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getuserlocationlog; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getuserlocationlog; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getrptdetail; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getrptdetail; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getcount; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getcount; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getcomplaint; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getcomplaint; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getunitcomplaint; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getunitcomplaint; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getstock; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getstock; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getbranchstock; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getbranchstock; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/GetUniformLedger; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/GetUniformLedger; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getsalary; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getsalary; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getbill; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getbill; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/docdetail; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/docdetail; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getuserchecklists; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getuserchecklists; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getuserlists; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationController.cs; Verb=GET; Route=/api/Operation/getuserlists; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\OperationController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/eventRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/eventRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/incdecRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/incdecRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/movementRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/movementRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/newcontractRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/newcontractRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/contractterminationRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/contractterminationRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/resignRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/resignRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/trainingRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/trainingRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/incidentRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/incidentRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/getturnoutrpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportController.cs; Verb=GET; Route=/api/Report/getturnoutrpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\ReportController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/Sales/visitReport; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\SalesController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/Sales/visitReport; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\SalesController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/Sales/getVisitLog; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\SalesController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/Sales/getVisitLog; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\SalesController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/Sales/followReport; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\SalesController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/Sales/followReport; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\SalesController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/Sales/nextfollowReport; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\SalesController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/Sales/nextfollowReport; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\SalesController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/Sales/clientrelationRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\SalesController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/Sales/clientrelationRpt; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\SalesController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=TasksController.cs; Verb=GET; Route=/api/Tasks/gettasklistby; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\TasksController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=TasksController.cs; Verb=GET; Route=/api/Tasks/gettasklistby; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\TasksController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=TasksController.cs; Verb=GET; Route=/api/Tasks/gettasklistto; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\TasksController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=TasksController.cs; Verb=GET; Route=/api/Tasks/gettasklistto; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\TasksController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=TasksController.cs; Verb=GET; Route=/api/Tasks/gettaskstatus; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\TasksController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=TasksController.cs; Verb=GET; Route=/api/Tasks/gettaskstatus; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\TasksController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=TasksController.cs; Verb=GET; Route=/api/Tasks/closetaskhistorylist; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\TasksController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=TasksController.cs; Verb=GET; Route=/api/Tasks/closetaskhistorylist; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\TasksController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getrights; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getrights; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getprofile; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getprofile; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getuserlists; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getuserlists; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getLoginLog; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getLoginLog; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getCompanylog; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getCompanylog; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getCompanylogdetail; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getCompanylogdetail; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getstates; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getstates; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getcity; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getcity; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getdesignation; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getdesignation; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getqualification; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getqualification; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getcomplaintype; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getcomplaintype; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/gettype; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/gettype; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getsubdropdown; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getsubdropdown; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getlist; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=UsersController.cs; Verb=GET; Route=/api/Users/getlist; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V1\\UsersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=AttendanceController.cs; Verb=GET; Route=/api/v2/attendance; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\AttendanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=AttendanceController.cs; Verb=GET; Route=/api/v2/attendance; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\AttendanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=AttendanceController.cs; Verb=GET; Route=/api/v2/attendance/me; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\AttendanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=AttendanceController.cs; Verb=GET; Route=/api/v2/attendance/me; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\AttendanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=AttendanceController.cs; Verb=GET; Route=/api/v2/attendance/pending-approval; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\AttendanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=AttendanceController.cs; Verb=GET; Route=/api/v2/attendance/pending-approval; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\AttendanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=AttendanceController.cs; Verb=GET; Route=/api/v2/attendance/summary; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\AttendanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=AttendanceController.cs; Verb=GET; Route=/api/v2/attendance/summary; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\AttendanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=AttendanceController.cs; Verb=GET; Route=/api/v2/attendance/counts; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\AttendanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=AttendanceController.cs; Verb=GET; Route=/api/v2/attendance/counts; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\AttendanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=AuthController.cs; Verb=GET; Route=/api/v2/auth/mobile/1/exists; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\AuthController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=AuthController.cs; Verb=GET; Route=/api/v2/auth/mobile/1/exists; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\AuthController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=BlobController.cs; Verb=GET; Route=/api/v2/blob/files/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\BlobController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=BlobController.cs; Verb=GET; Route=/api/v2/blob/files/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\BlobController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/payroll/validate; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/payroll/validate; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/payroll/runs/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/payroll/runs/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/payroll/slips/1/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/payroll/slips/1/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/payroll/runs/1/bank-advice; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/payroll/runs/1/bank-advice; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/payroll/runs/1/statutory/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/payroll/runs/1/statutory/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/invoices; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/invoices; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/invoices/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/invoices/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/receipts; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/receipts; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/advances; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=FinanceController.cs; Verb=GET; Route=/api/v2/advances; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\FinanceController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/bootstrap; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/bootstrap; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/states; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/states; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/districts/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/districts/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/cities; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/cities; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/designations; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/designations; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/qualifications; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/qualifications; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/complaint-types; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/complaint-types; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/lookup/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/lookup/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/lookup/1/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/lookup/1/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/users; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/users; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/catalog; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/catalog; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/entries/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MastersController.cs; Verb=GET; Route=/api/v2/masters/entries/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MastersController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MeController.cs; Verb=GET; Route=/api/v2/me; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MeController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MeController.cs; Verb=GET; Route=/api/v2/me; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MeController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MeController.cs; Verb=GET; Route=/api/v2/me/permissions; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MeController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MeController.cs; Verb=GET; Route=/api/v2/me/permissions; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MeController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MeController.cs; Verb=GET; Route=/api/v2/me/profile; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MeController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MeController.cs; Verb=GET; Route=/api/v2/me/profile; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MeController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=MeController.cs; Verb=GET; Route=/api/v2/me/dashboard; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MeController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=MeController.cs; Verb=GET; Route=/api/v2/me/dashboard; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\MeController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/deployments; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/deployments; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/units/1/employees; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/units/1/employees; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/units/1/relievers; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/units/1/relievers; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/turnout/live; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/turnout/live; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/turnout/vacant-posts; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/turnout/vacant-posts; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/patrol/checkpoints; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/patrol/checkpoints; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/patrol/checkpoints/1/distance; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/patrol/checkpoints/1/distance; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/patrol/logs; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/patrol/logs; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/patrol/summary; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/patrol/summary; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/patrol/my-progress; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/patrol/my-progress; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/patrol/missed; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/patrol/missed; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/tracking/live; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/tracking/live; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/tracking/users/1/trail; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=OperationsController.cs; Verb=GET; Route=/api/v2/tracking/users/1/trail; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\OperationsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=PeopleController.cs; Verb=GET; Route=/api/v2/recruits/check-duplicate; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\PeopleController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=PeopleController.cs; Verb=GET; Route=/api/v2/recruits/check-duplicate; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\PeopleController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=PeopleController.cs; Verb=GET; Route=/api/v2/recruits; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\PeopleController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=PeopleController.cs; Verb=GET; Route=/api/v2/recruits; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\PeopleController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=PeopleController.cs; Verb=GET; Route=/api/v2/employees; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\PeopleController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=PeopleController.cs; Verb=GET; Route=/api/v2/employees; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\PeopleController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=PeopleController.cs; Verb=GET; Route=/api/v2/employees/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\PeopleController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=PeopleController.cs; Verb=GET; Route=/api/v2/employees/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\PeopleController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=PeopleController.cs; Verb=GET; Route=/api/v2/clients; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\PeopleController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=PeopleController.cs; Verb=GET; Route=/api/v2/clients; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\PeopleController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=PeopleController.cs; Verb=GET; Route=/api/v2/units; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\PeopleController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=PeopleController.cs; Verb=GET; Route=/api/v2/units; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\PeopleController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/reports; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/reports; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/reports/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/reports/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/reports/1/export; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/reports/1/export; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/dashboard/platform; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/dashboard/platform; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/dashboard/client; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/dashboard/client; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/companies; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/companies; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/companies/1/logins; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=ReportsController.cs; Verb=GET; Route=/api/v2/companies/1/logins; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\ReportsController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/v2/sales/visits; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\SalesController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/v2/sales/visits; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\SalesController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/v2/sales/follow-ups; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\SalesController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/v2/sales/follow-ups; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\SalesController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/v2/sales/pipeline; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\SalesController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/v2/sales/pipeline; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\SalesController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/v2/sales/client-relations; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\SalesController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=SalesController.cs; Verb=GET; Route=/api/v2/sales/client-relations; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\SalesController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/tasks; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/tasks; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/tasks/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/tasks/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/field-reports; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/field-reports; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/field-reports/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/field-reports/1; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/field-reports/counts; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/field-reports/counts; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/complaints; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/complaints; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/gate-passes; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/gate-passes; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/hr/lifecycle; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/hr/lifecycle; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/hr/requests; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/hr/requests; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/uniform/stock; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/uniform/stock; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/uniform/ledger; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/uniform/ledger; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    },
+    {
+        "Url":  "http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/documents/expiring; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route",
+        "Verb":  "GET",
+        "Status":  "",
+        "Error":  "Cannot bind parameter \u0027Uri\u0027. Cannot convert value \"http://localhost:5000@{Controller=WorkflowController.cs; Verb=GET; Route=/api/v2/documents/expiring; File=C:\\dev\\diti365.worktrees\\agents-fullstack-implementation-phase\\api\\src\\Diti365.Api\\Controllers\\V2\\WorkflowController.cs}.Route\" to type \"System.Uri\". Error: \"Invalid URI: The hostname could not be parsed.\"",
+        "Sample":  ""
+    }
+]
