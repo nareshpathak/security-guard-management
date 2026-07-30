@@ -14,6 +14,8 @@ import { Perm } from "@/lib/perm";
 import { cell } from "@/lib/list-query";
 import { count, date, isoDate, moneyExact } from "@/lib/format";
 
+import { PrintModal, TaxInvoicePrintTemplate } from "@/components/print-template";
+
 const MODES = ["NEFT", "RTGS", "Cheque", "Cash", "UPI"];
 
 /** One invoice, its lines, and the receipts posted against it. */
@@ -22,6 +24,7 @@ export default function InvoiceDetailPage() {
   const router = useRouter();
   const { has } = useAuth();
   const [paying, setPaying] = useState(false);
+  const [showPrintModal, setShowPrintModal] = useState(false);
 
   const detail = useQuery({
     queryKey: ["invoice", bid],
@@ -66,9 +69,17 @@ export default function InvoiceDetailPage() {
         title={String(invoice.InvoiceNo ?? `Invoice ${bid}`)}
         description={`${cell(invoice, "ClientName")} · raised ${date(invoice.InvoiceDate)} · due ${date(invoice.DueDate)}`}
         actions={
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
             <Button variant="outline" onClick={() => router.push("/finance/invoices")}>
               Back
+            </Button>
+            <Button variant="outline" onClick={() => setShowPrintModal(true)}>
+              <svg className="size-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="6 9 6 2 18 2 18 9" />
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                <rect x="6" y="14" width="12" height="8" />
+              </svg>
+              Print / Save PDF Tax Invoice
             </Button>
             {outstanding > 0 && has(Perm.invoiceEdit) ? (
               <Button onClick={() => setPaying(true)}>Record a receipt</Button>
@@ -187,6 +198,15 @@ export default function InvoiceDetailPage() {
           <Input value={form.refNo} onChange={(e) => setForm((f) => ({ ...f, refNo: e.target.value }))} />
         </div>
       </Modal>
+
+      {/* Printable Tax Invoice Modal */}
+      <PrintModal
+        open={showPrintModal}
+        onClose={() => setShowPrintModal(false)}
+        title={`TAX INVOICE - ${invoice.InvoiceNo ?? bid}`}
+      >
+        <TaxInvoicePrintTemplate invoice={invoice} />
+      </PrintModal>
     </div>
   );
 }

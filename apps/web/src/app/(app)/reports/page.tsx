@@ -31,10 +31,12 @@ type ReportKey = { key?: string; Key?: string; name?: string; Name?: string; tit
  * Writing 21 near-identical screens would have been 21 places to forget a
  * loading state.
  */
+import { useState } from "react";
+import { GenericReportPrintTemplate, PrintModal } from "@/components/print-template";
+
 export default function ReportsPage() {
   const q = useListQueryState();
-  // useSearchParams, not window.location: reading location during render makes
-  // the server and client markup disagree and React throws a hydration error.
+  const [showPrintModal, setShowPrintModal] = useState(false);
   const active = useSearchParams().get("key") ?? "";
 
   const thirtyDaysAgo = new Date();
@@ -110,17 +112,28 @@ export default function ReportsPage() {
         description="Every report the API exposes. Pick one, set a date range, export."
         actions={
           active ? (
-            <Button
-              variant="outline"
-              onClick={() => {
-                // Export is a plain download, so it goes through the browser
-                // rather than the fetch client.
-                const url = `${process.env.NEXT_PUBLIC_API_BASE_URL ?? ""}/api/v2/reports/${active}/export?from=${from}&to=${to}`;
-                window.open(url, "_blank", "noopener");
-              }}
-            >
-              Export
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                onClick={() => setShowPrintModal(true)}
+              >
+                <svg className="size-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="6 9 6 2 18 2 18 9" />
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                  <rect x="6" y="14" width="12" height="8" />
+                </svg>
+                Print / Preview PDF
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  const url = `${process.env.NEXT_PUBLIC_API_BASE_URL ?? ""}/api/v2/reports/${active}/export?from=${from}&to=${to}`;
+                  window.open(url, "_blank", "noopener");
+                }}
+              >
+                Export CSV
+              </Button>
+            </div>
           ) : null
         }
       />
@@ -208,6 +221,20 @@ export default function ReportsPage() {
           description="Each one runs against live data for the date range you choose."
         />
       )}
+
+      {/* Executive Print / PDF Modal */}
+      <PrintModal
+        open={showPrintModal}
+        onClose={() => setShowPrintModal(false)}
+        title={`${active.replace(/([a-z])([A-Z])/g, "$1 $2").toUpperCase()} REPORT`}
+      >
+        <GenericReportPrintTemplate
+          title={`${active.replace(/([a-z])([A-Z])/g, "$1 $2").toUpperCase()} REPORT`}
+          filters={{ from, to }}
+          columns={columns.map((c) => ({ key: c.id, label: c.header }))}
+          rows={rows}
+        />
+      </PrintModal>
     </div>
   );
 }

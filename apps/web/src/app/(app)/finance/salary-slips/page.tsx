@@ -14,10 +14,13 @@ import { currentMonth, moneyExact } from "@/lib/format";
  * Every figure comes from usp_Payroll_GetSlip. Nothing is recomputed here: a
  * slip that disagrees with the payroll run is worse than no slip at all.
  */
+import { PayslipPrintTemplate, PrintModal } from "@/components/print-template";
+
 export default function SalarySlipsPage() {
   const [empId, setEmpId] = useState("");
   const [monthYear, setMonthYear] = useState(currentMonth(-1));
   const [asked, setAsked] = useState<{ empId: string; monthYear: string } | null>(null);
+  const [showPrintModal, setShowPrintModal] = useState(false);
 
   const slip = useQuery({
     queryKey: ["salary-slip", asked?.empId, asked?.monthYear],
@@ -51,7 +54,22 @@ export default function SalarySlipsPage() {
 
   return (
     <div className="max-w-3xl">
-      <PageHeader title="Salary slip" description="One guard, one month, exactly as payroll computed it." />
+      <PageHeader
+        title="Salary slip"
+        description="One guard, one month, exactly as payroll computed it."
+        actions={
+          s ? (
+            <Button variant="primary" size="sm" onClick={() => setShowPrintModal(true)}>
+              <svg className="size-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="6 9 6 2 18 2 18 9" />
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                <rect x="6" y="14" width="12" height="8" />
+              </svg>
+              Print / Save PDF Payslip
+            </Button>
+          ) : null
+        }
+      />
 
       <form
         className="mb-6 flex flex-wrap items-end gap-3"
@@ -163,6 +181,26 @@ export default function SalarySlipsPage() {
             </span>
           </footer>
         </article>
+      ) : null}
+
+      {/* Printable Payslip Modal */}
+      {s ? (
+        <PrintModal
+          open={showPrintModal}
+          onClose={() => setShowPrintModal(false)}
+          title={`PAYSLIP - ${s.EmpName ?? "STAFF"} (${asked?.monthYear})`}
+        >
+          <PayslipPrintTemplate
+            payslip={{
+              ...s,
+              Month: asked?.monthYear,
+              GuardName: cell(s, "EmpName", "EmpFullName"),
+              GuardCode: cell(s, "EmpCode"),
+              Designation: cell(s, "DesignationName"),
+              BranchName: cell(s, "UnitName"),
+            }}
+          />
+        </PrintModal>
       ) : null}
     </div>
   );
