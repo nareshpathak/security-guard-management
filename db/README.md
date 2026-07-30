@@ -26,13 +26,24 @@ Server=localhost;Database=Diti365_Dev;Integrated Security=true;TrustServerCertif
 
 ## Running the scripts
 
-Until the DbUp runner exists, run scripts manually in numeric order:
+Scripts can be applied either with the PowerShell helper (recommended for local development) or via the DbUp runner (cross-platform, CI-friendly).
+
+PowerShell (interactive):
 
 ```
 sqlcmd -S localhost -E -I -d Diti365_Dev -i db\scripts\001_schemas.sql
 sqlcmd -S localhost -E -I -d Diti365_Dev -i db\scripts\010_master_tables.sql
 ...
 ```
+
+DbUp runner (dotnet):
+
+```
+cd db\DbUp
+dotnet run -- --connectionString "Server=localhost;Database=Diti365_Dev;Trusted_Connection=True;TrustServerCertificate=True"
+```
+
+The DbUp runner executes scripts in filename order and is idempotent; it is useful for CI or when sqlcmd is not available.
 
 Or run everything in order (PowerShell):
 

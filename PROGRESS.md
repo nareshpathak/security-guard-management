@@ -42,7 +42,7 @@
   - [x] 530 tasks (7) · 540 sales (7) · 550 report (8) · 560 payroll (11)
 - [x] 600 triggers (12)
 - [x] 700 seed reference · 711 demo tenant (supersedes 710, see DECISIONS #27) · 720 demo transactions
-- [ ] tSQLt smoke tests + tenant-isolation test
+- [x] tSQLt-style smoke tests + tenant-isolation checks (db/tests/run-tests.ps1) — lightweight sqlcmd smoke checks added
 - [ ] **DoD checklist in `01-database.md` §10 signed off**
 
 ## P1.5 — API
