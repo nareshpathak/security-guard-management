@@ -47,9 +47,22 @@ export default function RecruitsPage() {
     onError: (err) => setMessage(err instanceof ApiError ? err.message : "Save failed"),
   });
 
+  type RecruitAction = "approve" | "waitlist" | "convert" | "reject";
+
   const action = useMutation({
-    mutationFn: async ({ id, path }: { id: number; path: string }) =>
-      (await getApi().post<SpResult>(`/api/v2/recruits/${id}/${path}`, {})).data,
+    mutationFn: async ({ id, path }: { id: number; path: RecruitAction }) => {
+      if (path === "convert") {
+        return (await getApi().post<SpResult>(`/api/v2/recruits/${id}/convert`, {})).data;
+      }
+
+      const status = path === "approve"
+        ? "Approved"
+        : path === "waitlist"
+          ? "Waitlist"
+          : "Rejected";
+
+      return (await getApi().post<SpResult>(`/api/v2/recruits/${id}/status`, { status, remark: null })).data;
+    },
     onSuccess: async (res) => {
       setMessage(res.message);
       await qc.invalidateQueries({ queryKey: ["recruits"] });
