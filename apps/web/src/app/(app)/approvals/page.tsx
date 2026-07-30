@@ -391,18 +391,22 @@ function DecisionCard({
   const [reason, setReason] = useState("");
 
   return (
-    <Card className="space-y-3">
-      <div className="flex items-start justify-between gap-4">
+    <Card className="p-5 space-y-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--diti-border)] pb-3">
         <div className="min-w-0">
-          <div className="font-medium text-text">{title}</div>
-          {subtitle ? <div className="text-xs text-muted">{subtitle}</div> : null}
+          <div className="text-base font-semibold text-[var(--diti-text)]">{title}</div>
+          {subtitle ? <div className="text-xs font-medium text-[var(--diti-muted)] mt-0.5">{subtitle}</div> : null}
         </div>
-        {badge}
+        {badge ? <div className="shrink-0">{badge}</div> : null}
       </div>
 
-      {detail ? <p className="text-sm text-muted">{detail}</p> : null}
+      {detail ? (
+        <div className="rounded-md bg-[var(--diti-surface-sunken)] p-3 text-xs text-[var(--diti-text)] border border-[var(--diti-border)]">
+          {detail}
+        </div>
+      ) : null}
 
-      <div className="flex gap-2">
+      <div className="flex items-center gap-2.5 pt-1">
         <Button size="sm" loading={pending} onClick={onApprove}>
           {approveLabel}
         </Button>
