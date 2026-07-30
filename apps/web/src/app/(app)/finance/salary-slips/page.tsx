@@ -75,7 +75,12 @@ export default function SalarySlipsPage() {
         className="mb-6 flex flex-wrap items-end gap-3"
         onSubmit={(e) => {
           e.preventDefault();
-          setAsked({ empId, monthYear });
+          let formattedMonth = monthYear;
+          if (monthYear.includes("-") && monthYear.indexOf("-") === 4) {
+            const [y, m] = monthYear.split("-");
+            formattedMonth = `${m}-${y}`;
+          }
+          setAsked({ empId, monthYear: formattedMonth });
         }}
       >
         <div>
