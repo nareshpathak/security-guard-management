@@ -7,3 +7,8 @@ dist
 .env.local
 .env.*.local
 .DS_Store
+
+# Ignore build outputs for DbUp runner
+/db/DbUp/bin/
+/db/DbUp/obj/
+
