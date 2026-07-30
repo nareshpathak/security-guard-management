@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "@diti365/ui"],
   },
+  allowedDevOrigins: ["monkeycode-ai.live", "*.monkeycode-ai.live"],
 };
 
 export default nextConfig;
