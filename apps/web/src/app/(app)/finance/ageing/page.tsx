@@ -14,6 +14,8 @@ function bucket(days: number): string {
   return "90+ days";
 }
 
+export const dynamic = "force-dynamic";
+
 export default function AgeingPage() {
   return (
     <ResourceList
