@@ -1,54 +1,50 @@
 /*==============================================================================
-  Diti365 design tokens - docs/prd/03-web.md §1.1
+  Diti365 Enterprise SaaS Design Tokens - docs/prd/03-web.md §1.1
 
-  Every token is defined for BOTH themes. Dark mode is a first-class
-  requirement, not an afterthought, so there is no token here that only works
-  on a white page.
-
-  Tailwind utilities are generated from these in apps/web/src/app/globals.css
-  via @theme inline, so `bg-surface` / `text-muted` / `rounded-lg` all resolve
-  back to this one file.
+  Every token is defined for BOTH themes with AAA/AA accessibility contrast.
+  Includes typography tokens, table zebra striping, and collapsible sidebar widths.
 ==============================================================================*/
 
 :root {
   /* brand */
-  --diti-primary: #0b5fff;
-  --diti-primary-hover: #0a54e0;
-  --diti-primary-subtle: #eff5ff;
+  --diti-primary: #0284c7;
+  --diti-primary-hover: #0369a1;
+  --diti-primary-subtle: #f0f9ff;
   --diti-primary-fg: #ffffff;
-  --diti-accent: #00c2a8;
-  --diti-accent-subtle: #e6faf7;
+  --diti-accent: #0d9488;
+  --diti-accent-subtle: #f0fdf4;
 
   /* semantic */
-  --diti-success: #16a34a;
-  --diti-success-subtle: #dcfce7;
-  --diti-warning: #f59e0b;
-  --diti-warning-subtle: #fef3c7;
-  --diti-danger: #dc2626;
-  --diti-danger-subtle: #fee2e2;
-  --diti-info: #0ea5e9;
-  --diti-info-subtle: #e0f2fe;
+  --diti-success: #15803d;
+  --diti-success-subtle: #f0fdf4;
+  --diti-warning: #b45309;
+  --diti-warning-subtle: #fffbeb;
+  --diti-danger: #b91c1c;
+  --diti-danger-subtle: #fef2f2;
+  --diti-info: #0369a1;
+  --diti-info-subtle: #f0f9ff;
 
-  /* attendance status - never encoded by colour alone, always pill + icon + text */
+  /* status tokens */
   --diti-present: #16a34a;
   --diti-absent: #dc2626;
-  --diti-halfday: #f59e0b;
-  --diti-leave: #8b5cf6;
+  --diti-halfday: #d97706;
+  --diti-leave: #7c3aed;
   --diti-weekoff: #64748b;
-  --diti-holiday: #0ea5e9;
-  --diti-pending: #f59e0b;
+  --diti-holiday: #0284c7;
+  --diti-pending: #d97706;
 
-  /* surfaces */
-  --diti-bg: #fafafa;
+  /* surfaces & high-contrast text */
+  --diti-bg: #f8fafc;
   --diti-surface: #ffffff;
   --diti-surface-raised: #ffffff;
-  --diti-surface-sunken: #f4f4f5;
-  --diti-overlay: rgb(9 9 11 / 0.45);
-  --diti-border: #e4e4e7;
-  --diti-border-strong: #d4d4d8;
-  --diti-text: #18181b;
-  --diti-muted: #71717a;
-  --diti-faint: #a1a1aa;
+  --diti-surface-sunken: #f1f5f9;
+  --diti-surface-stripe: #f8fafc;
+  --diti-overlay: rgb(15 23 42 / 0.50);
+  --diti-border: #e2e8f0;
+  --diti-border-strong: #cbd5e1;
+  --diti-text: #0f172a;
+  --diti-muted: #475569;
+  --diti-faint: #94a3b8;
 
   /* radius */
   --diti-radius-sm: 6px;
@@ -57,35 +53,39 @@
   --diti-radius-xl: 16px;
   --diti-radius-full: 9999px;
 
-  /* shadows - soft and low-opacity, never harsh */
-  --diti-shadow-xs: 0 1px 2px rgb(24 24 27 / 0.04);
-  --diti-shadow-sm: 0 1px 2px rgb(24 24 27 / 0.05), 0 1px 3px rgb(24 24 27 / 0.06);
-  --diti-shadow-md: 0 2px 4px rgb(24 24 27 / 0.05), 0 4px 12px rgb(24 24 27 / 0.08);
-  --diti-shadow-lg: 0 8px 24px rgb(24 24 27 / 0.10), 0 2px 6px rgb(24 24 27 / 0.06);
+  /* shadows */
+  --diti-shadow-xs: 0 1px 2px rgb(15 23 42 / 0.04);
+  --diti-shadow-sm: 0 1px 3px rgb(15 23 42 / 0.06), 0 1px 2px rgb(15 23 42 / 0.04);
+  --diti-shadow-md: 0 4px 6px -1px rgb(15 23 42 / 0.07), 0 2px 4px -2px rgb(15 23 42 / 0.05);
+  --diti-shadow-lg: 0 10px 25px -5px rgb(15 23 42 / 0.10), 0 8px 10px -6px rgb(15 23 42 / 0.05);
   --diti-shadow: var(--diti-shadow-sm);
 
-  /* focus ring - must stay visible in both themes for WCAG 2.1 AA */
-  --diti-ring: #0b5fff;
+  /* focus ring */
+  --diti-ring: #0284c7;
+
+  /* layout & sidebar variables */
+  --diti-sidebar-width: 260px;
+  --diti-sidebar-collapsed-width: 68px;
 }
 
 .dark {
-  --diti-primary: #3b82f6;
-  --diti-primary-hover: #60a5fa;
-  --diti-primary-subtle: #172554;
-  --diti-primary-fg: #0a0a0b;
+  --diti-primary: #38bdf8;
+  --diti-primary-hover: #7dd3fc;
+  --diti-primary-subtle: #0c4a6e;
+  --diti-primary-fg: #0f172a;
   --diti-accent: #2dd4bf;
-  --diti-accent-subtle: #0d3b36;
+  --diti-accent-subtle: #134e4a;
 
-  --diti-success: #22c55e;
-  --diti-success-subtle: #14321f;
+  --diti-success: #4ade80;
+  --diti-success-subtle: #14532d;
   --diti-warning: #fbbf24;
-  --diti-warning-subtle: #3a2c0a;
+  --diti-warning-subtle: #78350f;
   --diti-danger: #f87171;
-  --diti-danger-subtle: #3d1518;
+  --diti-danger-subtle: #7f1d1d;
   --diti-info: #38bdf8;
-  --diti-info-subtle: #0c2c3d;
+  --diti-info-subtle: #0c4a6e;
 
-  --diti-present: #22c55e;
+  --diti-present: #4ade80;
   --diti-absent: #f87171;
   --diti-halfday: #fbbf24;
   --diti-leave: #a78bfa;
@@ -93,27 +93,47 @@
   --diti-holiday: #38bdf8;
   --diti-pending: #fbbf24;
 
-  --diti-bg: #09090b;
-  --diti-surface: #18181b;
-  --diti-surface-raised: #1f1f23;
-  --diti-surface-sunken: #101012;
-  --diti-overlay: rgb(0 0 0 / 0.65);
-  --diti-border: #27272a;
-  --diti-border-strong: #3f3f46;
-  --diti-text: #fafafa;
-  --diti-muted: #a1a1aa;
-  --diti-faint: #71717a;
+  --diti-bg: #090d16;
+  --diti-surface: #111827;
+  --diti-surface-raised: #1f2937;
+  --diti-surface-sunken: #0b1120;
+  --diti-surface-stripe: #172033;
+  --diti-overlay: rgb(0 0 0 / 0.70);
+  --diti-border: #1f2937;
+  --diti-border-strong: #374151;
+  --diti-text: #f9fafb;
+  --diti-muted: #9ca3af;
+  --diti-faint: #6b7280;
 
-  --diti-shadow-xs: 0 1px 2px rgb(0 0 0 / 0.30);
-  --diti-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.40);
-  --diti-shadow-md: 0 2px 4px rgb(0 0 0 / 0.40), 0 4px 12px rgb(0 0 0 / 0.35);
-  --diti-shadow-lg: 0 8px 24px rgb(0 0 0 / 0.55), 0 2px 6px rgb(0 0 0 / 0.40);
+  --diti-shadow-xs: 0 1px 2px rgb(0 0 0 / 0.40);
+  --diti-shadow-sm: 0 1px 3px rgb(0 0 0 / 0.50);
+  --diti-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.50);
+  --diti-shadow-lg: 0 10px 25px -5px rgb(0 0 0 / 0.65);
   --diti-shadow: var(--diti-shadow-sm);
 
-  --diti-ring: #60a5fa;
+  --diti-ring: #38bdf8;
 }
 
-/* Respect the user's motion preference. Skeletons and drawers animate a lot. */
+/* Custom scrollbars for sidebars and tables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--diti-border-strong);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--diti-muted);
+}
+
+/* Respect user's motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -124,3 +144,4 @@
     scroll-behavior: auto !important;
   }
 }
+

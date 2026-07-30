@@ -5,6 +5,9 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
   Building2,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   FileText,
   LayoutDashboard,
   LogOut,
@@ -58,11 +61,8 @@ export type NavItem = {
   href: string;
   label: string;
   icon: React.ComponentType<{ className?: string }>;
-  /**
-   * Permission code required to see this entry. The API checks the same code,
-   * so hiding the link is a courtesy rather than the control.
-   */
   permission?: string;
+  children?: NavItem[];
 };
 
 export type NavGroup = {
@@ -75,93 +75,129 @@ export const defaultNav: NavGroup[] = [
     label: "Overview",
     items: [
       { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-      { href: "/approvals", label: "Approvals", icon: CheckCheck },
-      { href: "/client-portal", label: "Your service", icon: ShieldCheck, permission: "M1.Profile.View" },
+      { href: "/approvals", label: "Approvals Queue", icon: CheckCheck },
+      { href: "/client-portal", label: "Client Portal", icon: ShieldCheck, permission: "M1.Profile.View" },
     ],
   },
   {
-    label: "Workforce",
+    label: "Workforce Management",
     items: [
-      { href: "/people/employees", label: "Guards", icon: Users, permission: "M6.Employee.View" },
-      { href: "/people/recruits", label: "Recruits", icon: UserPlus, permission: "M5.Recruit.View" },
-      { href: "/people/documents", label: "Documents", icon: FileText, permission: "M6.Employee.View" },
-      { href: "/people/training", label: "Training", icon: GraduationCap, permission: "M16.Hr.View" },
-      { href: "/people/lifecycle", label: "Joins & exits", icon: LogIn, permission: "M16.Hr.View" },
-      { href: "/people/requests", label: "Requests", icon: ClipboardList },
+      {
+        href: "/people/employees",
+        label: "Guards & Staff",
+        icon: Users,
+        permission: "M6.Employee.View",
+        children: [
+          { href: "/people/employees", label: "Guard Directory", icon: Users },
+          { href: "/people/recruits", label: "Recruit Candidates", icon: UserPlus, permission: "M5.Recruit.View" },
+          { href: "/people/documents", label: "Document Vault", icon: FileText, permission: "M6.Employee.View" },
+        ],
+      },
+      { href: "/people/recruits", label: "Recruit Intake", icon: UserPlus, permission: "M5.Recruit.View" },
+      { href: "/people/training", label: "Training Modules", icon: GraduationCap, permission: "M16.Hr.View" },
+      { href: "/people/lifecycle", label: "Joins & Exits", icon: LogIn, permission: "M16.Hr.View" },
+      { href: "/people/requests", label: "Guard Requests", icon: ClipboardList },
     ],
   },
   {
-    label: "Clients",
+    label: "Clients & Contracts",
     items: [
-      { href: "/clients", label: "Clients", icon: Building2, permission: "M4.Client.View" },
-      { href: "/clients/units", label: "Sites", icon: MapPin, permission: "M4.Client.View" },
-      { href: "/clients/contracts", label: "Contracts", icon: ScrollText, permission: "M4.Client.View" },
-      { href: "/clients/complaints", label: "Complaints", icon: MessageSquareWarning, permission: "M12.Complaint.View" },
-      { href: "/clients/client-relations", label: "Relation visits", icon: Handshake, permission: "M13.Sales.View" },
+      {
+        href: "/clients",
+        label: "Client Accounts",
+        icon: Building2,
+        permission: "M4.Client.View",
+        children: [
+          { href: "/clients", label: "Client Directory", icon: Building2 },
+          { href: "/clients/units", label: "Deployment Sites", icon: MapPin, permission: "M4.Client.View" },
+          { href: "/clients/contracts", label: "Contract Agreements", icon: ScrollText, permission: "M4.Client.View" },
+        ],
+      },
+      { href: "/clients/units", label: "Client Sites", icon: MapPin, permission: "M4.Client.View" },
+      { href: "/clients/contracts", label: "Contracts & Rates", icon: ScrollText, permission: "M4.Client.View" },
+      { href: "/clients/complaints", label: "Client Complaints", icon: MessageSquareWarning, permission: "M12.Complaint.View" },
+      { href: "/clients/client-relations", label: "Relation Visits", icon: Handshake, permission: "M13.Sales.View" },
     ],
   },
   {
-    label: "Operations",
+    label: "Security Operations",
     items: [
-      { href: "/operations/deployment", label: "Deployments", icon: Shield, permission: "M7.Deployment.View" },
-      { href: "/operations/turnout", label: "Turnout", icon: CalendarCheck2, permission: "M7.Deployment.View" },
-      { href: "/operations/attendance", label: "Attendance", icon: CalendarClock, permission: "M8.Attendance.View" },
-      { href: "/operations/attendance/summary", label: "Monthly summary", icon: CalendarCheck2, permission: "M8.Attendance.View" },
-      { href: "/operations/deployment/new", label: "Move guards", icon: ArrowLeftRight, permission: "M7.Deployment.Edit" },
-      { href: "/operations/patrol", label: "Patrol", icon: QrCode, permission: "M9.Patrol.View" },
-      { href: "/operations/patrol/rounds", label: "Patrol rounds", icon: RouteIcon, permission: "M9.Patrol.View" },
-      { href: "/operations/tracking", label: "Live tracking", icon: Radar, permission: "M10.Tracking.View" },
-      { href: "/operations/incidents", label: "Incidents", icon: AlertTriangle, permission: "M12.Incident.View" },
-      { href: "/operations/field-reports", label: "Field reports", icon: NotebookPen, permission: "M12.Incident.View" },
-      { href: "/operations/gate-pass", label: "Gate passes", icon: DoorOpen, permission: "M16.GatePass.Edit" },
-      { href: "/operations/qr-codes", label: "QR Codes", icon: QrCode, permission: "M9.Patrol.View" },
-      { href: "/operations/events", label: "Events", icon: CalendarCheck2, permission: "M7.Deployment.View" },
-      { href: "/tasks", label: "Tasks", icon: ListTodo, permission: "M11.Task.View" },
+      {
+        href: "/operations/deployment",
+        label: "Deployments",
+        icon: Shield,
+        permission: "M7.Deployment.View",
+        children: [
+          { href: "/operations/deployment", label: "Active Deployments", icon: Shield },
+          { href: "/operations/turnout", label: "Live Turnout", icon: CalendarCheck2 },
+          { href: "/operations/deployment/new", label: "Site Transfers", icon: ArrowLeftRight },
+        ],
+      },
+      { href: "/operations/turnout", label: "Turnout Board", icon: CalendarCheck2, permission: "M7.Deployment.View" },
+      { href: "/operations/attendance", label: "Daily Attendance", icon: CalendarClock, permission: "M8.Attendance.View" },
+      { href: "/operations/attendance/summary", label: "Monthly Summary", icon: CalendarCheck2, permission: "M8.Attendance.View" },
+      {
+        href: "/operations/patrol",
+        label: "Patrol Management",
+        icon: QrCode,
+        permission: "M9.Patrol.View",
+        children: [
+          { href: "/operations/patrol", label: "Scan History Logs", icon: QrCode },
+          { href: "/operations/patrol/rounds", label: "Patrol Rounds Config", icon: RouteIcon },
+          { href: "/operations/qr-codes", label: "QR Checkpoints", icon: QrCode },
+        ],
+      },
+      { href: "/operations/tracking", label: "Live GPS Tracking", icon: Radar, permission: "M10.Tracking.View" },
+      { href: "/operations/incidents", label: "Incident Escalation", icon: AlertTriangle, permission: "M12.Incident.View" },
+      { href: "/operations/field-reports", label: "Field Audit Reports", icon: NotebookPen, permission: "M12.Incident.View" },
+      { href: "/operations/gate-pass", label: "Gate Passes", icon: DoorOpen, permission: "M16.GatePass.Edit" },
+      { href: "/operations/events", label: "Special Events", icon: CalendarCheck2, permission: "M7.Deployment.View" },
+      { href: "/tasks", label: "Tasks & Checklists", icon: ListTodo, permission: "M11.Task.View" },
     ],
   },
   {
-    label: "Stores",
+    label: "Stores & Uniforms",
     items: [
-      { href: "/inventory/stock", label: "Uniform stock", icon: Package, permission: "M14.Inventory.View" },
-      { href: "/inventory/ledger", label: "Issue ledger", icon: ScrollText, permission: "M14.Inventory.View" },
-      { href: "/inventory/issues", label: "Outstanding kit", icon: PackageOpen, permission: "M14.Inventory.View" },
-      { href: "/inventory/movements", label: "Stock movement", icon: Truck, permission: "M14.Inventory.Edit" },
+      { href: "/inventory/stock", label: "Uniform Stock", icon: Package, permission: "M14.Inventory.View" },
+      { href: "/inventory/ledger", label: "Kit Issue Ledger", icon: ScrollText, permission: "M14.Inventory.View" },
+      { href: "/inventory/issues", label: "Outstanding Kit", icon: PackageOpen, permission: "M14.Inventory.View" },
+      { href: "/inventory/movements", label: "Stock Movement", icon: Truck, permission: "M14.Inventory.Edit" },
     ],
   },
   {
-    label: "Finance",
+    label: "Finance & Payroll",
     items: [
-      { href: "/finance/payroll", label: "Payroll", icon: Wallet, permission: "M15.Payroll.View" },
-      { href: "/finance/invoices", label: "Invoices", icon: Receipt, permission: "M15.Invoice.View" },
-      { href: "/finance/receipts", label: "Receipts", icon: HandCoins, permission: "M15.Invoice.View" },
-      { href: "/finance/ageing", label: "Ageing", icon: Hourglass, permission: "M15.Invoice.View" },
-      { href: "/finance/advances", label: "Advances", icon: Wallet },
-      { href: "/finance/salary-slips", label: "Salary slips", icon: ScrollText },
+      { href: "/finance/payroll", label: "Payroll Processing", icon: Wallet, permission: "M15.Payroll.View" },
+      { href: "/finance/invoices", label: "Client Invoices", icon: Receipt, permission: "M15.Invoice.View" },
+      { href: "/finance/receipts", label: "Payment Receipts", icon: HandCoins, permission: "M15.Invoice.View" },
+      { href: "/finance/ageing", label: "Outstanding Ageing", icon: Hourglass, permission: "M15.Invoice.View" },
+      { href: "/finance/advances", label: "Salary Advances", icon: Wallet },
+      { href: "/finance/salary-slips", label: "Salary Slips PDF", icon: ScrollText },
     ],
   },
   {
-    label: "Growth",
+    label: "Sales & Growth",
     items: [
-      { href: "/sales/visits", label: "Visits", icon: Briefcase, permission: "M13.Sales.View" },
-      { href: "/sales/follow-ups", label: "Follow-ups", icon: CalendarClock, permission: "M13.Sales.View" },
-      { href: "/sales/pipeline", label: "Pipeline", icon: TrendingUp, permission: "M13.Sales.View" },
+      { href: "/sales/visits", label: "Sales Visits", icon: Briefcase, permission: "M13.Sales.View" },
+      { href: "/sales/follow-ups", label: "Client Follow-ups", icon: CalendarClock, permission: "M13.Sales.View" },
+      { href: "/sales/pipeline", label: "Deals Pipeline", icon: TrendingUp, permission: "M13.Sales.View" },
     ],
   },
   {
-    label: "System",
+    label: "System Settings",
     items: [
-      { href: "/reports", label: "Reports", icon: FileText, permission: "RPT.Report.View" },
-      { href: "/settings/users", label: "Users", icon: ShieldCheck, permission: "SET.Settings.Edit" },
-      { href: "/settings/masters", label: "Reference data", icon: Database, permission: "M3.Master.View" },
-      { href: "/settings/company", label: "Company", icon: Building, permission: "SET.Settings.Edit" },
-      { href: "/settings/branches", label: "Branches", icon: MapPin, permission: "M3.Master.View" },
-      { href: "/settings/roles", label: "My permissions", icon: KeyRound },
-      { href: "/settings/session", label: "This session", icon: IdCard },
-      { href: "/settings/password", label: "Change password", icon: Lock },
-      { href: "/settings/audit", label: "Sign-in log", icon: ScrollText, permission: "SET.Audit.View" },
-      { href: "/chat", label: "Chat", icon: MessageCircle },
+      { href: "/reports", label: "Reports Hub", icon: FileText, permission: "RPT.Report.View" },
+      { href: "/settings/users", label: "User Accounts", icon: ShieldCheck, permission: "SET.Settings.Edit" },
+      { href: "/settings/masters", label: "Reference Masters", icon: Database, permission: "M3.Master.View" },
+      { href: "/settings/company", label: "Company Profile", icon: Building, permission: "SET.Settings.Edit" },
+      { href: "/settings/branches", label: "Branch Offices", icon: MapPin, permission: "M3.Master.View" },
+      { href: "/settings/roles", label: "My Permissions", icon: KeyRound },
+      { href: "/settings/session", label: "Active Session", icon: IdCard },
+      { href: "/settings/password", label: "Change Password", icon: Lock },
+      { href: "/settings/audit", label: "Audit Logs", icon: ScrollText, permission: "SET.Audit.View" },
+      { href: "/chat", label: "Team Chat", icon: MessageCircle },
       { href: "/tenants", label: "Tenants", icon: Building2, permission: "M2.Tenant.Manage" },
-      { href: "/platform-analytics", label: "Platform", icon: LineChart, permission: "M2.Tenant.Manage" },
+      { href: "/platform-analytics", label: "Platform Metrics", icon: LineChart, permission: "M2.Tenant.Manage" },
     ],
   },
 ];
@@ -184,63 +220,167 @@ export function AppShell({
   nav?: NavGroup[];
 }) {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
+  const [expandedSubmenus, setExpandedSubmenus] = useState<Record<string, boolean>>({});
 
-  const Nav = (
-    <nav className="flex h-full flex-col">
-      <div className="flex items-center gap-2 border-b border-[var(--diti-border)] px-4 py-4">
-        <div className="flex h-8 w-8 items-center justify-center rounded-[var(--diti-radius-md)] bg-[var(--diti-primary)] text-sm font-bold text-white">
-          D
-        </div>
-        <div>
-          <div className="text-sm font-semibold text-[var(--diti-text)]">Diti365</div>
-          <div className="text-[11px] text-[var(--diti-muted)]">Security operations</div>
-        </div>
-      </div>
-      <div className="flex-1 overflow-y-auto px-3 py-4">
-        {nav.map((group) => (
-          <div key={group.label} className="mb-5">
-            <div className="mb-2 px-2 text-[11px] font-semibold uppercase tracking-wider text-[var(--diti-muted)]">
-              {group.label}
+  const toggleSubmenu = (href: string) => {
+    setExpandedSubmenus((prev) => ({ ...prev, [href]: !prev[href] }));
+  };
+
+  const isItemActive = (href: string) => {
+    if (href === "/dashboard") return pathname === "/dashboard";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
+  const renderNavItem = (item: NavItem, isChild = false) => {
+    const Icon = item.icon;
+    const active = isItemActive(item.href);
+    const hasChildren = item.children && item.children.length > 0;
+    const isExpanded = !!expandedSubmenus[item.href];
+
+    if (hasChildren && !collapsed) {
+      return (
+        <li key={item.href}>
+          <button
+            type="button"
+            onClick={() => toggleSubmenu(item.href)}
+            className={cn(
+              "flex w-full items-center justify-between rounded-[var(--diti-radius-md)] px-2.5 py-2 text-xs font-medium transition-all duration-150",
+              active
+                ? "bg-[var(--diti-primary-subtle)] font-semibold text-[var(--diti-primary)]"
+                : "text-[var(--diti-muted)] hover:bg-slate-100 hover:text-[var(--diti-text)] dark:hover:bg-zinc-800",
+            )}
+          >
+            <div className="flex items-center gap-2.5 truncate">
+              <Icon className="size-4 shrink-0" />
+              <span className="truncate">{item.label}</span>
             </div>
-            <ul className="space-y-1">
-              {group.items.map((item) => {
-                const Icon = item.icon;
-                const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className={cn(
-                        "flex items-center gap-2 rounded-[var(--diti-radius-md)] px-2.5 py-2 text-sm transition",
-                        active
-                          ? "bg-[var(--diti-primary-subtle)] font-medium text-[var(--diti-primary)]"
-                          : "text-[var(--diti-muted)] hover:bg-zinc-100 hover:text-[var(--diti-text)] dark:hover:bg-zinc-800",
-                      )}
-                    >
-                      <Icon className="h-4 w-4 shrink-0" />
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              })}
+            <ChevronDown
+              className={cn("size-3.5 shrink-0 transition-transform duration-200", isExpanded && "rotate-180")}
+            />
+          </button>
+          {isExpanded && (
+            <ul className="mt-1 space-y-1 border-l border-[var(--diti-border)] ml-3.5 pl-2.5">
+              {item.children?.map((child) => renderNavItem(child, true))}
             </ul>
+          )}
+        </li>
+      );
+    }
+
+    return (
+      <li key={item.href} className="relative group">
+        <Link
+          href={item.href}
+          onClick={() => setMobileOpen(false)}
+          className={cn(
+            "flex items-center gap-2.5 rounded-[var(--diti-radius-md)] px-2.5 py-2 text-xs transition-all duration-150 relative",
+            isChild && "py-1.5 text-[11px]",
+            active
+              ? "bg-[var(--diti-primary)] font-semibold text-white shadow-xs"
+              : "text-[var(--diti-muted)] hover:bg-slate-100 hover:text-[var(--diti-text)] dark:hover:bg-zinc-800",
+            collapsed && "justify-center px-0 py-2.5",
+          )}
+        >
+          <Icon className={cn("size-4 shrink-0", active ? "text-white" : "text-current")} />
+          {!collapsed && <span className="truncate">{item.label}</span>}
+
+          {/* Floating Tooltip in Collapsed Mode */}
+          {collapsed && (
+            <div className="absolute left-full top-1/2 ml-3 -translate-y-1/2 z-50 hidden group-hover:flex flex-col rounded-md border border-[var(--diti-border)] bg-[var(--diti-surface)] p-2.5 text-xs text-[var(--diti-text)] shadow-xl whitespace-nowrap">
+              <span className="font-bold text-[var(--diti-primary)]">{item.label}</span>
+              {hasChildren && (
+                <div className="mt-1 pt-1 border-t border-[var(--diti-border)] flex flex-col gap-1 text-[11px] text-[var(--diti-muted)]">
+                  {item.children?.map((child) => (
+                    <span key={child.href} className="hover:text-[var(--diti-primary)]">
+                      • {child.label}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </Link>
+      </li>
+    );
+  };
+
+  const NavContent = (
+    <nav className="flex h-full flex-col select-none">
+      {/* Sidebar Header */}
+      <div className="flex h-14 items-center justify-between border-b border-[var(--diti-border)] px-4">
+        <div className="flex items-center gap-2.5 truncate">
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-[var(--diti-radius-md)] bg-[var(--diti-primary)] text-xs font-bold text-white shadow-xs">
+            D
+          </div>
+          {!collapsed && (
+            <div className="truncate">
+              <div className="text-xs font-bold tracking-tight text-[var(--diti-text)]">Diti365 ERP</div>
+              <div className="text-[10px] font-medium text-[var(--diti-muted)]">Enterprise Operations</div>
+            </div>
+          )}
+        </div>
+        <button
+          type="button"
+          onClick={() => setCollapsed(!collapsed)}
+          className="hidden lg:flex size-7 items-center justify-center rounded-md border border-[var(--diti-border)] text-[var(--diti-muted)] hover:bg-slate-100 hover:text-[var(--diti-text)] dark:hover:bg-zinc-800"
+          title={collapsed ? "Expand Sidebar" : "Collapse Sidebar"}
+        >
+          {collapsed ? <ChevronRight className="size-4" /> : <ChevronLeft className="size-4" />}
+        </button>
+      </div>
+
+      {/* Nav Groups & Items */}
+      <div className="flex-1 overflow-y-auto px-3 py-3 space-y-4">
+        {nav.map((group) => (
+          <div key={group.label}>
+            {!collapsed ? (
+              <div className="mb-1.5 px-2 text-[10px] font-bold uppercase tracking-wider text-[var(--diti-faint)]">
+                {group.label}
+              </div>
+            ) : (
+              <div className="my-2 border-t border-[var(--diti-border)]" />
+            )}
+            <ul className="space-y-0.5">{group.items.map((item) => renderNavItem(item))}</ul>
           </div>
         ))}
       </div>
-      <div className="border-t border-[var(--diti-border)] p-3">
-        <div className="mb-2 truncate px-1 text-sm font-medium text-[var(--diti-text)]">
-          {userName ?? "Signed in"}
-        </div>
-        <div className="mb-3 px-1 text-xs text-[var(--diti-muted)]">{roleCode}</div>
-        <div className="flex gap-2">
-          <Button variant="outline" size="sm" className="flex-1" onClick={onToggleDark} type="button">
-            {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+
+      {/* User Footer Profile */}
+      <div className="border-t border-[var(--diti-border)] p-3 bg-[var(--diti-surface-sunken)]/40">
+        {!collapsed ? (
+          <>
+            <div className="mb-1 truncate text-xs font-bold text-[var(--diti-text)]">
+              {userName ?? "Signed in"}
+            </div>
+            <div className="mb-3 truncate text-[11px] font-medium text-[var(--diti-muted)]">
+              Role: {roleCode ?? "Administrator"}
+            </div>
+          </>
+        ) : null}
+        <div className="flex items-center gap-1.5">
+          <Button
+            variant="outline"
+            size="sm"
+            className={cn("flex-1 text-xs", collapsed && "px-0 justify-center")}
+            onClick={onToggleDark}
+            type="button"
+            title="Toggle Dark / Light Theme"
+          >
+            {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+            {!collapsed && <span className="ml-1.5">{dark ? "Light" : "Dark"}</span>}
           </Button>
-          <Button variant="outline" size="sm" className="flex-1" onClick={onLogout} type="button">
-            <LogOut className="h-4 w-4" />
-            Logout
+          <Button
+            variant="outline"
+            size="sm"
+            className={cn("flex-1 text-xs", collapsed && "px-0 justify-center")}
+            onClick={onLogout}
+            type="button"
+            title="Logout of session"
+          >
+            <LogOut className="size-4 text-danger" />
+            {!collapsed && <span className="ml-1.5">Logout</span>}
           </Button>
         </div>
       </div>
@@ -249,27 +389,56 @@ export function AppShell({
 
   return (
     <div className="flex min-h-screen bg-[var(--diti-bg)] text-[var(--diti-text)]">
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 shrink-0 border-r border-[var(--diti-border)] bg-[var(--diti-surface)] lg:block">
-        {Nav}
+      {/* Desktop Sidebar */}
+      <aside
+        className={cn(
+          "fixed inset-y-0 left-0 z-30 hidden shrink-0 border-r border-[var(--diti-border)] bg-[var(--diti-surface)] transition-all duration-300 ease-in-out lg:block",
+          collapsed ? "w-[68px]" : "w-[260px]",
+        )}
+      >
+        {NavContent}
       </aside>
-      {open ? (
-        <div className="fixed inset-0 z-40 lg:hidden">
+
+      {/* Mobile Drawer */}
+      {mobileOpen ? (
+        <div className="fixed inset-0 z-50 lg:hidden">
           <button
             type="button"
             aria-label="Close menu"
-            className="absolute inset-0 bg-black/40"
-            onClick={() => setOpen(false)}
+            className="absolute inset-0 bg-black/50 backdrop-blur-xs"
+            onClick={() => setMobileOpen(false)}
           />
-          <aside className="absolute inset-y-0 left-0 w-72 bg-[var(--diti-surface)] shadow-xl">{Nav}</aside>
+          <aside className="absolute inset-y-0 left-0 w-72 bg-[var(--diti-surface)] shadow-2xl">
+            {NavContent}
+          </aside>
         </div>
       ) : null}
-      <div className="flex-1 min-w-0 lg:pl-64">
-        <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-[var(--diti-border)] bg-[var(--diti-surface)]/90 px-4 backdrop-blur lg:hidden">
-          <button type="button" onClick={() => setOpen(true)} aria-label="Open menu">
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-          <span className="font-semibold">Diti365</span>
+
+      {/* Main Body Layout */}
+      <div
+        className={cn(
+          "flex-1 min-w-0 transition-all duration-300 ease-in-out",
+          collapsed ? "lg:pl-[68px]" : "lg:pl-[260px]",
+        )}
+      >
+        {/* Mobile Header Bar */}
+        <header className="sticky top-0 z-20 flex h-14 items-center justify-between border-b border-[var(--diti-border)] bg-[var(--diti-surface)]/90 px-4 backdrop-blur lg:hidden">
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
+              className="p-1 rounded-md hover:bg-slate-100 dark:hover:bg-zinc-800"
+            >
+              {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+            <span className="font-bold text-sm">Diti365 ERP</span>
+          </div>
+          <Button variant="outline" size="sm" onClick={onToggleDark}>
+            {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+          </Button>
         </header>
+
         <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">{children}</main>
       </div>
     </div>
