@@ -22,3 +22,4 @@ c:\dev\diti365\api\src\Diti365.Infrastructure\obj\Debug\net10.0\refint\Diti365.I
 c:\dev\diti365\api\src\Diti365.Infrastructure\obj\Debug\net10.0\Diti365.Infrastructure.xml
 c:\dev\diti365\api\src\Diti365.Infrastructure\obj\Debug\net10.0\Diti365.Infrastructure.pdb
 c:\dev\diti365\api\src\Diti365.Infrastructure\obj\Debug\net10.0\ref\Diti365.Infrastructure.dll
+C:\dev\diti365\api\src\Diti365.Infrastructure\obj\Debug\net10.0\Diti365.Infrastructure.sourcelink.json

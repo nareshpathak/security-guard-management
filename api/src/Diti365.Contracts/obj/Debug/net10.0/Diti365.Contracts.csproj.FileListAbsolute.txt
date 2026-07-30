@@ -16,3 +16,4 @@ c:\dev\diti365\api\src\Diti365.Contracts\obj\Debug\net10.0\Diti365.Contracts.dll
 c:\dev\diti365\api\src\Diti365.Contracts\obj\Debug\net10.0\refint\Diti365.Contracts.dll
 c:\dev\diti365\api\src\Diti365.Contracts\obj\Debug\net10.0\Diti365.Contracts.pdb
 c:\dev\diti365\api\src\Diti365.Contracts\obj\Debug\net10.0\ref\Diti365.Contracts.dll
+C:\dev\diti365\api\src\Diti365.Contracts\obj\Debug\net10.0\Diti365.Contracts.sourcelink.json

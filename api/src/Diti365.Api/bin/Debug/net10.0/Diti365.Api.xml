@@ -109,6 +109,25 @@
         <member name="M:Diti365.Api.Controllers.V2.MastersController.SubLookup(System.String,System.Int32)">
             <summary>Dependent lookup: district by state, city by state, unit by client, post by unit...</summary>
         </member>
+        <member name="M:Diti365.Api.Controllers.V2.MastersController.Catalog">
+             <summary>
+             The reference lists this user may manage.
+            
+             Platform data - states, banks, login types - is listed for everyone so an
+             agency admin can see what things are called, but comes back with
+             CanEdit = false unless they are the platform administrator.
+             </summary>
+        </member>
+        <member name="M:Diti365.Api.Controllers.V2.MastersController.DeleteEntry(System.String,System.Int32)">
+             <summary>
+             Removes an entry, but only if nothing points at it.
+            
+             The procedure counts every foreign key referencing the row first. A
+             designation that disappears from under 300 employees is not a deletion,
+             it is a corruption - so that case comes back as a 409 telling the user to
+             deactivate instead.
+             </summary>
+        </member>
         <member name="M:Diti365.Api.Controllers.V2.MeController.Dashboard">
             <summary>The role dashboard: several widget result sets in a single round trip.</summary>
         </member>

@@ -19,3 +19,4 @@ c:\dev\diti365\api\src\Diti365.Application\obj\Debug\net10.0\refint\Diti365.Appl
 c:\dev\diti365\api\src\Diti365.Application\obj\Debug\net10.0\Diti365.Application.xml
 c:\dev\diti365\api\src\Diti365.Application\obj\Debug\net10.0\Diti365.Application.pdb
 c:\dev\diti365\api\src\Diti365.Application\obj\Debug\net10.0\ref\Diti365.Application.dll
+C:\dev\diti365\api\src\Diti365.Application\obj\Debug\net10.0\Diti365.Application.sourcelink.json

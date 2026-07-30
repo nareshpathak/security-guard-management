@@ -207,6 +207,9 @@
         <member name="M:Diti365.Infrastructure.Repositories.IMasterRepository.GetBootstrapAsync(System.Threading.CancellationToken)">
             <summary>Thirteen result sets in one round trip - the mobile cold-start call.</summary>
         </member>
+        <member name="M:Diti365.Infrastructure.Repositories.MasterRepository.GetMasterCatalogAsync(System.Threading.CancellationToken)">
+            <summary>Which reference lists this user may manage, and how each behaves.</summary>
+        </member>
         <member name="T:Diti365.Infrastructure.Repositories.IOpsRepository">
              <summary>
              Deployment, turnout, movement, patrol and tracking.

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${jetbrains.variable} antialiased`}>
+      <body className={`${inter.variable} ${jetbrains.variable} antialiased`} suppressHydrationWarning>
         <Providers>
           <Suspense fallback={<div className="p-8 text-sm text-[var(--diti-muted)]">Loading…</div>}>
             {children}

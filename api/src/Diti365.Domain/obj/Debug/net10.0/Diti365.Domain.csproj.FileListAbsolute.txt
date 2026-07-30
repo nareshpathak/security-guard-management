@@ -11,3 +11,4 @@ c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\refint\Diti365.Domain.dl
 c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\Diti365.Domain.xml
 c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\Diti365.Domain.pdb
 c:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\ref\Diti365.Domain.dll
+C:\dev\diti365\api\src\Diti365.Domain\obj\Debug\net10.0\Diti365.Domain.sourcelink.json

@@ -98,3 +98,4 @@ c:\dev\diti365\api\src\Diti365.Api\obj\Debug\net10.0\Diti365.Api.xml
 c:\dev\diti365\api\src\Diti365.Api\obj\Debug\net10.0\Diti365.Api.pdb
 c:\dev\diti365\api\src\Diti365.Api\obj\Debug\net10.0\Diti365.Api.genruntimeconfig.cache
 c:\dev\diti365\api\src\Diti365.Api\obj\Debug\net10.0\ref\Diti365.Api.dll
+C:\dev\diti365\api\src\Diti365.Api\obj\Debug\net10.0\Diti365.Api.sourcelink.json
