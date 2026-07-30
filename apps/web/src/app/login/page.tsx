@@ -38,7 +38,7 @@ export default function LoginPage() {
     setError(null);
     try {
       await login(loginId, password);
-      router.replace(next);
+      window.location.href = next;
     } catch (err) {
       setError(
         err instanceof ApiError
