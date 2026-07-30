@@ -1,16 +1,5 @@
 "use client";
 
-import { ResourceList } from "@/components/resource-list";
-import { Status } from "@/components/status";
-import { cell } from "@/lib/list-query";
-import { count, date } from "@/lib/format";
-
-/**
- * The ledger filtered to what is still out.
- *
- * The full ledger answers "what happened"; this answers "who has our kit",
- * which is the question at an exit interview.
- */
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import {
