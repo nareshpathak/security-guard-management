@@ -158,75 +158,95 @@ export function PrintModal({
 }
 
 /**
- * DITI365 Premium Corporate Letterhead Header
+ * DITI365 Ultra-Premium Corporate Letterhead Header
  */
 export function ReportCorporateHeader() {
   return (
-    <div className="relative mb-6 pb-4 border-b border-amber-300/40 select-none">
-      {/* Top-Left Folded Geometric Corner Artwork */}
-      <div className="absolute -top-8 -left-8 size-20 pointer-events-none overflow-hidden z-10">
-        <svg className="size-full" viewBox="0 0 100 100" fill="none">
-          <path d="M0 0 H100 L0 100 Z" fill="url(#cornerGradient)" />
+    <div className="relative mb-7 pb-5 select-none no-break">
+      {/* Top-Left Architectural Folded Geometric Artwork */}
+      <div className="absolute -top-8 -left-8 w-28 h-28 pointer-events-none overflow-hidden z-10">
+        <svg className="size-full" viewBox="0 0 120 120" fill="none">
+          <path d="M0 0 H120 L0 120 Z" fill="url(#cornerGradMain)" />
+          <path d="M0 0 H85 L0 85 Z" fill="url(#cornerGradAccent)" opacity="0.85" />
+          <path d="M0 80 L80 0 L84 0 L0 84 Z" fill="#fbbf24" opacity="0.9" />
           <defs>
-            <linearGradient id="cornerGradient" x1="0" y1="0" x2="1" y2="1">
+            <linearGradient id="cornerGradMain" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#0f172a" />
+              <stop offset="40%" stopColor="#1e1b4b" />
+              <stop offset="80%" stopColor="#312e81" />
+              <stop offset="100%" stopColor="#4338ca" />
+            </linearGradient>
+            <linearGradient id="cornerGradAccent" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stopColor="#1e1b4b" />
-              <stop offset="50%" stopColor="#312e81" />
               <stop offset="100%" stopColor="#2563eb" />
             </linearGradient>
           </defs>
         </svg>
       </div>
 
-      {/* Top-Right Pinned Bookmark Ribbon Badge */}
-      <div className="absolute -top-8 right-4 w-14 h-24 bg-gradient-to-b from-[#1e1b4b] via-[#312e81] to-[#3730a3] text-white shadow-xl z-20 flex flex-col items-center justify-between pt-3 pb-4 rounded-b-sm border-x border-indigo-400/30" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 88%, 0 100%)" }}>
-        <div className="flex size-7 items-center justify-center rounded-full bg-amber-400/20 border border-amber-300/60 shadow-inner">
-          <ShieldCheck className="size-4 text-amber-300" />
+      {/* Top-Right Pinned Gold-Edged Bookmark Ribbon Badge */}
+      <div
+        className="absolute -top-8 right-5 w-16 h-28 bg-gradient-to-b from-[#0f172a] via-[#1e1b4b] to-[#312e81] text-white shadow-2xl z-20 flex flex-col items-center justify-between pt-3.5 pb-4 rounded-b-sm border-x-2 border-amber-400/80"
+        style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 88%, 0 100%)" }}
+      >
+        <div className="flex size-8 items-center justify-center rounded-full bg-gradient-to-br from-amber-300 via-amber-400 to-amber-500 text-[#0f172a] shadow-md border border-white">
+          <ShieldCheck className="size-4 text-[#0f172a] stroke-[2.5]" />
         </div>
-        <div className="text-[7.5px] font-black uppercase tracking-widest text-center leading-tight space-y-0.5 text-indigo-100">
+        <div className="text-[8px] font-black uppercase tracking-widest text-center leading-tight space-y-0.5 text-amber-200">
           <div>TRUST</div>
-          <div>SECURITY</div>
+          <div className="text-white">SECURITY</div>
           <div>EXCELLENCE</div>
         </div>
       </div>
 
       {/* Main Header Row */}
-      <div className="flex items-start justify-between pr-20 pt-1">
-        {/* Left Company Branding */}
-        <div className="flex items-center gap-3.5">
-          <div className="flex size-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#1e1b4b] via-[#312e81] to-[#4338ca] text-white shadow-lg border border-indigo-400/30">
-            <div className="text-center font-black leading-none">
-              <div className="text-[13px] tracking-tighter">D365</div>
+      <div className="flex items-start justify-between pr-24 pt-1">
+        {/* Left Company Branding & Emblem */}
+        <div className="flex items-center gap-4">
+          <div className="relative flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81] text-white shadow-xl border-2 border-amber-400/70 p-1">
+            <div className="flex size-full flex-col items-center justify-center rounded-xl bg-gradient-to-br from-[#1e1b4b] to-[#4338ca] text-center">
+              <Shield className="size-4 text-amber-400 mb-0.5" />
+              <div className="text-[12px] font-black tracking-tighter text-white leading-none">D365</div>
             </div>
           </div>
           <div>
-            <h1 className="text-xl font-black tracking-tight text-[#1e1b4b] uppercase leading-none">
-              DITI365 SECURITY OPERATIONS
-            </h1>
-            <p className="mt-1 text-[11px] font-medium text-slate-500 tracking-normal">
+            <div className="flex items-center gap-2">
+              <h1 className="text-2xl font-black tracking-tight text-[#0f172a] uppercase leading-none">
+                DITI365 SECURITY OPERATIONS
+              </h1>
+            </div>
+            <div className="h-0.5 w-24 bg-gradient-to-r from-amber-400 via-indigo-600 to-transparent my-1.5 rounded-full" />
+            <p className="text-[11px] font-extrabold text-slate-600 uppercase tracking-widest">
               Enterprise Security & Facility Management OS
             </p>
           </div>
         </div>
 
         {/* Right Contact Info Block */}
-        <div className="text-right space-y-0.5 text-[10.5px] text-slate-600 font-medium">
-          <div className="flex items-center justify-end gap-1.5">
-            <Phone className="size-3 text-indigo-600" />
-            <span>+91 12345 67890</span>
+        <div className="text-right space-y-1 text-[10.5px] text-slate-700 font-semibold">
+          <div className="inline-flex items-center gap-1.5 rounded-md bg-slate-100/90 px-2 py-0.5">
+            <Phone className="size-3 text-indigo-600 shrink-0" />
+            <span className="tabular-nums">+91 12345 67890</span>
           </div>
           <div className="flex items-center justify-end gap-1.5">
-            <Mail className="size-3 text-indigo-600" />
+            <Mail className="size-3 text-indigo-600 shrink-0" />
             <span>info@diti365.com</span>
           </div>
           <div className="flex items-center justify-end gap-1.5">
-            <Globe className="size-3 text-indigo-600" />
+            <Globe className="size-3 text-indigo-600 shrink-0" />
             <span>www.diti365.com</span>
           </div>
-          <div className="flex items-center justify-end gap-1.5 text-indigo-900 font-bold">
-            <MapPin className="size-3 text-amber-500" />
+          <div className="inline-flex items-center gap-1.5 rounded-md bg-amber-50 px-2.5 py-0.5 text-amber-900 font-extrabold border border-amber-300/60 shadow-2xs">
+            <MapPin className="size-3 text-amber-600 shrink-0" />
             <span>Secure Today, Safer Tomorrow</span>
           </div>
         </div>
+      </div>
+
+      {/* Double Premium Divider Rule Line */}
+      <div className="mt-4 space-y-0.5">
+        <div className="h-1 w-full rounded-full bg-gradient-to-r from-[#0f172a] via-amber-400 to-[#312e81]" />
+        <div className="h-0.5 w-full bg-slate-200" />
       </div>
     </div>
   );
