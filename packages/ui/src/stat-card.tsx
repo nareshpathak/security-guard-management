@@ -22,32 +22,43 @@ export function StatCard({
 }) {
   const toneBorder =
     tone === "danger"
-      ? "border-l-[var(--diti-danger)]"
+      ? "border-l-red-600 bg-gradient-to-br from-white via-white to-red-50/20"
       : tone === "success"
-        ? "border-l-[var(--diti-success)]"
+        ? "border-l-emerald-600 bg-gradient-to-br from-white via-white to-emerald-50/20"
         : tone === "warning"
-          ? "border-l-[var(--diti-warning)]"
-          : "border-l-[var(--diti-primary)]";
+          ? "border-l-amber-500 bg-gradient-to-br from-white via-white to-amber-50/20"
+          : "border-l-[#581c87] bg-gradient-to-br from-white via-white to-purple-50/25";
+
+  const trendTone =
+    tone === "danger"
+      ? "bg-red-50 text-red-800 border-red-200"
+      : tone === "success"
+        ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+        : tone === "warning"
+          ? "bg-amber-50 text-amber-900 border-amber-200"
+          : "bg-purple-50 text-purple-900 border-purple-200/80";
 
   const body = (
     <div
       className={cn(
-        "relative overflow-hidden rounded-[var(--diti-radius-lg)] border border-[var(--diti-border)] bg-gradient-to-br from-[var(--diti-surface)] to-slate-50/70 dark:to-slate-900/90 p-5 shadow-xs transition-all duration-200 border-l-4 hover:shadow-md hover:border-r-[var(--diti-border-strong)]",
+        "relative overflow-hidden rounded-2xl border border-slate-200/90 dark:border-slate-800/90 p-5.5 shadow-xs transition-all duration-200 border-l-4 hover:shadow-md hover:border-purple-200/80 hover:-translate-y-0.5 select-none",
         toneBorder,
-        href && "cursor-pointer hover:-translate-y-1",
+        href && "cursor-pointer",
         className,
       )}
     >
       <div className="flex items-center justify-between gap-2">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--diti-muted)]">{label}</div>
+        <div className="text-[11px] font-extrabold uppercase tracking-wider text-slate-500">{label}</div>
         {trend ? (
-          <span className="rounded-full bg-[var(--diti-primary-subtle)] px-2.5 py-0.5 text-[10px] font-bold text-[var(--diti-primary)] border border-[var(--diti-primary)]/20 shadow-2xs">
+          <span className={cn("rounded-full px-2.5 py-0.5 text-[10px] font-extrabold border shadow-2xs", trendTone)}>
             {trend}
           </span>
         ) : null}
       </div>
-      <div className="mt-2.5 text-3xl font-extrabold tabular-nums tracking-tight text-[var(--diti-text)]">{value}</div>
-      {hint ? <div className="mt-1.5 text-xs text-[var(--diti-muted)] font-medium leading-snug">{hint}</div> : null}
+      <div className="mt-3 text-3xl sm:text-3.5xl font-black tabular-nums tracking-tight text-slate-900 dark:text-slate-100 leading-none">
+        {value}
+      </div>
+      {hint ? <div className="mt-2 text-xs text-slate-500 font-semibold leading-relaxed">{hint}</div> : null}
     </div>
   );
 

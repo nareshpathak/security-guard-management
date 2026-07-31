@@ -16,30 +16,37 @@ export function PageHeader({
   className?: string;
 }) {
   return (
-    <div className={cn("mb-6 flex flex-col gap-3.5 sm:flex-row sm:items-start sm:justify-between border-b border-slate-200/80 dark:border-slate-800/80 pb-5", className)}>
-      <div>
+    <div className={cn("mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between border-b border-slate-200/80 dark:border-slate-800/80 pb-5 select-none", className)}>
+      <div className="flex-1 min-w-0">
         {breadcrumbs && breadcrumbs.length > 0 ? (
-          <nav className="mb-2 flex items-center gap-1.5 text-xs text-slate-500 font-medium select-none">
+          <nav className="mb-2.5 flex items-center gap-1.5 text-xs text-slate-500 font-semibold">
             {breadcrumbs.map((b, i) => (
               <span key={i} className="flex items-center gap-1.5">
-                {i > 0 ? <span className="text-slate-300 dark:text-slate-700">/</span> : null}
+                {i > 0 ? <span className="text-slate-300 dark:text-slate-700 font-normal">/</span> : null}
                 {b.href ? (
-                  <a href={b.href} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                  <a href={b.href} className="hover:text-purple-700 dark:hover:text-purple-400 transition-colors">
                     {b.label}
                   </a>
                 ) : (
-                  <span className="text-slate-900 dark:text-slate-100 font-semibold">{b.label}</span>
+                  <span className="text-slate-900 dark:text-slate-100 font-extrabold">{b.label}</span>
                 )}
               </span>
             ))}
           </nav>
         ) : null}
-        <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">{title}</h1>
+        <div className="flex items-center gap-3">
+          <div className="h-6 w-1 rounded-full bg-gradient-to-b from-[#4c1d95] to-[#6366f1] shrink-0" />
+          <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-slate-100 leading-none truncate">
+            {title}
+          </h1>
+        </div>
         {description ? (
-          <p className="mt-1 max-w-3xl text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 leading-relaxed">{description}</p>
+          <p className="mt-2 max-w-3xl text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400 leading-relaxed pl-4">
+            {description}
+          </p>
         ) : null}
       </div>
-      {actions ? <div className="flex flex-wrap items-center gap-2.5 shrink-0">{actions}</div> : null}
+      {actions ? <div className="flex flex-wrap items-center gap-2.5 shrink-0 pt-1">{actions}</div> : null}
     </div>
   );
 }
