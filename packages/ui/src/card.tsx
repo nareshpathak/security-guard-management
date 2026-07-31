@@ -13,7 +13,7 @@ export function Card({
   return (
     <div
       className={cn(
-        "rounded-[var(--diti-radius-lg)] border border-[var(--diti-border)] bg-[var(--diti-surface)] p-5 shadow-sm",
+        "rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs transition-all duration-200",
         className,
       )}
       {...props}
@@ -31,7 +31,7 @@ export function CardHeader({
   children?: React.ReactNode;
 }) {
   return (
-    <div className={cn("border-b border-[var(--diti-border)] px-5 py-4", className)}>
+    <div className={cn("border-b border-slate-100 dark:border-slate-800/80 px-6 py-4 bg-slate-50/40 dark:bg-slate-900/40 rounded-t-xl", className)}>
       {children}
     </div>
   );
@@ -45,7 +45,7 @@ export function CardContent({
   children?: React.ReactNode;
 }) {
   return (
-    <div className={cn("px-5 py-4", className)}>
+    <div className={cn("px-6 py-5", className)}>
       {children}
     </div>
   );
@@ -59,7 +59,7 @@ export function CardFooter({
   children?: React.ReactNode;
 }) {
   return (
-    <div className={cn("border-t border-[var(--diti-border)] px-5 py-3", className)}>
+    <div className={cn("border-t border-slate-100 dark:border-slate-800/80 px-6 py-3.5 bg-slate-50/50 dark:bg-slate-900/50 rounded-b-xl", className)}>
       {children}
     </div>
   );
