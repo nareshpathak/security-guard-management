@@ -76,7 +76,7 @@ export default function DashboardPage() {
   const expiringContracts = useQuery({
     queryKey: ["contracts-expiring-dash"],
     queryFn: async () =>
-      (await getApi().get<Row[]>("/api/v2/contracts", { onlyExpiring: true, page: 1, pageSize: 6 })).data,
+      (await getApi().get<Row[]>("/api/v2/reports/contract", { page: 1, pageSize: 6 })).data,
   });
 
   const outstanding = useQuery({

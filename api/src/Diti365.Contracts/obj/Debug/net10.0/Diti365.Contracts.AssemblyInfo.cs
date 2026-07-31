@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Diti365.Contracts")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb8ede368657734da4d961bc012dae84a23176dd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a3f84be175629f646346643cec23d717199817f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Diti365.Contracts")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Diti365.Contracts")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
