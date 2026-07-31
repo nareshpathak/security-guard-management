@@ -69,10 +69,10 @@ export function PrintModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4 sm:p-6 backdrop-blur-md print:p-0 print:bg-white">
-      <div className="flex h-[92vh] w-full max-w-6xl flex-col rounded-2xl border border-slate-700/60 bg-slate-900 shadow-2xl overflow-hidden print:h-auto print:max-w-none print:border-none print:shadow-none print:bg-white print:rounded-none">
-        {/* Modal Top Action Bar */}
-        <div className="flex items-center justify-between border-b border-slate-800 px-6 py-4 bg-slate-900/90 text-white shrink-0 print:hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4 sm:p-6 backdrop-blur-md print:static print:p-0 print:bg-transparent">
+      <div className="flex h-[92vh] w-full max-w-6xl flex-col rounded-2xl border border-slate-700/60 bg-slate-900 shadow-2xl overflow-hidden print:static print:h-auto print:max-w-none print:border-none print:shadow-none print:bg-transparent print:rounded-none">
+        {/* Modal Top Action Bar (Hidden during Print) */}
+        <div className="flex items-center justify-between border-b border-slate-800 px-6 py-4 bg-slate-900/90 text-white shrink-0 no-print print:hidden">
           <div className="flex items-center gap-3">
             <div className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white shadow-md">
               <Shield className="size-5" />
@@ -97,62 +97,16 @@ export function PrintModal({
           </div>
         </div>
 
-        {/* Scrollable Document Container */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-8 bg-slate-950 flex justify-center print:p-0 print:bg-white print:overflow-visible">
+        {/* Scrollable Document Container (Unconstrained during Print) */}
+        <div className="flex-1 overflow-y-auto p-4 sm:p-8 bg-slate-950 flex justify-center print:static print:p-0 print:bg-white print:overflow-visible">
           <div
             ref={contentRef}
-            className="w-full max-w-[210mm] min-h-[297mm] bg-white text-slate-900 p-8 shadow-2xl rounded-xl font-sans text-xs print:p-0 print:shadow-none print:w-full print:max-w-none print:min-h-0 print:rounded-none relative"
+            className="w-full max-w-[210mm] min-h-[297mm] bg-white text-slate-900 p-8 shadow-2xl rounded-xl font-sans text-xs print:static print:p-0 print:shadow-none print:w-full print:max-w-none print:min-h-0 print:rounded-none print:bg-white relative"
           >
             {children}
           </div>
         </div>
       </div>
-
-      {/* Multi-Page Print CSS Optimization */}
-      <style jsx global>{`
-        @media print {
-          body {
-            background: white !important;
-            color: black !important;
-          }
-          body * {
-            visibility: hidden !important;
-          }
-          .print-area, .print-area * {
-            visibility: visible !important;
-          }
-          .print-area {
-            position: absolute !important;
-            left: 0 !important;
-            top: 0 !important;
-            width: 100% !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            background: white !important;
-            color: black !important;
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
-          }
-          @page {
-            size: A4 portrait;
-            margin: 10mm 12mm 12mm 12mm;
-          }
-          thead {
-            display: table-header-group;
-          }
-          tfoot {
-            display: table-footer-group;
-          }
-          tr, td, th {
-            break-inside: avoid !important;
-            page-break-inside: avoid !important;
-          }
-          .no-break {
-            break-inside: avoid !important;
-            page-break-inside: avoid !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }

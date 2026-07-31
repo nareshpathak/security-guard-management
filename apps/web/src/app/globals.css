@@ -207,3 +207,98 @@ textarea::placeholder {
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
+/* ==============================================================================
+   WORLD-CLASS A4 MULTI-PAGE PRINT & PDF GENERATION ARCHITECTURE
+   ============================================================================== */
+@media print {
+  /* 1. Hide non-printable application chrome, navigation, headers, footers & modals */
+  nav,
+  header,
+  aside,
+  footer,
+  .no-print,
+  .print\:hidden,
+  button,
+  .modal-backdrop {
+    display: none !important;
+  }
+
+  /* 2. Reset html & body dimensions */
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 3. Unset fixed/absolute modal dialog containers & scroll wrappers */
+  div,
+  main,
+  section,
+  [role="dialog"] {
+    position: static !important;
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  /* 4. Natural document flow for printable document root */
+  .print-area {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    overflow: visible !important;
+  }
+
+  /* 5. A4 Page geometry & margins */
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 12mm 12mm;
+  }
+
+  /* 6. Table multi-page repeating headers & row break protection */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  tfoot {
+    display: table-footer-group !important;
+  }
+
+  tr,
+  td,
+  th {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .no-break {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}
