@@ -7,19 +7,19 @@ type Variant = "primary" | "secondary" | "ghost" | "danger" | "outline" | "subtl
 type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-[var(--diti-primary)] text-white hover:bg-[var(--diti-primary-hover)] shadow-xs active:scale-[0.98]",
-  secondary: "bg-[var(--diti-primary-subtle)] text-[var(--diti-primary)] hover:opacity-90 active:scale-[0.98]",
-  subtle: "bg-[var(--diti-surface-sunken)] text-[var(--diti-text)] hover:bg-[var(--diti-border)] active:scale-[0.98]",
-  ghost: "bg-transparent text-[var(--diti-text)] hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-[0.98]",
-  danger: "bg-[var(--diti-danger)] text-white hover:opacity-90 shadow-xs active:scale-[0.98]",
+  primary: "bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm shadow-indigo-600/25 active:scale-[0.98] font-semibold border border-indigo-500/20",
+  secondary: "bg-indigo-50 text-indigo-700 hover:bg-indigo-100 dark:bg-indigo-950/80 dark:text-indigo-300 active:scale-[0.98] font-semibold border border-indigo-200/50 dark:border-indigo-800/50",
+  subtle: "bg-slate-100 text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 active:scale-[0.98] font-medium border border-slate-200/60 dark:border-slate-700/60",
+  ghost: "bg-transparent text-[var(--diti-text)] hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-[0.98]",
+  danger: "bg-red-600 text-white hover:bg-red-700 shadow-sm shadow-red-600/25 active:scale-[0.98] font-semibold border border-red-500/20",
   outline:
-    "border border-[var(--diti-border)] bg-[var(--diti-surface)] text-[var(--diti-text)] hover:bg-zinc-50 dark:hover:bg-zinc-800 shadow-xs active:scale-[0.98]",
+    "border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-2xs active:scale-[0.98] font-medium",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "h-8 px-3 text-xs gap-1.5 font-medium",
-  md: "h-9.5 px-4 text-xs font-semibold gap-2",
-  lg: "h-11 px-5 text-sm font-semibold gap-2.5",
+  sm: "h-8 px-3 text-xs gap-1.5 rounded-md",
+  md: "h-9.5 px-4 text-xs font-semibold gap-2 rounded-lg",
+  lg: "h-11 px-5 text-sm font-semibold gap-2.5 rounded-xl",
 };
 
 export function Button({
@@ -39,7 +39,7 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center rounded-[var(--diti-radius-md)] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--diti-primary)] disabled:pointer-events-none disabled:opacity-50",
+        "inline-flex items-center justify-center transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/30 focus-visible:border-indigo-600 disabled:pointer-events-none disabled:opacity-50 select-none",
         variants[variant],
         sizes[size],
         className,

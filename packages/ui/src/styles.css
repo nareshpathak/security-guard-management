@@ -1,27 +1,28 @@
 /*==============================================================================
-  Diti365 Enterprise SaaS Design Tokens - docs/prd/03-web.md §1.1
+  Diti365 Enterprise SaaS Design Tokens — Stripe/Linear Enterprise Standard
 
-  Every token is defined for BOTH themes with AAA/AA accessibility contrast.
-  Includes typography tokens, table zebra striping, and collapsible sidebar widths.
+  Defined for Light & Dark mode with AAA/AA accessibility contrast.
+  Features indigo/cyan brand accent tones, soft slate surfaces, micro-shadows,
+  and smooth transitions.
 ==============================================================================*/
 
 :root {
-  /* brand */
-  --diti-primary: #0284c7;
-  --diti-primary-hover: #0369a1;
-  --diti-primary-subtle: #f0f9ff;
+  /* brand indigo & cyan accent */
+  --diti-primary: #4f46e5;
+  --diti-primary-hover: #4338ca;
+  --diti-primary-subtle: #eef2ff;
   --diti-primary-fg: #ffffff;
-  --diti-accent: #0d9488;
-  --diti-accent-subtle: #f0fdf4;
+  --diti-accent: #0ea5e9;
+  --diti-accent-subtle: #f0f9ff;
 
   /* semantic */
-  --diti-success: #15803d;
+  --diti-success: #16a34a;
   --diti-success-subtle: #f0fdf4;
-  --diti-warning: #b45309;
+  --diti-warning: #d97706;
   --diti-warning-subtle: #fffbeb;
-  --diti-danger: #b91c1c;
+  --diti-danger: #dc2626;
   --diti-danger-subtle: #fef2f2;
-  --diti-info: #0369a1;
+  --diti-info: #0ea5e9;
   --diti-info-subtle: #f0f9ff;
 
   /* status tokens */
@@ -30,7 +31,7 @@
   --diti-halfday: #d97706;
   --diti-leave: #7c3aed;
   --diti-weekoff: #64748b;
-  --diti-holiday: #0284c7;
+  --diti-holiday: #0ea5e9;
   --diti-pending: #d97706;
 
   /* surfaces & high-contrast text */
@@ -39,7 +40,7 @@
   --diti-surface-raised: #ffffff;
   --diti-surface-sunken: #f1f5f9;
   --diti-surface-stripe: #f8fafc;
-  --diti-overlay: rgb(15 23 42 / 0.50);
+  --diti-overlay: rgb(15 23 42 / 0.40);
   --diti-border: #e2e8f0;
   --diti-border-strong: #cbd5e1;
   --diti-text: #0f172a;
@@ -53,15 +54,15 @@
   --diti-radius-xl: 16px;
   --diti-radius-full: 9999px;
 
-  /* shadows */
-  --diti-shadow-xs: 0 1px 2px rgb(15 23 42 / 0.04);
-  --diti-shadow-sm: 0 1px 3px rgb(15 23 42 / 0.06), 0 1px 2px rgb(15 23 42 / 0.04);
-  --diti-shadow-md: 0 4px 6px -1px rgb(15 23 42 / 0.07), 0 2px 4px -2px rgb(15 23 42 / 0.05);
-  --diti-shadow-lg: 0 10px 25px -5px rgb(15 23 42 / 0.10), 0 8px 10px -6px rgb(15 23 42 / 0.05);
+  /* micro-shadows */
+  --diti-shadow-xs: 0 1px 2px 0 rgb(15 23 42 / 0.03);
+  --diti-shadow-sm: 0 1px 3px 0 rgb(15 23 42 / 0.05), 0 1px 2px -1px rgb(15 23 42 / 0.05);
+  --diti-shadow-md: 0 4px 6px -1px rgb(15 23 42 / 0.06), 0 2px 4px -2px rgb(15 23 42 / 0.04);
+  --diti-shadow-lg: 0 10px 25px -5px rgb(15 23 42 / 0.08), 0 8px 10px -6px rgb(15 23 42 / 0.04);
   --diti-shadow: var(--diti-shadow-sm);
 
   /* focus ring */
-  --diti-ring: #0284c7;
+  --diti-ring: #6366f1;
 
   /* layout & sidebar variables */
   --diti-sidebar-width: 260px;
@@ -69,12 +70,12 @@
 }
 
 .dark {
-  --diti-primary: #38bdf8;
-  --diti-primary-hover: #7dd3fc;
-  --diti-primary-subtle: #0c4a6e;
+  --diti-primary: #818cf8;
+  --diti-primary-hover: #a5b4fc;
+  --diti-primary-subtle: #1e1b4b;
   --diti-primary-fg: #0f172a;
-  --diti-accent: #2dd4bf;
-  --diti-accent-subtle: #134e4a;
+  --diti-accent: #38bdf8;
+  --diti-accent-subtle: #0c4a6e;
 
   --diti-success: #4ade80;
   --diti-success-subtle: #14532d;
@@ -94,16 +95,16 @@
   --diti-pending: #fbbf24;
 
   --diti-bg: #090d16;
-  --diti-surface: #111827;
-  --diti-surface-raised: #1f2937;
+  --diti-surface: #0f172a;
+  --diti-surface-raised: #1e293b;
   --diti-surface-sunken: #0b1120;
-  --diti-surface-stripe: #172033;
+  --diti-surface-stripe: #141e33;
   --diti-overlay: rgb(0 0 0 / 0.70);
-  --diti-border: #1f2937;
-  --diti-border-strong: #374151;
-  --diti-text: #f9fafb;
-  --diti-muted: #9ca3af;
-  --diti-faint: #6b7280;
+  --diti-border: #1e293b;
+  --diti-border-strong: #334155;
+  --diti-text: #f8fafc;
+  --diti-muted: #94a3b8;
+  --diti-faint: #64748b;
 
   --diti-shadow-xs: 0 1px 2px rgb(0 0 0 / 0.40);
   --diti-shadow-sm: 0 1px 3px rgb(0 0 0 / 0.50);
@@ -111,7 +112,7 @@
   --diti-shadow-lg: 0 10px 25px -5px rgb(0 0 0 / 0.65);
   --diti-shadow: var(--diti-shadow-sm);
 
-  --diti-ring: #38bdf8;
+  --diti-ring: #818cf8;
 }
 
 /* Custom scrollbars for sidebars and tables */
@@ -144,4 +145,5 @@
     scroll-behavior: auto !important;
   }
 }
+
 

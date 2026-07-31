@@ -246,10 +246,10 @@ export function AppShell({
             type="button"
             onClick={() => toggleSubmenu(item.href)}
             className={cn(
-              "flex w-full items-center justify-between rounded-[var(--diti-radius-md)] px-2.5 py-2 text-xs font-medium transition-all duration-150",
+              "flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-xs font-semibold transition-all duration-150 select-none",
               active
-                ? "bg-[var(--diti-primary-subtle)] font-semibold text-[var(--diti-primary)]"
-                : "text-[var(--diti-muted)] hover:bg-slate-100 hover:text-[var(--diti-text)] dark:hover:bg-zinc-800",
+                ? "bg-indigo-50 dark:bg-indigo-950/80 font-bold text-indigo-700 dark:text-indigo-300 border border-indigo-200/50 dark:border-indigo-800/50"
+                : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-100",
             )}
           >
             <div className="flex items-center gap-2.5 truncate">
@@ -261,7 +261,7 @@ export function AppShell({
             />
           </button>
           {isExpanded && (
-            <ul className="mt-1 space-y-1 border-l border-[var(--diti-border)] ml-3.5 pl-2.5">
+            <ul className="mt-1 space-y-1 border-l-2 border-indigo-200/80 dark:border-indigo-800/80 ml-3.5 pl-2.5">
               {item.children?.map((child) => renderNavItem(child, true))}
             </ul>
           )}
@@ -275,25 +275,25 @@ export function AppShell({
           href={item.href}
           onClick={() => setMobileOpen(false)}
           className={cn(
-            "flex items-center gap-2.5 rounded-[var(--diti-radius-md)] px-2.5 py-2 text-xs transition-all duration-150 relative",
+            "flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-xs transition-all duration-150 relative select-none",
             isChild && "py-1.5 text-[11px]",
             active
-              ? "bg-[var(--diti-primary)] font-semibold text-white shadow-xs"
-              : "text-[var(--diti-muted)] hover:bg-slate-100 hover:text-[var(--diti-text)] dark:hover:bg-zinc-800",
+              ? "bg-gradient-to-r from-indigo-600 to-blue-600 font-bold text-white shadow-sm shadow-indigo-500/25 border border-indigo-500/30"
+              : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-100",
             collapsed && "justify-center px-0 py-2.5",
           )}
         >
           <Icon className={cn("size-4 shrink-0", active ? "text-white" : "text-current")} />
-          {!collapsed && <span className="truncate">{item.label}</span>}
+          {!collapsed && <span className="truncate font-medium">{item.label}</span>}
 
           {/* Floating Tooltip in Collapsed Mode */}
           {collapsed && (
-            <div className="absolute left-full top-1/2 ml-3 -translate-y-1/2 z-50 hidden group-hover:flex flex-col rounded-md border border-[var(--diti-border)] bg-[var(--diti-surface)] p-2.5 text-xs text-[var(--diti-text)] shadow-xl whitespace-nowrap">
-              <span className="font-bold text-[var(--diti-primary)]">{item.label}</span>
+            <div className="absolute left-full top-1/2 ml-3 -translate-y-1/2 z-50 hidden group-hover:flex flex-col rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2.5 text-xs text-slate-900 dark:text-slate-100 shadow-xl whitespace-nowrap">
+              <span className="font-bold text-indigo-600 dark:text-indigo-400">{item.label}</span>
               {hasChildren && (
-                <div className="mt-1 pt-1 border-t border-[var(--diti-border)] flex flex-col gap-1 text-[11px] text-[var(--diti-muted)]">
+                <div className="mt-1 pt-1 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-1 text-[11px] text-slate-500">
                   {item.children?.map((child) => (
-                    <span key={child.href} className="hover:text-[var(--diti-primary)]">
+                    <span key={child.href} className="hover:text-indigo-600">
                       • {child.label}
                     </span>
                   ))}
@@ -309,22 +309,22 @@ export function AppShell({
   const NavContent = (
     <nav className="flex h-full flex-col select-none">
       {/* Sidebar Header */}
-      <div className="flex h-14 items-center justify-between border-b border-[var(--diti-border)] px-4">
+      <div className="flex h-14 items-center justify-between border-b border-slate-200/90 dark:border-slate-800/90 px-4">
         <div className="flex items-center gap-2.5 truncate">
-          <div className="flex size-8 shrink-0 items-center justify-center rounded-[var(--diti-radius-md)] bg-[var(--diti-primary)] text-xs font-bold text-white shadow-xs">
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600 to-blue-600 text-xs font-black text-white shadow-sm shadow-indigo-500/25">
             D
           </div>
           {!collapsed && (
             <div className="truncate">
-              <div className="text-xs font-bold tracking-tight text-[var(--diti-text)]">Diti365 ERP</div>
-              <div className="text-[10px] font-medium text-[var(--diti-muted)]">Enterprise Operations</div>
+              <div className="text-xs font-black tracking-tight text-slate-900 dark:text-slate-100">Diti365 ERP</div>
+              <div className="text-[10px] font-semibold text-slate-500">Enterprise Operations</div>
             </div>
           )}
         </div>
         <button
           type="button"
           onClick={() => setCollapsed(!collapsed)}
-          className="hidden lg:flex size-7 items-center justify-center rounded-md border border-[var(--diti-border)] text-[var(--diti-muted)] hover:bg-slate-100 hover:text-[var(--diti-text)] dark:hover:bg-zinc-800"
+          className="hidden lg:flex size-7 items-center justify-center rounded-md border border-slate-200 dark:border-slate-800 text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800"
           title={collapsed ? "Expand Sidebar" : "Collapse Sidebar"}
         >
           {collapsed ? <ChevronRight className="size-4" /> : <ChevronLeft className="size-4" />}
@@ -336,11 +336,11 @@ export function AppShell({
         {nav.map((group) => (
           <div key={group.label}>
             {!collapsed ? (
-              <div className="mb-1.5 px-2 text-[10px] font-bold uppercase tracking-wider text-[var(--diti-faint)]">
+              <div className="mb-1.5 px-2 text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                 {group.label}
               </div>
             ) : (
-              <div className="my-2 border-t border-[var(--diti-border)]" />
+              <div className="my-2 border-t border-slate-200 dark:border-slate-800" />
             )}
             <ul className="space-y-0.5">{group.items.map((item) => renderNavItem(item))}</ul>
           </div>
@@ -348,13 +348,13 @@ export function AppShell({
       </div>
 
       {/* User Footer Profile */}
-      <div className="border-t border-[var(--diti-border)] p-3 bg-[var(--diti-surface-sunken)]/40">
+      <div className="border-t border-slate-200/90 dark:border-slate-800/90 p-3 bg-slate-50/50 dark:bg-slate-900/50">
         {!collapsed ? (
           <>
-            <div className="mb-1 truncate text-xs font-bold text-[var(--diti-text)]">
+            <div className="mb-0.5 truncate text-xs font-bold text-slate-900 dark:text-slate-100">
               {userName ?? "Signed in"}
             </div>
-            <div className="mb-3 truncate text-[11px] font-medium text-[var(--diti-muted)]">
+            <div className="mb-3 truncate text-[11px] font-semibold text-slate-500">
               Role: {roleCode ?? "Administrator"}
             </div>
           </>
@@ -363,7 +363,7 @@ export function AppShell({
           <Button
             variant="outline"
             size="sm"
-            className={cn("flex-1 text-xs", collapsed && "px-0 justify-center")}
+            className={cn("flex-1 text-xs font-semibold", collapsed && "px-0 justify-center")}
             onClick={onToggleDark}
             type="button"
             title="Toggle Dark / Light Theme"
@@ -374,12 +374,12 @@ export function AppShell({
           <Button
             variant="outline"
             size="sm"
-            className={cn("flex-1 text-xs", collapsed && "px-0 justify-center")}
+            className={cn("flex-1 text-xs font-semibold", collapsed && "px-0 justify-center")}
             onClick={onLogout}
             type="button"
             title="Logout of session"
           >
-            <LogOut className="size-4 text-danger" />
+            <LogOut className="size-4 text-red-600" />
             {!collapsed && <span className="ml-1.5">Logout</span>}
           </Button>
         </div>
@@ -388,11 +388,11 @@ export function AppShell({
   );
 
   return (
-    <div className="flex min-h-screen bg-[var(--diti-bg)] text-[var(--diti-text)]">
+    <div className="flex min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
       {/* Desktop Sidebar */}
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-30 hidden shrink-0 border-r border-[var(--diti-border)] bg-[var(--diti-surface)] transition-all duration-300 ease-in-out lg:block",
+          "fixed inset-y-0 left-0 z-30 hidden shrink-0 border-r border-slate-200/90 dark:border-slate-800/90 bg-white dark:bg-slate-900 transition-all duration-300 ease-in-out lg:block shadow-2xs",
           collapsed ? "w-[68px]" : "w-[260px]",
         )}
       >
@@ -405,10 +405,10 @@ export function AppShell({
           <button
             type="button"
             aria-label="Close menu"
-            className="absolute inset-0 bg-black/50 backdrop-blur-xs"
+            className="absolute inset-0 bg-slate-950/40 backdrop-blur-xs"
             onClick={() => setMobileOpen(false)}
           />
-          <aside className="absolute inset-y-0 left-0 w-72 bg-[var(--diti-surface)] shadow-2xl">
+          <aside className="absolute inset-y-0 left-0 w-72 bg-white dark:bg-slate-900 shadow-2xl">
             {NavContent}
           </aside>
         </div>
@@ -422,17 +422,17 @@ export function AppShell({
         )}
       >
         {/* Mobile Header Bar */}
-        <header className="sticky top-0 z-20 flex h-14 items-center justify-between border-b border-[var(--diti-border)] bg-[var(--diti-surface)]/90 px-4 backdrop-blur lg:hidden">
+        <header className="sticky top-0 z-20 flex h-14 items-center justify-between border-b border-slate-200/90 dark:border-slate-800/90 bg-white/90 dark:bg-slate-900/90 px-4 backdrop-blur lg:hidden">
           <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
-              className="p-1 rounded-md hover:bg-slate-100 dark:hover:bg-zinc-800"
+              className="p-1 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
             >
               {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
-            <span className="font-bold text-sm">Diti365 ERP</span>
+            <span className="font-extrabold text-sm">Diti365 ERP</span>
           </div>
           <Button variant="outline" size="sm" onClick={onToggleDark}>
             {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}

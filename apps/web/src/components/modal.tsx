@@ -43,16 +43,16 @@ export function Modal({
   return (
     <DialogRoot open={open} onOpenChange={onOpenChange}>
       <DialogPortal>
-        <DialogOverlay className="fixed inset-0 z-40 bg-[var(--diti-overlay)]" />
-        <DialogContent className="fixed left-1/2 top-1/2 z-50 w-[calc(100vw-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-xl border border-border bg-surface p-6 shadow-lg focus:outline-none">
-          <DialogTitle className="text-lg font-semibold text-text">{title}</DialogTitle>
+        <DialogOverlay className="fixed inset-0 z-40 bg-slate-950/40 backdrop-blur-xs transition-opacity" />
+        <DialogContent className="fixed left-1/2 top-1/2 z-50 w-[calc(100vw-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-2xl focus:outline-none">
+          <DialogTitle className="text-lg font-bold text-slate-900 dark:text-slate-100 tracking-tight">{title}</DialogTitle>
           {description ? (
-            <DialogDescription className="mt-1 text-sm text-muted">{description}</DialogDescription>
+            <DialogDescription className="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">{description}</DialogDescription>
           ) : null}
 
           {children ? <div className="mt-4 space-y-4">{children}</div> : null}
 
-          <div className="mt-6 flex justify-end gap-2">
+          <div className="mt-6 flex justify-end gap-2.5">
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
