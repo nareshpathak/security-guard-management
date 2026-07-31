@@ -248,7 +248,7 @@ export function AppShell({
             className={cn(
               "flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-xs font-semibold transition-all duration-150 select-none",
               active
-                ? "bg-indigo-50 dark:bg-indigo-950/80 font-bold text-indigo-700 dark:text-indigo-300 border border-indigo-200/50 dark:border-indigo-800/50"
+                ? "bg-purple-50 dark:bg-purple-950/80 font-bold text-purple-900 dark:text-purple-200 border border-purple-200/80 dark:border-purple-800/80"
                 : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-100",
             )}
           >
@@ -261,7 +261,7 @@ export function AppShell({
             />
           </button>
           {isExpanded && (
-            <ul className="mt-1 space-y-1 border-l-2 border-indigo-200/80 dark:border-indigo-800/80 ml-3.5 pl-2.5">
+            <ul className="mt-1 space-y-1 border-l-2 border-purple-200/80 dark:border-purple-800/80 ml-3.5 pl-2.5">
               {item.children?.map((child) => renderNavItem(child, true))}
             </ul>
           )}
@@ -278,7 +278,7 @@ export function AppShell({
             "flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-xs transition-all duration-150 relative select-none",
             isChild && "py-1.5 text-[11px]",
             active
-              ? "bg-gradient-to-r from-indigo-600 to-blue-600 font-bold text-white shadow-sm shadow-indigo-500/25 border border-indigo-500/30"
+              ? "bg-gradient-to-r from-[#4c1d95] to-[#6366f1] font-bold text-white shadow-sm shadow-purple-900/25 border border-purple-500/30"
               : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-100",
             collapsed && "justify-center px-0 py-2.5",
           )}
@@ -289,11 +289,11 @@ export function AppShell({
           {/* Floating Tooltip in Collapsed Mode */}
           {collapsed && (
             <div className="absolute left-full top-1/2 ml-3 -translate-y-1/2 z-50 hidden group-hover:flex flex-col rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2.5 text-xs text-slate-900 dark:text-slate-100 shadow-xl whitespace-nowrap">
-              <span className="font-bold text-indigo-600 dark:text-indigo-400">{item.label}</span>
+              <span className="font-bold text-purple-700 dark:text-purple-400">{item.label}</span>
               {hasChildren && (
                 <div className="mt-1 pt-1 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-1 text-[11px] text-slate-500">
                   {item.children?.map((child) => (
-                    <span key={child.href} className="hover:text-indigo-600">
+                    <span key={child.href} className="hover:text-purple-700">
                       • {child.label}
                     </span>
                   ))}
@@ -311,7 +311,7 @@ export function AppShell({
       {/* Sidebar Header */}
       <div className="flex h-14 items-center justify-between border-b border-slate-200/90 dark:border-slate-800/90 px-4">
         <div className="flex items-center gap-2.5 truncate">
-          <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600 to-blue-600 text-xs font-black text-white shadow-sm shadow-indigo-500/25">
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#4c1d95] to-[#6366f1] text-xs font-black text-white shadow-sm shadow-purple-900/25">
             D
           </div>
           {!collapsed && (

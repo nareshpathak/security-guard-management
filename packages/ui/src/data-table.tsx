@@ -26,16 +26,16 @@ export function DataTable<T>({
   if (rows.length === 0) return <>{empty}</>;
 
   return (
-    <div className="overflow-hidden rounded-[var(--diti-radius-lg)] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs transition-all">
+    <div className="overflow-hidden rounded-[var(--diti-radius-lg)] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-all">
       <div className="overflow-x-auto max-h-[calc(100vh-220px)]">
         <table className="min-w-full text-left text-xs font-normal border-collapse">
-          <thead className="sticky top-0 z-10 border-b-2 border-slate-200 dark:border-slate-700 bg-slate-100/95 dark:bg-slate-800/95 backdrop-blur-md shadow-2xs">
+          <thead className="sticky top-0 z-10 border-b border-purple-950/40 bg-gradient-to-r from-[#2e1065] via-[#3b0764] to-[#4c1d95] text-white shadow-xs">
             <tr>
               {columns.map((col) => (
                 <th
                   key={col.id}
                   className={cn(
-                    "px-4 py-3 text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 select-none",
+                    "px-4 py-3.5 text-[11px] font-extrabold uppercase tracking-wider text-purple-100 select-none",
                     col.hideOnMobile && "hidden md:table-cell",
                     col.className,
                   )}
@@ -51,10 +51,10 @@ export function DataTable<T>({
                 key={rowKey(row, index)}
                 onClick={onRowClick ? () => onRowClick(row) : undefined}
                 className={cn(
-                  "transition-colors duration-150 odd:bg-white even:bg-slate-50/60 dark:odd:bg-slate-900 dark:even:bg-slate-900/60",
+                  "transition-all duration-150 odd:bg-white even:bg-purple-50/20 dark:odd:bg-slate-900 dark:even:bg-slate-900/60 border-b border-slate-200/70",
                   onRowClick
-                    ? "cursor-pointer hover:bg-indigo-50/70 dark:hover:bg-indigo-950/50 active:bg-indigo-100/60"
-                    : "hover:bg-indigo-50/40 dark:hover:bg-indigo-950/30",
+                    ? "cursor-pointer hover:bg-[#f5f3ff] dark:hover:bg-purple-950/40 hover:shadow-xs hover:border-purple-200/80 active:bg-purple-100/60"
+                    : "hover:bg-[#f5f3ff]/60 dark:hover:bg-purple-950/30",
                 )}
               >
                 {columns.map((col) => (
@@ -107,7 +107,7 @@ export function Pagination({
             <select
               value={pageSize}
               onChange={(e) => onPageSizeChange(Number(e.target.value))}
-              className="h-7 rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 text-xs font-bold text-[var(--diti-text)] shadow-2xs outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500/20"
+              className="h-7.5 rounded-md border border-purple-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 text-xs font-bold text-[var(--diti-text)] shadow-xs outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-500/20 cursor-pointer"
             >
               {[10, 25, 50, 100].map((size) => (
                 <option key={size} value={size}>
@@ -123,18 +123,18 @@ export function Pagination({
           type="button"
           disabled={page <= 1}
           onClick={() => onPageChange(page - 1)}
-          className="inline-flex h-8 items-center justify-center rounded-[var(--diti-radius-md)] border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 text-xs font-bold text-[var(--diti-text)] shadow-2xs transition hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-40 disabled:pointer-events-none active:scale-[0.97]"
+          className="inline-flex h-8 items-center justify-center rounded-[var(--diti-radius-md)] border border-purple-200/80 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 text-xs font-bold text-slate-700 dark:text-slate-200 shadow-xs transition hover:bg-purple-50 hover:text-purple-900 dark:hover:bg-slate-800 disabled:opacity-40 disabled:pointer-events-none active:scale-[0.97]"
         >
           Previous
         </button>
-        <div className="flex items-center px-2 text-xs font-bold text-[var(--diti-text)]">
+        <div className="flex items-center px-2 text-xs font-bold text-slate-800 dark:text-slate-200">
           Page {page} of {totalPages}
         </div>
         <button
           type="button"
           disabled={page >= totalPages}
           onClick={() => onPageChange(page + 1)}
-          className="inline-flex h-8 items-center justify-center rounded-[var(--diti-radius-md)] border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 text-xs font-bold text-[var(--diti-text)] shadow-2xs transition hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-40 disabled:pointer-events-none active:scale-[0.97]"
+          className="inline-flex h-8 items-center justify-center rounded-[var(--diti-radius-md)] border border-purple-200/80 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 text-xs font-bold text-slate-700 dark:text-slate-200 shadow-xs transition hover:bg-purple-50 hover:text-purple-900 dark:hover:bg-slate-800 disabled:opacity-40 disabled:pointer-events-none active:scale-[0.97]"
         >
           Next
         </button>

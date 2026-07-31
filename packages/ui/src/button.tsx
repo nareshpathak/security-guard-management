@@ -7,13 +7,13 @@ type Variant = "primary" | "secondary" | "ghost" | "danger" | "outline" | "subtl
 type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm shadow-indigo-600/25 active:scale-[0.98] font-semibold border border-indigo-500/20",
-  secondary: "bg-indigo-50 text-indigo-700 hover:bg-indigo-100 dark:bg-indigo-950/80 dark:text-indigo-300 active:scale-[0.98] font-semibold border border-indigo-200/50 dark:border-indigo-800/50",
+  primary: "bg-gradient-to-r from-[#4c1d95] via-[#581c87] to-[#6366f1] text-white hover:from-[#3b0764] hover:to-[#4f46e5] shadow-sm shadow-purple-900/20 active:scale-[0.98] font-semibold border border-purple-500/20",
+  secondary: "bg-purple-50 text-purple-900 hover:bg-purple-100 dark:bg-purple-950/80 dark:text-purple-200 active:scale-[0.98] font-semibold border border-purple-200/60 dark:border-purple-800/60",
   subtle: "bg-slate-100 text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 active:scale-[0.98] font-medium border border-slate-200/60 dark:border-slate-700/60",
-  ghost: "bg-transparent text-[var(--diti-text)] hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-[0.98]",
+  ghost: "bg-transparent text-[var(--diti-text)] hover:bg-purple-50/70 hover:text-purple-900 dark:hover:bg-slate-800 active:scale-[0.98]",
   danger: "bg-red-600 text-white hover:bg-red-700 shadow-sm shadow-red-600/25 active:scale-[0.98] font-semibold border border-red-500/20",
   outline:
-    "border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-2xs active:scale-[0.98] font-medium",
+    "border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:bg-purple-50/60 hover:text-purple-900 dark:hover:bg-slate-800 shadow-2xs active:scale-[0.98] font-medium",
 };
 
 const sizes: Record<Size, string> = {
@@ -39,7 +39,7 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/30 focus-visible:border-indigo-600 disabled:pointer-events-none disabled:opacity-50 select-none",
+        "inline-flex items-center justify-center transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/30 focus-visible:border-purple-600 disabled:pointer-events-none disabled:opacity-50 select-none",
         variants[variant],
         sizes[size],
         className,

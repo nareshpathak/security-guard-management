@@ -7,13 +7,13 @@
 ==============================================================================*/
 
 :root {
-  /* brand indigo & cyan accent */
-  --diti-primary: #4f46e5;
-  --diti-primary-hover: #4338ca;
-  --diti-primary-subtle: #eef2ff;
+  /* brand Royal Purple & Lavender/Indigo accent */
+  --diti-primary: #581c87;
+  --diti-primary-hover: #4c1d95;
+  --diti-primary-subtle: #f5f3ff;
   --diti-primary-fg: #ffffff;
-  --diti-accent: #0ea5e9;
-  --diti-accent-subtle: #f0f9ff;
+  --diti-accent: #6366f1;
+  --diti-accent-subtle: #eef2ff;
 
   /* semantic */
   --diti-success: #16a34a;
@@ -39,7 +39,7 @@
   --diti-surface: #ffffff;
   --diti-surface-raised: #ffffff;
   --diti-surface-sunken: #f1f5f9;
-  --diti-surface-stripe: #f8fafc;
+  --diti-surface-stripe: #fbfbfe;
   --diti-overlay: rgb(15 23 42 / 0.40);
   --diti-border: #e2e8f0;
   --diti-border-strong: #cbd5e1;
@@ -62,7 +62,7 @@
   --diti-shadow: var(--diti-shadow-sm);
 
   /* focus ring */
-  --diti-ring: #6366f1;
+  --diti-ring: #8b5cf6;
 
   /* layout & sidebar variables */
   --diti-sidebar-width: 260px;

@@ -7,7 +7,7 @@ export function Input({ className, ...props }: InputHTMLAttributes<HTMLInputElem
   return (
     <input
       className={cn(
-        "h-9.5 w-full rounded-[var(--diti-radius-md)] border border-slate-300 dark:border-slate-700 bg-[var(--diti-surface)] px-3 text-xs font-medium text-[var(--diti-text)] placeholder:text-[var(--diti-muted)]/70 shadow-2xs transition-all duration-150 focus:border-indigo-600 focus:outline-none focus:ring-3 focus:ring-indigo-500/20 disabled:opacity-50 disabled:bg-slate-100 dark:disabled:bg-slate-800",
+        "h-9.5 w-full rounded-[var(--diti-radius-md)] border border-slate-300 dark:border-slate-700 bg-[var(--diti-surface)] px-3 text-xs font-medium text-[var(--diti-text)] placeholder:text-[var(--diti-muted)]/70 shadow-2xs transition-all duration-150 focus:border-purple-600 focus:outline-none focus:ring-3 focus:ring-purple-500/20 disabled:opacity-50 disabled:bg-slate-100 dark:disabled:bg-slate-800",
         className,
       )}
       {...props}
@@ -44,7 +44,7 @@ export function TextArea({
   return (
     <textarea
       className={cn(
-        "min-h-24 w-full rounded-[var(--diti-radius-md)] border border-slate-300 dark:border-slate-700 bg-[var(--diti-surface)] p-3 text-xs font-medium text-[var(--diti-text)] placeholder:text-[var(--diti-muted)]/70 shadow-2xs transition-all duration-150 focus:border-indigo-600 focus:outline-none focus:ring-3 focus:ring-indigo-500/20",
+        "min-h-24 w-full rounded-[var(--diti-radius-md)] border border-slate-300 dark:border-slate-700 bg-[var(--diti-surface)] p-3 text-xs font-medium text-[var(--diti-text)] placeholder:text-[var(--diti-muted)]/70 shadow-2xs transition-all duration-150 focus:border-purple-600 focus:outline-none focus:ring-3 focus:ring-purple-500/20",
         className,
       )}
       {...props}
